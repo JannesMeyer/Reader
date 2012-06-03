@@ -13,13 +13,25 @@
 /* -----------------------------------------
    Shared Styles
 ----------------------------------------- */
+body {
+	margin:10px;
+}
+
+
 
 
 
 /* -----------------------------------------
-   Page Name 1
+   Page Artikelübersicht
 ----------------------------------------- */
+.bildbox {
+	width:100%;
+	height:inherit;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
 
+}
 
 
 
