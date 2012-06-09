@@ -13,38 +13,28 @@
 /* -----------------------------------------
    Shared Styles
 ----------------------------------------- */
-body {
-	margin:10px;
-}
-
-
-
+body { margin-top:10px; }
+h4 { font-size: 17px; font-size: 1.7rem; margin-bottom: 3px; }
+table { border: none;border-spacing: 20px; border-collapse: separate;}
+ul.contained.tabs-content>li { padding: 0px; border: solid 0 #ddd; border-width: 0 1px 1px 1px; }
+.container {padding: 0px; }
+p {font-size: 12px; font-size: 1.2rem; margin-bottom: 3px; }
+table tbody tr td { padding: 0px; }
 
 
 /* -----------------------------------------
    Page Artikelübersicht
 ----------------------------------------- */
-.bildbox {
-	width:100%;
-	height:inherit;
+.image {
+	background-image: url('../images/test.jpg');
+	width:20%;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
 
+
 }
 
-.swipe {
-  padding-bottom:20px;
-}
-.swipe li div, .swipe div div div {
-  margin:0 10px;
-  padding:50px 10px;
-  background:#1db1ff;
-  font-weight:bold;
-  color:#fff;
-  font-size:20px;
-  text-align:center;
-}
 
 
 /* -----------------------------------------
