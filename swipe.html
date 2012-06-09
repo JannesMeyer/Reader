@@ -1,0 +1,32 @@
+<!DOCTYPE HTML> 
+<html>
+<head>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/> 
+<link href='stylesheets/swipe.css' rel='stylesheet'/>
+</head>
+<body>
+
+<h1>Swipe</h1>
+
+<h2>150px wide</h2>
+
+<div id='slider' class='swipe' style='width:150px'>
+  <ul>
+    <li style='display:block'><div>1</div></li>
+    <li style='display:none'><div>2</div></li>
+    <li style='display:none'><div>3</div></li>
+    <li style='display:none'><div>4</div></li>
+    <li style='display:none'><div>5</div></li>
+  </ul>
+</div>
+
+
+
+
+<script src='javascripts/swipe.js'></script>
+<script>
+  new Swipe(document.getElementById('slider'));
+</script>
+
+</body> 
+</html> 
