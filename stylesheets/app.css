@@ -14,7 +14,6 @@
    Shared Styles
 ----------------------------------------- */
 body { margin-top:10px; }
-h4 { font-size: 1.4rem; margin-bottom: 3px; }
 table { border: none;border-spacing: 20px; border-collapse: separate;}
 ul.contained.tabs-content>li { padding: 0px; border: solid 0 #ddd; border-width: 0 1px 1px 1px; }
 .container {padding: 0px; }
@@ -31,15 +30,37 @@ table tbody tr td { padding: 0px; }
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
+	width: 100px;
+	height: 100px;
+	float: right;
+	margin-left: 0.6em;
+	border: 2px solid #fff;
+	box-shadow: 0 0 5px 1px #ccc;
 }
 
-.pre_title {
-	font-size: 15px;
-	font-size: 1.5rem; 
-	margin-bottom: 3px; 
-	color: #DDD; 
-	color: #181818; 
-	font-weight: bold; 
+.artikel {
+	min-height: 100px;
+	padding: 0 !important;
+	margin: 1em;
+	margin-bottom: 2.5rem;
+}
+
+.artikel article {
+	margin: 0;
+}
+
+.artikel a {
+	display: block;
+	height: 100%;
+	color: #666;
+}
+
+
+.artikel h4 {
+ 	font-size: 1.5rem; 
+ 	font-style: italic;
+ 	color: #4d4d4d;
+ 	margin-bottom: 0.6rem;
 }
 
 .pre_text {
@@ -55,8 +76,71 @@ table tbody tr td { padding: 0px; }
 
 
 
+
 /* -----------------------------------------
-   Page Name 2
+   Artikel
+----------------------------------------- */
+article {
+	margin: 1em;
+}
+
+article h6 {
+	text-align: center;
+	font-size: 1.2rem;
+	margin-bottom: 2rem;
+	margin-top: 2rem;
+}
+
+.feed_info img {
+	height: 2rem;
+	position: relative;
+	top: 0.6rem;
+	margin-right: 0.4rem;
+}
+
+article h2 {
+	font-size: 2rem;
+	line-height: 1.2;
+}
+
+article p {
+	line-height: 1.6;
+}
+
+.teaser {
+	font-weight: bold;
+}
+
+figure {
+	margin: 2rem auto;
+	display: block;
+}
+
+/*figure img {
+	margin: 0 auto;
+	display: block;
+}
+*/
+article figcaption {
+	font-size: 1.2rem;
+	font-style: italic;
+}
+
+/* -----------------------------------------
+   Feed Übersicht
 ----------------------------------------- */
 
+#feed_overview {
+	margin: 0 auto;
+	display: block;
+}
 
+.feed {
+	float: left;
+	margin: 1rem;
+}
+
+.feed img {
+	width: 100px;
+	height: 100px;
+}
