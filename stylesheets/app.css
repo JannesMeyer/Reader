@@ -41,20 +41,40 @@ table tbody tr td { padding: 0px; }
 form input {
 	display: block;
 	border: none;
-	background-color: #888;
-	height: 4em;
-	margin-top: 2em;
+	background-color: whitesmoke;
+	border: 2px solid #00A6FC;
+	color: #00A6FC;
+	height: 2em;
+	margin: 0 auto;
+	margin-top: 1em;
+	font-size: 1.5em;
+	width: 86%;
+	padding: 0 2%;
+	-webkit-tap-highlight-color: #f00;
+}
+
+input[type=submit] {
+	background-color: #00A6FC;
 	color: white;
+	width: 50%;
+	border-radius: 7px;
+}
+
+input:focus {
+	border: 2px solid whitesmoke;
 }
 
 input:-moz-placeholder {
-	color: #888;
+	color: #ccc;
+	font-style: italic;
 }
 input:-ms-input-placeholder {
-	color: white;
+	color: #ccc;
+	font-style: italic;
 }
 input::-webkit-input-placeholder {
-	color: white;
+	color: #ccc;
+	font-style: italic;
 }
 
 /* -----------------------------------------
