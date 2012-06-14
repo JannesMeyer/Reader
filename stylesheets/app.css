@@ -13,13 +13,49 @@
 /* -----------------------------------------
    Shared Styles
 ----------------------------------------- */
-body { margin-top:10px; }
+body { 
+	margin-top:10px; 
+	min-width: 320px;
+}
+
+header {
+	text-align: center;
+	background-color: #00A6FC;
+}
+
+header h1 {
+	color: white;
+}
+
 table { border: none;border-spacing: 20px; border-collapse: separate;}
 ul.contained.tabs-content>li { padding: 0px; border: solid 0 #ddd; border-width: 0 1px 1px 1px; }
 .container {padding: 0px; }
 p {font-size: 12px; font-size: 1.2rem; margin-bottom: 3px; }
 table tbody tr td { padding: 0px; }
 
+
+/* -----------------------------------------
+   Login
+----------------------------------------- */
+
+form input {
+	display: block;
+	border: none;
+	background-color: #888;
+	height: 4em;
+	margin-top: 2em;
+	color: white;
+}
+
+input:-moz-placeholder {
+	color: #888;
+}
+input:-ms-input-placeholder {
+	color: white;
+}
+input::-webkit-input-placeholder {
+	color: white;
+}
 
 /* -----------------------------------------
    Artikelübersicht
@@ -44,6 +80,7 @@ table tbody tr td { padding: 0px; }
 	margin: 1em;
 	margin-bottom: 2.5rem;
 }
+
 
 .artikel article {
 	margin: 0;
@@ -112,15 +149,15 @@ article p {
 }
 
 figure {
-	margin: 2rem auto;
+/*	margin: 2rem auto;
 	display: block;
-}
+*/}
 
-/*figure img {
+figure img {
 	margin: 0 auto;
 	display: block;
 }
-*/
+
 article figcaption {
 	font-size: 1.2rem;
 	font-style: italic;
@@ -141,6 +178,26 @@ article figcaption {
 }
 
 .feed img {
-	width: 100px;
-	height: 100px;
+	width: 80px;
+	height: 80px;
+}
+
+.feed figcaption {
+	width: 70px;
+	text-overflow: ellipsis;
+}
+
+figure span .notification
+
+.notification {
+	border-radius: 40px;
+	background-color: #f00;
+	width: 1em;
+	height: 1em;
+	display: block;
+	position: relative;
+	top: -20px;
+	right: -70px;
+	display: none;
+
 }

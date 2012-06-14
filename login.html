@@ -11,7 +11,7 @@
 	<!-- Set the viewport width to device width for mobile -->
 	<meta name="viewport" content="width=device-width" />
 
-	<title>Welcome to Foundation</title>
+	<title>Login</title>
   
 	<!-- Included CSS Files -->
 	<link rel="stylesheet" href="stylesheets/foundation.css">
@@ -36,53 +36,28 @@
 	<div class="container">
 		<div class="twelve columns">
 			<div class="row">
-				
+				<header>
+					<h1>inForm</h1>
+				</header>
 				<dl class="nice contained tabs">
-	  				<dd><a href="#nice1" class="active">Smashing Magazin</a></dd>
-					 <dd><a href="#nice2">t3n</a></dd>
-					 <dd><a href="#nice3">kicker</a></dd>
+	  				<dd><a href="#login" class="active">Login</a></dd>
+					 <dd><a href="#register">Registrieren</a></dd>
 				</dl>
 
 				<ul class="nice tabs-content contained">
-				  <li class="active" id="nice1Tab">
+				  <li class="active" id="loginTab">
 				  	<div class="row">
 						<div class="twelve columns">
-							<div class="twelve columns">
-								<div class="row">
-									<div id="feed_overview clearfix">	
-										<figure class="feed clearfix">
-											<img src="images/test.jpg">
-											<span class="notification"></span>
-											<figcaption>Bildunterschrift</figcaption>
-										</figure>				
-										<figure class="feed">
-											<img src="images/test.jpg">
-											<span class="notification" style="display: block"></span>
-											<figcaption>Bildunterschrift</figcaption>
-										</figure>				
-										<figure class="feed">
-											<img src="images/test.jpg">
-											<span class="notification"></span>
-											<figcaption>Bildunterschrift</figcaption>
-										</figure>				
-										<figure class="feed">
-											<img src="images/test.jpg">
-											<figcaption>Bildunterschrift</figcaption>
-										</figure>				
-										<figure class="feed">
-											<img src="images/test.jpg">
-											<figcaption>Bildunterschrift</figcaption>
-										</figure>	
-									</div>			
-								</div>
-							</div>
+							<form>
+								<input type="email" id="user_mail" placeholder="E-Mail" />
+								<input type="password" id="user_password" placeholder="Passwort" />
+							</form>	
 						</div>
 					</div>
 					
 									  
 				  </li>
-				  <li id="nice2Tab">This is nice tab 2's content. Now you see it!</li>
-				  <li id="nice3Tab">This is nice tab 3's content. It's, you know...okay.</li>
+				  <li id="registerTab">This is nice tab 2's content. Now you see it!</li>
 				</ul>
 			</div>
 		</div>
