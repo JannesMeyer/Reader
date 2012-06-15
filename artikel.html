@@ -11,11 +11,11 @@
 	<!-- Set the viewport width to device width for mobile -->
 	<meta name="viewport" content="width=device-width" />
 
-	<title>Welcome to Foundation</title>
+	<title>Artikel</title>
   
 	<!-- Included CSS Files -->
+	<link rel="stylesheet/less" href="stylesheets/app.less">
 	<link rel="stylesheet" href="stylesheets/foundation.css">
-	<link rel="stylesheet" href="stylesheets/app.css">
 
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="stylesheets/ie.css">
@@ -40,8 +40,8 @@
 					<p class="teaser">
 					This article will guide you through the process of creating a front-end page in WordPress that lists your authors. We’ll discuss why you would want to do this, we’ll introduce the WP_User_Query class, and then we’ll put it it all together.
 					</p>
-					<figure>
-						<img class="article_image" src="http://media.smashingmagazine.com/wp-content/uploads/2012/05/user-listing1.jpg" />
+					<figure class="article_image">
+						<img src="http://media.smashingmagazine.com/wp-content/uploads/2012/05/user-listing1.jpg" />
 						<figcaption>Abbildung 1</figcaption>
 					</figure>
 					<p>
@@ -62,5 +62,6 @@ A big phrase in the publishing world is “user engagement.” This is about get
 	<script src="javascripts/app.js"></script>
 	<!-- LiveReload -->
 	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>	
+	<script type="text/javascript" src="javascripts/less.min.js"></script>
 </body>
 </html>

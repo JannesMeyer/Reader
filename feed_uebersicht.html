@@ -15,7 +15,7 @@
   
 	<!-- Included CSS Files -->
 	<link rel="stylesheet" href="stylesheets/foundation.css">
-	<link rel="stylesheet" href="stylesheets/app.css">
+	<link rel="stylesheet/less" href="stylesheets/app.less">
 
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="stylesheets/ie.css">
@@ -36,14 +36,16 @@
 	<div class="container">
 		<div class="twelve columns">
 			<div class="row">
-				
-				<dl class="nice contained tabs">
+				<header>
+					<h1>inForm</h1>
+				</header>				
+				<dl class="nice tabs">
 	  				<dd><a href="#nice1" class="active">Smashing Magazin</a></dd>
 					 <dd><a href="#nice2">t3n</a></dd>
 					 <dd><a href="#nice3">kicker</a></dd>
 				</dl>
 
-				<ul class="nice tabs-content contained">
+				<ul class="nice tabs-content">
 				  <li class="active" id="nice1Tab">
 				  	<div class="row">
 						<div class="twelve columns">
@@ -78,9 +80,8 @@
 							</div>
 						</div>
 					</div>
-					
-									  
 				  </li>
+
 				  <li id="nice2Tab">This is nice tab 2's content. Now you see it!</li>
 				  <li id="nice3Tab">This is nice tab 3's content. It's, you know...okay.</li>
 				</ul>
@@ -93,5 +94,6 @@
 	<script src="javascripts/jquery.min.js"></script>
 	<script src="javascripts/foundation.js"></script>
 	<script src="javascripts/app.js"></script>
+	<script type="text/javascript" src="javascripts/less.min.js"></script>
 </body>
 </html>

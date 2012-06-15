@@ -1,223 +1,240 @@
 /* Foundation v2.2.1 http://foundation.zurb.com */
 /* Artfully masterminded by ZURB  */
-
 /* -------------------------------------------------- 
    Table of Contents
 -----------------------------------------------------
+:: Variables
+:: Mixins
 :: Shared Styles
 :: Page Name 1
 :: Page Name 2
 */
+/* -----------------------------------------
+   Variables
+----------------------------------------- */
+/*---------------------------------------------------
+    LESS Elements 0.6
+  ---------------------------------------------------
+    A set of useful LESS mixins by Dmitry Fadeyev
+    Special thanks for mixin suggestions to:
+      Kris Van Herzeele,
+      Benoit Adam,
+      Portenart Emile-Victor,
+      Ryan Faerman
 
-
+    More info at: http://lesselements.com
+-----------------------------------------------------*/
+/* -----------------------------------------
+   Mixins
+----------------------------------------- */
 /* -----------------------------------------
    Shared Styles
 ----------------------------------------- */
-body { 
-	margin-top:10px; 
-	min-width: 320px;
+body {
+  min-width: 320px;
 }
-
 header {
-	text-align: center;
-	background-color: #00A6FC;
+  text-align: center;
+  margin-bottom: 1em;
 }
-
+header h1,
+header h2 {
+  color: white;
+  margin-bottom: 0;
+}
 header h1 {
-	color: white;
+  background-color: #00a6fc;
 }
-
-table { border: none;border-spacing: 20px; border-collapse: separate;}
-ul.contained.tabs-content>li { padding: 0px; border: solid 0 #ddd; border-width: 0 1px 1px 1px; }
-.container {padding: 0px; }
-p {font-size: 12px; font-size: 1.2rem; margin-bottom: 3px; }
-table tbody tr td { padding: 0px; }
-
-
+header h2 {
+  font-size: 1em;
+  background-color: #96dbff;
+}
+table {
+  border: none;
+  border-spacing: 20px;
+  border-collapse: separate;
+}
+ul.contained.tabs-content > li {
+  padding: 0px;
+  border: solid 0 #ddd;
+  border-width: 0 1px 1px 1px;
+}
+.container {
+  padding: 0px;
+}
+p {
+  font-size: 12px;
+  font-size: 1.2rem;
+  margin-bottom: 3px;
+}
+table tbody tr td {
+  padding: 0px;
+}
 /* -----------------------------------------
    Login
 ----------------------------------------- */
-
 form input {
-	display: block;
-	border: none;
-	background-color: whitesmoke;
-	border: 2px solid #00A6FC;
-	color: #00A6FC;
-	height: 2em;
-	margin: 0 auto;
-	margin-top: 1em;
-	font-size: 1.5em;
-	width: 86%;
-	padding: 0 2%;
-	-webkit-tap-highlight-color: #f00;
+  background-color: whitesmoke;
+  border: 2px solid #00a6fc;
+  color: #00a6fc;
+  height: 2em;
+  display: block;
+  margin: 0 auto;
+  margin-top: 1em;
+  font-size: 1.5em;
+  width: 86%;
+  padding: 0 2%;
 }
-
-input[type=submit] {
-	background-color: #00A6FC;
-	color: white;
-	width: 50%;
-	border-radius: 7px;
+input:not(.button) {
+  -webkit-tap-highlight-color: #c9edff;
 }
-
+form input,
+form .button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 1em;
+}
 input:focus {
-	border: 2px solid whitesmoke;
+  border: 2px solid whitesmoke;
 }
-
 input:-moz-placeholder {
-	color: #ccc;
-	font-style: italic;
+  color: #ccc;
+  font-style: italic;
 }
 input:-ms-input-placeholder {
-	color: #ccc;
-	font-style: italic;
+  color: #ccc;
+  font-style: italic;
 }
 input::-webkit-input-placeholder {
-	color: #ccc;
-	font-style: italic;
+  color: #ccc;
+  font-style: italic;
 }
-
+.button {
+  background-color: #00a6fc;
+  color: white;
+}
+.button.large {
+  width: 50% !important;
+  font-size: 1.5em;
+}
+.button.radius {
+  -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  border-radius: 0.3em;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
 /* -----------------------------------------
    Artikelübersicht
 ----------------------------------------- */
 .pre_image {
-	background-image: url('../images/test.jpg');
-	width:37%;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center center;
-	width: 100px;
-	height: 100px;
-	float: right;
-	margin-left: 0.6em;
-	border: 2px solid #fff;
-	box-shadow: 0 0 5px 1px #ccc;
+  background-image: url('../images/test.jpg');
+  width: 37%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100px;
+  height: 100px;
+  float: right;
+  margin-left: 0.6em;
+  border: 2px solid #fff;
+  box-shadow: 0 0 5px 1px #ccc;
 }
-
 .artikel {
-	min-height: 100px;
-	padding: 0 !important;
-	margin: 1em;
-	margin-bottom: 2.5rem;
+  min-height: 100px;
+  padding: 0 !important;
+  margin: 1em;
+  margin-bottom: 2.5rem;
 }
-
-
 .artikel article {
-	margin: 0;
+  margin: 0;
 }
-
 .artikel a {
-	display: block;
-	height: 100%;
-	color: #666;
+  display: block;
+  height: 100%;
+  color: #666;
 }
-
-
 .artikel h4 {
- 	font-size: 1.5rem; 
- 	font-style: italic;
- 	color: #4d4d4d;
- 	margin-bottom: 0.6rem;
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #4d4d4d;
+  margin-bottom: 0.6rem;
 }
-
 .pre_text {
-	font-size: 1.2rem;
-	margin-bottom: 3px;
-	line-height: 1.4;
-	color: #333;
-
+  font-size: 1.2rem;
+  margin-bottom: 3px;
+  line-height: 1.4;
+  color: #333;
 }
-
-
-
-
-
-
-
 /* -----------------------------------------
    Artikel
 ----------------------------------------- */
 article {
-	margin: 1em;
+  margin: 1em;
 }
-
 article h6 {
-	text-align: center;
-	font-size: 1.2rem;
-	margin-bottom: 2rem;
-	margin-top: 2rem;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
-
 .feed_info img {
-	height: 2rem;
-	position: relative;
-	top: 0.6rem;
-	margin-right: 0.4rem;
+  height: 2rem;
+  position: relative;
+  top: 0.6rem;
+  margin-right: 0.4rem;
 }
-
 article h2 {
-	font-size: 2rem;
-	line-height: 1.2;
+  font-size: 2rem;
+  line-height: 1.2;
 }
-
 article p {
-	line-height: 1.6;
+  line-height: 1.6;
 }
-
 .teaser {
-	font-weight: bold;
+  font-weight: bold;
 }
-
-figure {
-/*	margin: 2rem auto;
-	display: block;
-*/}
-
-figure img {
-	margin: 0 auto;
-	display: block;
+figure.article_image {
+  width: 75%;
+  margin: 0 auto;
 }
-
 article figcaption {
-	font-size: 1.2rem;
-	font-style: italic;
+  font-size: 1.2rem;
+  font-style: italic;
 }
-
 /* -----------------------------------------
    Feed Übersicht
 ----------------------------------------- */
-
 #feed_overview {
-	margin: 0 auto;
-	display: block;
+  margin: 0 auto;
+  display: block;
 }
-
 .feed {
-	float: left;
-	margin: 1rem;
+  float: left;
+  margin: 1rem;
 }
-
 .feed img {
-	width: 80px;
-	height: 80px;
+  width: 80px;
+  height: 80px;
 }
-
 .feed figcaption {
-	width: 70px;
-	text-overflow: ellipsis;
+  width: 70px;
+  text-overflow: ellipsis;
 }
-
-figure span .notification
-
-.notification {
-	border-radius: 40px;
-	background-color: #f00;
-	width: 1em;
-	height: 1em;
-	display: block;
-	position: relative;
-	top: -20px;
-	right: -70px;
-	display: none;
-
+figure span .notification.notification {
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  background-color: #f00;
+  width: 1em;
+  height: 1em;
+  display: block;
+  position: relative;
+  top: -20px;
+  right: -70px;
+  display: none;
 }
