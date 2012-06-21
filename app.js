@@ -36,6 +36,6 @@ app.get('/feed/:id', routes.articleOverview);
 app.get('/add-feed', routes.addFeed);
 app.get('/article/:id', routes.article);
 
-app.listen(3000, function() {
+app.listen(80, function() {
   console.log("Server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
