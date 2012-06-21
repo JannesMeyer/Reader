@@ -1,9 +1,9 @@
 Autoren
 =======
 
-Florian Uhlig
-Jannes Meyer
-Magdalena Riecken
+- Florian Uhlig
+- Jannes Meyer
+- Magdalena Riecken
 
 
 Installation
