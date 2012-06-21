@@ -30,6 +30,11 @@
 /* -----------------------------------------
    Shared Styles
 ----------------------------------------- */
+@font-face {
+  font-family: 'WebSymbolsRegular';
+  src: url('../fonts/websymbols-regular-webfont.eot');
+  src: url('../fonts/websymbols-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/websymbols-regular-webfont.woff') format('woff'), url('../fonts/websymbols-regular-webfont.ttf') format('truetype'), url('../fonts/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
+}
 body {
   min-width: 320px;
 }
@@ -69,6 +74,42 @@ p {
 }
 table tbody tr td {
   padding: 0px;
+}
+.green {
+  color: green;
+}
+.red {
+  color: red;
+}
+/* -----------------------------------------
+   Swipe Tabs
+----------------------------------------- */
+/* Tabs */
+.base-tabs {
+  border-bottom: 1px #DADDE0 solid;
+  padding: 5px 4px 0;
+  cursor: pointer;
+}
+.base-tabs li {
+  position: relative;
+  top: 1px;
+  font-size: 13px;
+  color: #878E92;
+  padding: 6px 12px 5px;
+  margin: 0;
+  font-weight: bold;
+  display: inline-block;
+  background: #F5F6F7;
+  border: 1px #DADDE0 solid;
+  border-bottom: 0;
+  border-bottom: 1px #DADDE0 solid;
+}
+.base-tabs li.on {
+  background: #fff;
+  padding: 6px 12px;
+  color: #505659;
+  border-bottom: 0;
+  border-top: 2px solid #00a6fc;
 }
 /* -----------------------------------------
    Login
@@ -140,6 +181,13 @@ input::-webkit-input-placeholder {
   margin-left: 0.6em;
   border: 2px solid #fff;
   box-shadow: 0 0 5px 1px #ccc;
+}
+.artikel span {
+  font-family: 'WebSymbolsRegular', Arial, sans-serif;
+  padding-right: 0.5em;
+}
+.artikel h4 {
+  display: inline;
 }
 .artikel {
   min-height: 100px;
@@ -237,4 +285,83 @@ figure span .notification.notification {
   top: -20px;
   right: -70px;
   display: none;
+}
+.feed span {
+  font-family: 'WebSymbolsRegular', Arial, sans-serif;
+  padding-right: 0.5em;
+  margin-right: -1em;
+}
+/* -----------------------------------------
+   Menue-Leiste
+----------------------------------------- */
+.menu_bar {
+  width: 100%;
+  text-align: center;
+}
+.menu_bar h6 {
+  display: inline;
+}
+.menu_bar a {
+  font-family: 'WebSymbolsRegular', Arial, sans-serif;
+  font-size: 3em;
+  color: #00a6fc;
+  margin: 0px, 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.menu_bar a:active {
+  color: #eee;
+}
+/* -----------------------------------------
+   Pfeile
+----------------------------------------- */
+.arrow-n,
+.arrow-e,
+.arrow-s,
+.arrow-w {
+  /*
+   * In Internet Explorer, The"border-style: dashed" will never be
+   * rendered unless "(width * 5) >= border-width" is true.
+   * Since "width" is set to "0", the "dashed-border" remains
+   * invisible to the user, which renders the border just like how
+   * "border-color: transparent" renders.
+   */
+
+  border-style: dashed;
+  border-color: transparent;
+  border-width: 0.53em;
+  display: -moz-inline-box;
+  display: inline-block;
+  /* Use font-size to control the size of the arrow. */
+
+  font-size: 100px;
+  height: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: middle;
+  width: 0;
+}
+.arrow-n {
+  border-bottom-width: 1em;
+  border-bottom-style: solid;
+  border-bottom-color: #666;
+  bottom: 0.25em;
+}
+.arrow-e {
+  border-left-width: 1em;
+  border-left-style: solid;
+  border-left-color: #666;
+  left: 0.25em;
+}
+.arrow-s {
+  border-top-width: 1em;
+  border-top-style: solid;
+  border-top-color: #666;
+  top: 0.25em;
+}
+.arrow-w {
+  border-right-width: 1em;
+  border-right-style: solid;
+  border-right-color: #666;
+  right: 0.25em;
 }

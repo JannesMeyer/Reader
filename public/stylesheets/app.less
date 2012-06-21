@@ -80,6 +80,43 @@ table tbody tr td { padding: 0px; }
 	color:red;
 }
 
+
+/* -----------------------------------------
+   Swipe Tabs
+----------------------------------------- */
+/* Tabs */
+
+#tabSelector {
+	// position: fixed;
+}
+
+.base-tabs {
+  border-bottom:1px #DADDE0 solid;
+  padding:5px 4px 0;
+  cursor: pointer;
+}
+.base-tabs li {
+  position:relative;
+  top:1px;
+  font-size:13px;
+  color:#878E92;
+  padding:6px 12px 5px;
+  margin: 0;
+  font-weight:bold;
+  display:inline-block;
+  background:#F5F6F7;
+  border:1px #DADDE0 solid;
+  border-bottom:0;
+  border-bottom:1px #DADDE0 solid;
+}
+.base-tabs li.on {
+    background:#fff;
+    padding:6px 12px;
+    color:#505659;
+    border-bottom:0;
+    border-top: 2px solid @mainColor;
+}
+
 /* -----------------------------------------
    Login
 ----------------------------------------- */

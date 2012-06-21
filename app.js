@@ -32,6 +32,6 @@ app.configure('production', function() {
 app.get('/', routes.index);
 app.get('/feed/:id', routes.artikel_uebersicht);
 
-app.listen(3000, function() {
+app.listen(80, function() {
   console.log("Server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
