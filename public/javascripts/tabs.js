@@ -1,3 +1,12 @@
+// Set tab helper function
+function setTab(elem) {
+  for (var i = 0; i < selectors.length; i++) {
+    selectors[i].className = selectors[i].className.replace('on',' ');
+  }
+  elem.className += ' on';
+}
+
+// Onload
 $(function() {
   var articleNode = document.getElementById('articleSwipe');
   var tabNode = document.getElementById('tabs');
@@ -8,14 +17,6 @@ $(function() {
   }
   // 
   if (tabNode) {
-    // Set tab helper function
-    function setTab(elem) {
-      for (var i = 0; i < selectors.length; i++) {
-        selectors[i].className = selectors[i].className.replace('on',' ');
-      }
-      elem.className += ' on';
-    }
-
     var tabs = new Swipe(tabNode, {
       callback: function(event,index,elem) {
         setTab(selectors[index]);
