@@ -1,10 +1,3 @@
-// Set tab helper function
-function setTab(elem) {
-  for (var i = 0; i < selectors.length; i++) {
-    selectors[i].className = selectors[i].className.replace('on',' ');
-  }
-  elem.className += ' on';
-}
 
 // Onload
 $(function() {
@@ -33,5 +26,12 @@ $(function() {
         tabs.slide(parseInt(this.getAttribute('data-tab'),10),300);
       }
     } 
+    // Set tab helper function
+    function setTab(elem) {
+      for (var i = 0; i < selectors.length; i++) {
+        selectors[i].className = selectors[i].className.replace('on',' ');
+      }
+      elem.className += ' on';
+    }
   }
 });
