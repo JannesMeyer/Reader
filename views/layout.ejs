@@ -9,7 +9,7 @@
 	<title><%= title %></title>
 
 	<!-- Set the viewport width to device width for mobile -->
-	<meta name="viewport" content="width=device-width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   
 	<!-- Included CSS Files -->
 	<link rel="stylesheet" href="/stylesheets/foundation.css">
@@ -21,7 +21,14 @@
 <body>
 
 	<div class="container">
-		<%- body %>
+		<div class="twelve columns">
+			<div class="row">
+				<header>
+					<h1>inForm</h1>
+				</header>
+				<%- body %>
+			</div>
+		</div>
 	</div>
 
 	<script src="/javascripts/modernizr.foundation.js"></script>
