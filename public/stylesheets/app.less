@@ -18,12 +18,14 @@
 
 // Colors
 @mainColor: #00A6FC;
+@hoverColor: #EAF8FF;
 
 
 // Metrics
 @inputHeight: 2em;
 @textInput-padding: 2%;
 @textInput-width: 90% - 2*@textInput-padding;
+@feedTileSize: 80px;
 
 /* -----------------------------------------
    Mixins
@@ -48,6 +50,7 @@ body {
 header {
 	text-align: center;
 	margin-bottom: 1em;
+	.drop-shadow(0px, 2px, 7px, 0.4);
 }
 
 header h1,
@@ -78,6 +81,43 @@ table tbody tr td { padding: 0px; }
 
 .red { 
 	color:red;
+}
+
+
+/* -----------------------------------------
+   Swipe Tabs
+----------------------------------------- */
+/* Tabs */
+
+#tabSelector {
+	// position: fixed;
+}
+
+.base-tabs {
+  border-bottom:1px #DADDE0 solid;
+  padding:5px 4px 0;
+  cursor: pointer;
+}
+.base-tabs li {
+  position:relative;
+  top:1px;
+  font-size:13px;
+  color:#878E92;
+  padding:6px 12px 5px;
+  margin: 0;
+  font-weight:bold;
+  display:inline-block;
+  background:#F5F6F7;
+  border:1px #DADDE0 solid;
+  border-bottom:0;
+  border-bottom:1px #DADDE0 solid;
+}
+.base-tabs li.on {
+    background:#fff;
+    padding:6px 12px;
+    color:#505659;
+    border-bottom:0;
+    border-top: 2px solid @mainColor;
 }
 
 /* -----------------------------------------
@@ -127,6 +167,7 @@ input::-webkit-input-placeholder {
 .button {
 	background-color: @mainColor;
 	color: white;
+	padding: 0.5em 1em;
 }
 
 .button.large {
@@ -176,6 +217,10 @@ input::-webkit-input-placeholder {
 	margin: 0;
 }
 
+.artikel article:hover {
+	background-color: @hoverColor;
+}
+
 .artikel a {
 	display: block;
 	height: 100%;
@@ -204,15 +249,15 @@ input::-webkit-input-placeholder {
 /* -----------------------------------------
    Artikel
 ----------------------------------------- */
-article {
-	margin: 1em;
+article p,
+article h2 {
+	padding: 0 1em;
 }
 
 article h6 {
 	text-align: center;
 	font-size: 1.2rem;
 	margin-bottom: 2rem;
-	margin-top: 2rem;
 }
 
 .feed_info img {
@@ -237,7 +282,7 @@ article p {
 
 figure.article_image {
 	width: 75%;
-	margin: 0 auto;
+	margin: 1em auto;
 }
 
 figure img {
@@ -259,17 +304,21 @@ article figcaption {
 
 .feed {
 	float: left;
+	// height: @feedTileSize;
 	margin: 1rem;
 }
 
 .feed img {
-	width: 80px;
-	height: 80px;
+	width: @feedTileSize;
+	height: @feedTileSize;
 }
 
 .feed figcaption {
-	width: 70px;
+	width: @feedTileSize;
 	text-overflow: ellipsis;
+	overflow: hidden;
+	position: relative;
+	top: -1em;
 }
 
 figure span .notification

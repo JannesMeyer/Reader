@@ -41,6 +41,9 @@ body {
 header {
   text-align: center;
   margin-bottom: 1em;
+  -webkit-box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.4);
 }
 header h1,
 header h2 {
@@ -80,6 +83,36 @@ table tbody tr td {
 }
 .red {
   color: red;
+}
+/* -----------------------------------------
+   Swipe Tabs
+----------------------------------------- */
+/* Tabs */
+.base-tabs {
+  border-bottom: 1px #DADDE0 solid;
+  padding: 5px 4px 0;
+  cursor: pointer;
+}
+.base-tabs li {
+  position: relative;
+  top: 1px;
+  font-size: 13px;
+  color: #878E92;
+  padding: 6px 12px 5px;
+  margin: 0;
+  font-weight: bold;
+  display: inline-block;
+  background: #F5F6F7;
+  border: 1px #DADDE0 solid;
+  border-bottom: 0;
+  border-bottom: 1px #DADDE0 solid;
+}
+.base-tabs li.on {
+  background: #fff;
+  padding: 6px 12px;
+  color: #505659;
+  border-bottom: 0;
+  border-top: 2px solid #00a6fc;
 }
 /* -----------------------------------------
    Login
@@ -123,6 +156,7 @@ input::-webkit-input-placeholder {
 .button {
   background-color: #00a6fc;
   color: white;
+  padding: 0.5em 1em;
 }
 .button.large {
   width: 50% !important;
@@ -168,6 +202,9 @@ input::-webkit-input-placeholder {
 .artikel article {
   margin: 0;
 }
+.artikel article:hover {
+  background-color: #eaf8ff;
+}
 .artikel a {
   display: block;
   height: 100%;
@@ -188,14 +225,14 @@ input::-webkit-input-placeholder {
 /* -----------------------------------------
    Artikel
 ----------------------------------------- */
-article {
-  margin: 1em;
+article p,
+article h2 {
+  padding: 0 1em;
 }
 article h6 {
   text-align: center;
   font-size: 1.2rem;
   margin-bottom: 2rem;
-  margin-top: 2rem;
 }
 .feed_info img {
   height: 2rem;
@@ -215,7 +252,7 @@ article p {
 }
 figure.article_image {
   width: 75%;
-  margin: 0 auto;
+  margin: 1em auto;
 }
 article figcaption {
   font-size: 1.2rem;
@@ -237,8 +274,11 @@ article figcaption {
   height: 80px;
 }
 .feed figcaption {
-  width: 70px;
+  width: 80px;
   text-overflow: ellipsis;
+  overflow: hidden;
+  position: relative;
+  top: -1em;
 }
 figure span .notification.notification {
   -webkit-border-radius: 40px;

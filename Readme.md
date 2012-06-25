@@ -17,3 +17,7 @@ Installation
 3. Server starten:
 
     `node app.js`
+
+4. Seite laden:
+
+    http://localhost:3000/
