@@ -6,6 +6,12 @@ Autoren
 - Magdalena Riecken
 
 
+Repository setup
+================
+
+git config core.autocrlf false
+
+
 Installation
 ============
 

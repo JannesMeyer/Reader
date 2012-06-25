@@ -49,7 +49,7 @@ body {
 
 header {
 	text-align: center;
-	margin-bottom: 1em;
+	margin-bottom: 0.5em;
 	.drop-shadow(0px, 2px, 7px, 0.4);
 }
 
@@ -60,7 +60,7 @@ header h2 {
 }
 
 header h1 {
-	background-color: @mainColor;
+	.gradient(@mainColor, @mainColor, lighten(@mainColor, 5%));
 }
 
 header h2 {
@@ -101,7 +101,7 @@ table tbody tr td { padding: 0px; }
 .base-tabs li {
   position:relative;
   top:1px;
-  font-size:13px;
+  font-size: 13px;
   color:#878E92;
   padding:6px 12px 5px;
   margin: 0;
@@ -114,10 +114,10 @@ table tbody tr td { padding: 0px; }
 }
 .base-tabs li.on {
     background:#fff;
-    padding:6px 12px;
+    padding: 0.5em 1em;
     color:#505659;
     border-bottom:0;
-    border-top: 2px solid @mainColor;
+    border-top: 3px solid @mainColor;
 }
 
 /* -----------------------------------------
@@ -249,9 +249,11 @@ input::-webkit-input-placeholder {
 /* -----------------------------------------
    Artikel
 ----------------------------------------- */
-article p,
-article h2 {
+#articleSwipe article p {
 	padding: 0 1em;
+}
+#articleSwipe article h2 {
+	padding: 0 0.6em;
 }
 
 article h6 {
