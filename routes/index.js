@@ -39,3 +39,30 @@ exports.addFeed = function(req, res) {
 exports.article = function(req, res) {
 	res.render('artikel', { title: 'Artikel' });
 };
+
+/*
+ * GET Login
+ */
+exports.login = function(req, res) {
+	res.render('login', { title: 'Login' });
+};
+
+/*
+ * GET Register
+ */
+exports.register = function(req, res) {
+	res.render('register', { title: 'Registrieren' });
+};
+
+/*
+ * GET Registrieren/Login
+ */
+exports.login_register = function(req, res) {
+	res.render('login_register', { title: 'Login oder Registrieren' });
+};
+/*
+ * Menubar
+ */
+exports.menubar = function(req, res) {
+	res.render('lmenubar', { title: 'Menue' });
+};

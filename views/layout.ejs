@@ -14,7 +14,7 @@
 	<!-- Included CSS Files -->
 	<link rel="stylesheet" href="/stylesheets/foundation.css">
 	<link rel="stylesheet" href="/stylesheets/app.css">
-	<link rel="stylesheet" type="text/css" media = "screen and (min-width: 800px)" href="/stylesheets/desktop.css">
+	<link rel="stylesheet" type="text/css" media = "screen and (min-width: 768px)" href="/stylesheets/desktop.css">
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="/stylesheets/ie.css">
 	<![endif]-->
@@ -27,7 +27,8 @@
 				<header>
 					<h1>inForm</h1>
 				</header>
-				<%- body %>
+					<%- partial('menubar') %>
+					<%- body %>
 			</div>
 		</div>
 	</div>
