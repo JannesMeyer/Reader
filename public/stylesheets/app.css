@@ -40,7 +40,7 @@ body {
 }
 header {
   text-align: center;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
   -webkit-box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.4);
   box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.4);
@@ -51,7 +51,10 @@ header h2 {
   margin-bottom: 0;
 }
 header h1 {
-  background-color: #00a6fc;
+  background: #00a6fc;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #00a6fc), color-stop(1, #17b0ff));
+  background: -ms-linear-gradient(bottom, #00a6fc, #17b0ff);
+  background: -moz-linear-gradient(center bottom, #00a6fc 0%, #17b0ff 100%);
 }
 header h2 {
   font-size: 1em;
@@ -109,10 +112,10 @@ table tbody tr td {
 }
 .base-tabs li.on {
   background: #fff;
-  padding: 6px 12px;
+  padding: 0.5em 1em;
   color: #505659;
   border-bottom: 0;
-  border-top: 2px solid #00a6fc;
+  border-top: 3px solid #00a6fc;
 }
 /* -----------------------------------------
    Login
@@ -225,9 +228,11 @@ input::-webkit-input-placeholder {
 /* -----------------------------------------
    Artikel
 ----------------------------------------- */
-article p,
-article h2 {
+#articleSwipe article p {
   padding: 0 1em;
+}
+#articleSwipe article h2 {
+  padding: 0 0.6em;
 }
 article h6 {
   text-align: center;
