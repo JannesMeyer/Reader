@@ -1,24 +1,14 @@
-<ul id='tabSelector' class='base-tabs'>
-	<li class='on'>Smashing Magazine</li>
-	<li>t3n</li>
-	<li>kicker</li>
+<!-- Smashing Magazine -->
+<ul style="display: block;">
+	<% for (var i = 0; i < articles.length; i++) { %>
+	<li class="artikel clearfix">
+		<a href="/articles/<%= articles[i].id %>">
+			<img src="<%= articles[i].image %>" />
+			<article>
+				<h4><%= articles[i].title %></h4>
+				<p><%= articles[i].text %></p>
+			</article>
+		</a>
+	</li>
+	<% } %>
 </ul>
-
-<div id="tabs">
-	<ul>
-		<!-- Smashing Magazine -->
-		<ul style="display: block;">
-			<% for (var i = 0; i < articles.length; i++) { %>
-			<li class="artikel clearfix">
-				<a href="/articles/<%= articles[i].id %>">
-					<img src="<%= articles[i].image %>" />
-					<article>
-						<h4><%= articles[i].title %></h4>
-						<p><%= articles[i].text %></p>
-					</article>
-				</a>
-			</li>
-			<% } %>
-		</ul>
-	</ul>					
-</div>
