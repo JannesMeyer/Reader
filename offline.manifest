@@ -1,0 +1,43 @@
+CACHE MANIFEST
+
+# Version 
+
+CACHE:
+
+# views
+
+# scripts
+/javascripts/modernizr.foundation.js
+/javascripts/jquery.min.js
+/javascripts/foundation.js
+/javascripts/app.js
+/javascripts/swipe.js
+/javascripts/fixie.min.js
+/javascripts/tabs.js
+
+
+# images
+
+
+# stylesheets
+/stylesheets/foundation.css
+/stylesheets/app.css
+
+
+# fonts
+/fonts/websymbols-regular-webfont.eot
+/fonts/websymbols-regular-webfont.eot
+/fonts/websymbols-regular-webfont.woff
+/fonts/websymbols-regular-webfont.ttf
+/fonts/websymbols-regular-webfont.svg
+
+
+NETWORK:
+# with established connection
+
+# %online resource%
+
+FALLBACK:
+# fallback when offline
+
+# %online resource% %offline resource% <- fallback
