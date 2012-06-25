@@ -28,9 +28,9 @@ app.configure('production', function() {
 app.get('/', routes.index);
 app.get('/login', routes.login);
 app.get('/feeds', routes.feedOverview);
-app.get('/feed/:id', routes.articleOverview);
+app.get('/feeds/:id', routes.articleOverview);
 app.get('/add-feed', routes.addFeed);
-app.get('/article/:id', routes.article);
+app.get('/articles/:id', routes.article);
 
 // Start server
 app.listen(3000, function() {

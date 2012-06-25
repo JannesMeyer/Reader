@@ -6,74 +6,19 @@
 
 <div id="tabs">
 	<ul>
-		<ul style="display:block">
-			<li class="artikel clearfix"><a href="">
-				<div class="pre_image"> </div>
-				<article>
-					<a href="artikel.html"><h4 class="fixie"></h4>
-					<p class="fixie"></p></a>
-				</article>
-			</a></li>
-			<li class="artikel clearfix"><a href="">
-				<div class="pre_image"> </div>
-				<article>
-					<a href="artikel.html"><h4 class="fixie"></h4>
-					<p class="fixie"></p></a>
-				</article>
-			</a></li>
-			<li class="artikel clearfix"><a href="">
-				<div class="pre_image"> </div>
-				<article>
-					<a href="artikel.html"><h4 class="fixie"></h4>
-					<p class="fixie"></p></a>
-				</article>
-			</a></li>
-		</ul>					
-		<ul style="display:none">
-			<li class="artikel clearfix"><a href="">
-				<div class="pre_image"> </div>
-				<article>
-					<a href="artikel.html"><h4 class="fixie"></h4>
-					<p class="fixie"></p></a>
-				</article>
-			</a></li>
-			<li class="artikel clearfix"><a href="">
-				<div class="pre_image"> </div>
-				<article>
-					<a href="artikel.html"><h4 class="fixie"></h4>
-					<p class="fixie"></p></a>
-				</article>
-			</a></li>
-			<li class="artikel clearfix"><a href="">
-				<div class="pre_image"> </div>
-				<article>
-					<a href="artikel.html"><h4 class="fixie"></h4>
-					<p class="fixie"></p></a>
-				</article>
-			</a></li>
-		</ul>					
-		<ul style="display:none">
-			<li class="artikel clearfix"><a href="">
-				<div class="pre_image"> </div>
-				<article>
-					<a href="artikel.html"><h4 class="fixie"></h4>
-					<p class="fixie"></p></a>
-				</article>
-			</a></li>
-			<li class="artikel clearfix"><a href="">
-				<div class="pre_image"> </div>
-				<article>
-					<a href="artikel.html"><h4 class="fixie"></h4>
-					<p class="fixie"></p></a>
-				</article>
-			</a></li>
-			<li class="artikel clearfix"><a href="">
-				<div class="pre_image"> </div>
-				<article>
-					<a href="artikel.html"><h4 class="fixie"></h4>
-					<p class="fixie"></p></a>
-				</article>
-			</a></li>
+		<!-- Smashing Magazine -->
+		<ul style="display: block;">
+			<% for (var i = 0; i < articles.length; i++) { %>
+			<li class="artikel clearfix">
+				<a href="/articles/<%= articles[i].id %>">
+					<img src="<%= articles[i].image %>" />
+					<article>
+						<h4><%= articles[i].title %></h4>
+						<p><%= articles[i].text %></p>
+					</article>
+				</a>
+			</li>
+			<% } %>
 		</ul>
 	</ul>					
 </div>
