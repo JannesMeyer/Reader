@@ -87,9 +87,17 @@ exports.register = function(req, res) {
 exports.login_register = function(req, res) {
 	res.render('login_register', { title: 'Login oder Registrieren' });
 };
+
 /*
  * Menubar
  */
 exports.menubar = function(req, res) {
 	res.render('lmenubar', { title: 'Menue' });
+};
+
+/*
+ * Footer
+ */
+exports.footer = function(req, res) {
+	res.render('footer', { title: 'Footer' });
 };

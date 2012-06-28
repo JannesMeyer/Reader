@@ -2,8 +2,7 @@
    Stylesheet für die desktop Version
 ----------------------------------------------------- */
 
-@import "elements.less";
-
+@import "app.less";
 // Colors
 @mainColor: #00A6FC;
 @hoverColor: #EAF8FF;
@@ -20,12 +19,14 @@
    Stylesheet für Akkordeon-Menü
 ----------------------------------------------------- */
 body {
+	width: 960px;
+	display: block;
 	margin: 0 auto;
 }
 
 .columns {
 	margin:0px;
-	background-color:#ddd;
+	background-color:#fff;
 }
 
 .base-tabs {
@@ -39,7 +40,7 @@ section
 .accordion
 {
 	width: auto;
-	margin: 7px;	
+	margin-top: -4px;	
 }
  
 .accordion section 
@@ -100,5 +101,21 @@ section
 
 .accordion :target h2 + div 
 {
-	height: 100px;
+	height: 200px;
 }
+
+/* -------------------------------------------------- 
+   Stylesheet für Footer
+----------------------------------------------------- */
+
+#footer {
+	height: 100px;
+	display:block;
+	margin:0 auto;
+	width: auto;
+	background-color: #333;
+}
+
+/* -------------------------------------------------- 
+   Stylesheet für Button
+----------------------------------------------------- */
