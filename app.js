@@ -27,6 +27,7 @@ app.configure('production', function() {
 // Routes
 app.get('/', routes.index);
 app.get('/login', routes.login);
+app.get('/login_register', routes.login_register);
 app.get('/feeds', routes.feedOverview);
 app.get('/feeds/:id', routes.articleOverview);
 app.get('/add-feed', routes.addFeed);
