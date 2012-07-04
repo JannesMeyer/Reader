@@ -4,6 +4,7 @@
 	"private": true,
 	"dependencies": {
 		"express": "2.5.10",
-		"ejs": ">= 0.7.1"
+		"ejs": ">= 0.7.1",
+		"mongodb": "1.0.2"
 	}
 }
