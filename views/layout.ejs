@@ -3,7 +3,7 @@
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en" manifest="offline.manifest"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en" manifest="offline.manifest"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en" manifest="offline.manifest"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" manifest="offline.manifest"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <!-- <html class="no-js" lang="en" manifest="offline.manifest"> --> <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
 	<title><%= title %></title>
@@ -14,7 +14,7 @@
 	<!-- Included CSS Files -->
 	<link rel="stylesheet" href="/stylesheets/foundation.css">
 	<link rel="stylesheet" href="/stylesheets/app.css">
-	<link rel="stylesheet" type="text/css" media = "screen and (min-width: 800px)" href="/stylesheets/desktop.css">
+	<link rel="stylesheet" type="text/css" media = "screen and (min-width: 481px)" href="/stylesheets/desktop.css">
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="/stylesheets/ie.css">
 	<![endif]-->
@@ -29,6 +29,9 @@
 				</header>
 				<%- partial('menubar') %>
 				<%- body -%>
+				<footer>
+					<%- partial('footer') %>
+				</footer>
 			</div>
 		</div>
 	</div>

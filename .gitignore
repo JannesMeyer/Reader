@@ -1,3 +1,4 @@
 node_modules/*
 public/stylesheets/app.css
 public/stylesheets/desktop.css
+public/stylesheets/elements.css
