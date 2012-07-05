@@ -1,31 +1,21 @@
 var Db = require('mongodb').Db;
+var Connection = require('mongodb').Connection;
 var Server = require('mongodb').Server;
-var ReplSetServers = require('mongodb').ReplSetServers;
-var ObjectID = require('mongodb').ObjectID;
-var Binary = require('mongodb').Binary;
-var GridStore = require('mongodb').GridStore;
-var Code = require('mongodb').Code;
-var BSON = require('mongodb').pure().BSON;
 
-var client = new Db('test', new Server("127.0.0.1", 27017, {}));
-var test = function (err, collection) {
-	collection.insert({a:2}, function(err, docs) {
+var client = new Db('reader', new Server('127.0.0.1', 27017, {}));
 
-	collection.count(function(err, count) {
-	  test.assertEquals(1, count);
+client.open(function(err, db) {
+	console.log('Connected');
+
+	db.collection('users', function(err, users) {
+		if (err) {
+			console.log('Couldn\'t find the collection');
+			return;
+		}
+		users.insert({
+			name: 'test',
+			password: 'test',
+			feeds: []
+		});
 	});
-
-	// Locate all the entries using find
-	collection.find().toArray(function(err, results) {
-	  test.assertEquals(1, results.length);
-	  test.assertTrue(results[0].a === 2);
-
-	  // Let's close the db
-	  client.close();
-	});
-  });
-};
-
-client.open(function(err, p_client) {
-  client.collection('test_insert', test);
 });
