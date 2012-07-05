@@ -20,7 +20,7 @@
 </head>
 <body>
 
-	<div class="row">
+	<!-- <div class="row">
 		<header>
 			<h1>inForm</h1>
 		</header>
@@ -30,7 +30,45 @@
 			<footer>
 			</footer>
 		</div>
-	</div>
+	</div> -->
+
+	<header>
+    <div class="row">
+      <div class="twelve columns">
+        <h1>Mobile Grids</h1>
+        <h4></h4>
+      </div>
+    </div>
+  </header>
+
+  <section id="mainContent" class="example">
+
+		  <div class="row">
+		 	<div class="twelve columns">
+		 		<h3>On phones, columns become stacked.</h3>
+		 		<p>That means this twelve column section will be the full width, and so will the three sections you see below.</p>
+		 	</div>
+		 </div>
+		 <div class="row">
+		 	<div class="four columns hide-on-phones">
+		 		<h5>Section 1</h5>
+		 		<img src="http://placehold.it/300x100" />
+		 		<p>This is a four column section (so three of them across add up to twelve). As noted above on mobile, these columns will be stacked on top of each other.</p>
+		 	</div>
+		 	<div class="eight columns">
+		 		<%- body -%>
+		 	</div>
+		 	
+		 </div>
+
+  </section>
+
+  <footer class="row">
+    
+  </footer>
+
+
+
 
 	<script src="/javascripts/modernizr.foundation.js"></script>
 	<script src="/javascripts/jquery.min.js"></script>
