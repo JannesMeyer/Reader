@@ -1,41 +1,47 @@
-<ul id='tabSelector' class='base-tabs'>
-	<li class='on'>Smashing Magazine</li>
-	<li>t3n</li>
-	<li>wired</li>
-</ul>
-
-<div id="tabs">
-	<ul>
-		<!-- Article #1 -->
-		<ul style="display:block;">
-			<% for (var i = 0; i < articles.length; i++) { %>
-			<li class="artikel clearfix">
-				<a href="/articles/<%= articles[i].id %>">
-					<img src="<%= articles[i].image %>" />
-					<article>
-						<h4><%= articles[i].title %></h4>
-						<p><%= articles[i].text %></p>
-					</article>
-				</a>
-			</li>
-			<% } %>
-		</ul>
-		<!-- Article #2 -->
-		<ul style="display:none;">
-			<p>page #2</p>
-		</ul>
-		<!-- Article #3 -->
-		<ul style="display:none;">
-			<% for (var i = 0; i < articles.length; i++) { %>
-			<li class="artikel clearfix">
-				<a href="/articles/<%= articles[i].id %>">
-					<img src="<%= articles[i].image %>" />
-					<article>
-						<h4><%= articles[i].title %></h4>
-						<p><%= articles[i].text %></p>
-					</article>
-				</a>
-			</li>
-			<% } %>
-		</ul>
-	</ul>
+<div class = "eight columns">
+	<div>
+		<div>
+			<ul id='tabSelector' class='base-tabs'>
+				<li class='on'>Smashing Magazine</li>
+				<li>t3n</li>
+				<li>wired</li>
+			</ul>
+		</div>
+		<div id="tabs">
+			<ul>
+				<!-- Article #1 -->
+				<ul style="display:block;">
+					<% for (var i = 0; i < articles.length; i++) { %>
+					<li class="artikel clearfix">
+						<a href="/articles/<%= articles[i].id %>">
+							<img src="<%= articles[i].image %>" />
+							<article>
+								<h4><%= articles[i].title %></h4>
+								<p><%= articles[i].text %></p>
+							</article>
+						</a>
+					</li>
+					<% } %>
+				</ul>
+				<!-- Article #2 -->
+				<ul style="display:none;">
+					<p>page #2</p>
+				</ul>
+				<!-- Article #3 -->
+				<ul style="display:none;">
+					<% for (var i = 0; i < articles.length; i++) { %>
+					<li class="artikel clearfix">
+						<a href="/articles/<%= articles[i].id %>">
+							<img src="<%= articles[i].image %>" />
+							<article>
+								<h4><%= articles[i].title %></h4>
+								<p><%= articles[i].text %></p>
+							</article>
+						</a>
+					</li>
+					<% } %>
+				</ul>
+			</ul>
+		</div>
+	</div>
+</div>
