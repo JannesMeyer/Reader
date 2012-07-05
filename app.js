@@ -1,6 +1,8 @@
 // Module dependencies
 var express = require('express');
+var LessMiddleware = require('less-middleware');
 var routes = require('./routes');
+var FeedProvider = require('./providers/feed_provider');
 
 // Create server object
 var app = module.exports = express.createServer();
@@ -17,14 +19,16 @@ app.configure(function() {
 	app.use(app.router);
 });
 app.configure('development', function() {
-	app.use(require('less-middleware')({ src: public_dir, force: true }));
+	app.use(LessMiddleware({ src: public_dir, force: true }));
 	app.use(express.static(public_dir));
+
 	app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 app.configure('production', function() {
-	app.use(require('less-middleware')({ src: public_dir, compress: true }));
+	app.use(LessMiddleware({ src: public_dir, compress: true }));
 	var oneYear = 31557600000;
 	app.use(express.static(public_dir, { maxAge: oneYear }));
+	
 	app.use(express.errorHandler());
 });
 
