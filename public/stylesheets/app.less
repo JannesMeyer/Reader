@@ -30,6 +30,11 @@
 /* -----------------------------------------
    Mixins
 ----------------------------------------- */
+.border-active(@width: 3px, @color: @mainColor) {
+	border-right: @width solid @color;
+	border-left: @width solid @color;
+}
+
 
 /* -----------------------------------------
    Shared Styles
@@ -221,8 +226,9 @@ input::-webkit-input-placeholder {
 	margin: 0;
 }
 
-.artikel article:hover {
-	background-color: @hoverColor;
+.artikel article:active {
+	// background-color: @hoverColor;
+	// .border-active();
 }
 
 .artikel a {
