@@ -15,22 +15,18 @@ app.configure(function() {
 	app.use(express.methodOverride());
 	
 	app.use(app.router);
+	app.use(require('less-middleware')({ src: public_dir, compress: true, force: true }));
+	app.use(express.static(public_dir));
 });
 app.configure('development', function() {
 	app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-
-	app.use(express.static(public_dir));
-	app.use(express.compiler({ src: public_dir, enable: ['less'] }));
 });
 app.configure('production', function() {
 	app.use(express.errorHandler());
-
-	app.use(express.static(public_dir));
-	app.use(require('less-middleware')({ src: public_dir, compress: true }));
 });
 
 // Persistence
-var feedProvider = new FeedProvider();
+//var feedProvider = new FeedProvider();
 
 // Routes
 app.get('/', routes.index);
@@ -43,5 +39,5 @@ app.get('/articles/:id', routes.article);
 
 // Start server
 app.listen(3000, function() {
-	//console.log("Server listening on port %d in %s mode", app.address().port, app.settings.env);
+	console.log("%s server on http://localhost:%d/", app.settings.env, app.address().port);
 });
