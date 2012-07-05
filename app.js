@@ -1,8 +1,9 @@
-// Module dependencies
+// Modules
 var express = require('express');
 var LessMiddleware = require('less-middleware');
-var routes = require('./routes');
-var FeedProvider = require('./providers/feed_provider');
+var Db = require('mongodb').Db;
+var Connection = require('mongodb').Connection;
+var Server = require('mongodb').Server;
 
 // Create server object
 var app = module.exports = express.createServer();
@@ -33,14 +34,27 @@ app.configure('production', function() {
 });
 
 // Persistence
-//var feedProvider = new FeedProvider();
+var client = new Db('reader', new Server('127.0.0.1', 27017, {}));
+client.open(function(err, db) {
+	console.log('Connected to MongoDB');
 
-// Routes
-app.get('/', routes.index);
-app.get('/feeds', routes.feedOverview);
-app.get('/feeds/:id', routes.articleOverview);
-app.get('/add-feed', routes.addFeed);
-app.get('/articles/:id', routes.article);
+	// Routes
+	var routes = require('./routes')(app, db);
+
+	/*db.collection('users', function(err, users) {
+		if (err) {
+			console.log('Couldn\'t find the collection');
+			return;
+		}
+		users.insert({
+			name: 'test',
+			password: 'test',
+			feeds: []
+		});
+	});*/
+});
+
+//var FeedProvider = require('./providers/feed_provider');
 
 // Start server
 app.listen(3000, function() {
