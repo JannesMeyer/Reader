@@ -15,13 +15,16 @@ app.configure(function() {
 	app.use(express.methodOverride());
 	
 	app.use(app.router);
-	app.use(require('less-middleware')({ src: public_dir, compress: true, force: true }));
-	app.use(express.static(public_dir));
 });
 app.configure('development', function() {
+	app.use(require('less-middleware')({ src: public_dir, force: true }));
+	app.use(express.static(public_dir));
 	app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 app.configure('production', function() {
+	app.use(require('less-middleware')({ src: public_dir, compress: true }));
+	var oneYear = 31557600000;
+	app.use(express.static(public_dir, { maxAge: oneYear }));
 	app.use(express.errorHandler());
 });
 
