@@ -16,7 +16,7 @@ exports.login = function(req, res) {
  * GET Feed list
  */
 exports.feedOverview = function(req, res) {
-	res.render('feed_uebersicht', { title: 'Feedübersicht' });	
+	res.render('all_feeds', { title: 'Feedübersicht' });	
 };
 
 /*
@@ -50,35 +50,21 @@ exports.articleOverview = function(req, res) {
 	};
 
 	// Render the template
-	res.render('artikel_uebersicht', data);
+	res.render('all_articles', data);
 };
 
 /*
  * GET Feed hinzufügen
  */
 exports.addFeed = function(req, res) {
-	res.render('feed_hinzufuegen', { title: 'Feed hinzufügen' });
+	res.render('add_feed', { title: 'Feed hinzufügen' });
 };
 
 /*
  * GET Artikel
  */
 exports.article = function(req, res) {
-	res.render('artikel', { title: 'Artikel' });
-};
-
-/*
- * GET Login
- */
-exports.login = function(req, res) {
-	res.render('login', { title: 'Login' });
-};
-
-/*
- * GET Register
- */
-exports.register = function(req, res) {
-	res.render('register', { title: 'Registrieren' });
+	res.render('article', { title: 'Artikel' });
 };
 
 /*
@@ -88,16 +74,3 @@ exports.login_register = function(req, res) {
 	res.render('login_register', { title: 'Login oder Registrieren' });
 };
 
-/*
- * Menubar
- */
-exports.menubar = function(req, res) {
-	res.render('lmenubar', { title: 'Menue' });
-};
-
-/*
- * Footer
- */
-exports.footer = function(req, res) {
-	res.render('footer', { title: 'Footer' });
-};
