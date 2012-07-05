@@ -19,18 +19,36 @@
 	<![endif]-->
 </head>
 <body>
-
-	<div class="row">
+    <div class="row">
 		<header>
-			<h1>inForm</h1>
-		</header>
-		
-		<%- body -%>
-		<div class ="row">
-			<footer>
-			</footer>
-		</div>
-	</div>
+		   	<h1>inForm</h1>      
+	  	</header>
+    </div>
+
+		 <div class="row">
+		 	<div class="four columns hide-for-small">
+		 		<ul class="side-nav">
+		 			<li class="nav-title"><a href="#">Kategorie</a></li>
+                    <li><a href="#">Politik</a></li>
+                    <li><a href="#">Sub Nav 3</a></li>
+		 			<li class="nav-title"><a href="#">Meine Feeds</a></li>
+                    <li><a href="#">Politik</a></li>
+                    <li><a href="#">Sub Nav 3</a></li>
+		 		</ul>
+		 	</div>
+		 	<div class="eight columns">
+		 		<%- body -%>
+		 	</div>
+		 	
+		 </div>
+
+
+  <footer class="row">
+    
+  </footer>
+
+
+
 
 	<script src="/javascripts/modernizr.foundation.js"></script>
 	<script src="/javascripts/jquery.min.js"></script>
