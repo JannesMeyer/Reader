@@ -2,7 +2,7 @@
  * GET Home
  */
 exports.index = function(req, res) {
-  res.render('index', { title: 'Express' });
+	res.render('index', { title: 'Express' });
 };
 
 /*
@@ -73,4 +73,3 @@ exports.article = function(req, res) {
 exports.login_register = function(req, res) {
 	res.render('login_register', { title: 'Login oder Registrieren' });
 };
-
