@@ -28,10 +28,10 @@ jQuery(document).ready(function ($) {
     activateTab($(this).parent('dd'));
   });
 
-  if (window.location.hash) {
-    activateTab($('a[href="' + window.location.hash + '"]'));
-    $.foundation.customForms.appendCustomMarkup();
-  }
+  // if (window.location.hash) {
+  //   activateTab($('a[href="' + window.location.hash + '"]'));
+  //   $.foundation.customForms.appendCustomMarkup();
+  // }
 
   /* ALERT BOXES ------------ */
   $(".alert-box").delegate("a.close", "click", function(event) {

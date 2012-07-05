@@ -1,4 +1,3 @@
-
 // Onload
 $(function() {
   var articleNode = document.getElementById('articleSwipe');

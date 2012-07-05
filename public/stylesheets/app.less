@@ -25,7 +25,9 @@
 @inputHeight: 2em;
 @textInput-padding: 2%;
 @textInput-width: 90% - 2*@textInput-padding;
-@feedTileSize: 80px;
+@feedTileSize-min: 80px;
+@feedTileSize-max: 150px;
+
 
 /* -----------------------------------------
    Mixins
@@ -313,51 +315,9 @@ article figcaption {
    Feed Übersicht
 ----------------------------------------- */
 
-#feed_overview {
-	margin: 0 auto;
-	display: block;
+figure img {
+	min-width: @feedTileSize-min;
 }
-
-.feed {
-	float: left;
-	// height: @feedTileSize;
-	margin: 1rem;
-}
-
-.feed img {
-	width: @feedTileSize;
-	height: @feedTileSize;
-}
-
-.feed figcaption {
-	width: @feedTileSize;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	position: relative;
-	top: -1em;
-}
-
-figure span .notification
-
-.notification {
-	.rounded(40px);
-	background-color: #f00;
-	width: 1em;
-	height: 1em;
-	display: block;
-	position: relative;
-	top: -20px;
-	right: -70px;
-	display: none;
-
-}
-
-.feed span {
-	font-family: 'WebSymbolsRegular', Arial, sans-serif;
-	padding-right:0.5em;
-	margin-right: -1em;
-}
-
 
 /* -----------------------------------------
    Menue-Leiste
