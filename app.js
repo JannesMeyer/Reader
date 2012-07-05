@@ -24,10 +24,13 @@ app.configure('development', function() {
 });
 app.configure('production', function() {
 	app.use(express.errorHandler());
-	
+
 	app.use(express.static(public_dir));
 	app.use(require('less-middleware')({ src: public_dir, compress: true }));
 });
+
+// Persistence
+var feedProvider = new FeedProvider();
 
 // Routes
 app.get('/', routes.index);
