@@ -18,7 +18,6 @@
 
 // Colors
 @mainColor: #00A6FC;
-@mainColor2: #555;
 @hoverColor: #EAF8FF;
 
 
@@ -55,26 +54,8 @@ body {
 	min-width: 320px;
 }
 
-header {
-	text-align: center;
-	margin-bottom: 0.5em;
-	.drop-shadow(0px, 2px, 7px, 0.4);
-	background-color:@mainColor;
-}
-
-header h1,
-header h2 {
-	color: white;
-	margin: 0;
-}
-
-header h1 {
-	.gradient(@mainColor, @mainColor, lighten(@mainColor, 5%));
-}
-
-header h2 {
-	font-size: 1em;
-	background-color: lighten(@mainColor, 30%);
+.eight.columns {
+	padding: 0;
 }
 
 table
@@ -96,6 +77,27 @@ li {
 	list-style-type: none;
 }
 
+header {
+	text-align: center;
+	margin-bottom: 0.5em;
+	.drop-shadow(0px, 2px, 7px, 0.4);
+}
+
+
+/* -----------------------------------------
+   Header
+----------------------------------------- */
+header h1,
+header h2 {
+	font-weight: normal;
+	color: white;
+	margin: 0;
+}
+
+header {
+	.gradient(@mainColor, @mainColor, lighten(@mainColor, 5%));
+}
+
 
 /* -----------------------------------------
    Swipe Tabs
@@ -105,7 +107,6 @@ li {
 #tabSelector {
 	// position: fixed;
 }
-
 .base-tabs {
   border-bottom:1px #DADDE0 solid;
   padding:5px 4px 0;
@@ -116,7 +117,7 @@ li {
   top:1px;
   font-size: 13px;
   color:#878E92;
-  padding:6px 12px 5px;
+  padding: 12px 12px 11px;
   margin: 0;
   font-weight:bold;
   display:inline-block;
@@ -127,10 +128,13 @@ li {
 }
 .base-tabs li.on {
     background:#fff;
-    padding: 0.5em 1em;
+    padding: 12px;
     color:#505659;
     border-bottom:0;
     border-top: 3px solid @mainColor;
+}
+.tabs {
+
 }
 
 /* -----------------------------------------
@@ -190,7 +194,6 @@ input::-webkit-input-placeholder {
 .button.large {
 	width: 50% !important;
 	font-size: 1.5em;
-	padding: 9px 30px 16px
 }
 
 .button.radius {
@@ -312,6 +315,7 @@ figure img {
 article figcaption {
 	font-size: 1.2rem;
 	font-style: italic;
+	margin-top: 1em;
 }
 
 /* -----------------------------------------
@@ -320,6 +324,10 @@ article figcaption {
 
 figure img {
 	min-width: @feedTileSize-min;
+}
+
+.block-grid.three-up {
+	margin: 0;	// prevent overflow to next tab
 }
 
 /* -----------------------------------------
@@ -378,38 +386,64 @@ figure img {
 
 
 /* -----------------------------------------
-  Toolbar
+   Dialogs
 ----------------------------------------- */
 
-.toolbar {
-	background-color: #555;
-	height: 40px;
-	margin-bottom:0;
+
+
+/* -----------------------------------------
+   Pfeile
+----------------------------------------- */
+
+.arrow-n,
+.arrow-e,
+.arrow-s,
+.arrow-w {
+  /*
+   * In Internet Explorer, The"border-style: dashed" will never be
+   * rendered unless "(width * 5) >= border-width" is true.
+   * Since "width" is set to "0", the "dashed-border" remains
+   * invisible to the user, which renders the border just like how
+   * "border-color: transparent" renders.
+   */
+  border-style: dashed;
+  border-color: transparent;
+  border-width: 0.53em;
+  display: -moz-inline-box;
+  display: inline-block;
+  /* Use font-size to control the size of the arrow. */
+  font-size: 100px;
+  height: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: middle;
+  width: 0;
 }
 
-ul.toolbar li {
-float: right;
-display: block;
-padding-top:9px;
+.arrow-n {
+  border-bottom-width: 1em;
+  border-bottom-style: solid;
+  border-bottom-color: #666;
+  bottom: 0.25em;
 }
 
-ul.toolbar a {
-	color: #ccc;
-	background-color: @mainColor2;
-	font-size: 16px;
-	line-height: 18px;
-	padding: 11px;
-	border-left: 1px solid;
+.arrow-e {
+  border-left-width: 1em;
+  border-left-style: solid;
+  border-left-color: #666;
+  left: 0.25em;
+}
+                    
+.arrow-s {
+  border-top-width: 1em;
+  border-top-style: solid;
+  border-top-color: #666;
+  top: 0.25em;
 }
 
-ul.toolbar li:hover a, ul.toolbar li a:focus {
-	background-color: #444;
+.arrow-w {
+  border-right-width: 1em;
+  border-right-style: solid;
+  border-right-color: #666;
+  right: 0.25em;
 }
-	
-span.symbol {
-	font-family: 'WebSymbolsRegular';
-	margin-right: 8px;
-}
-
-
-
