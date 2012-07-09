@@ -23,10 +23,10 @@
 		<header>
 			<div>
 				<ul class="toolbar">
-					<li><a href=""><span class="symbol">U</span><span>login<span></a></li>
-					<li><a href=""><span class="symbol">R</span><span>Favorit<span></a></li>
-					<li><a href=""><span class="symbol">S</span><span>Einstellungen<span></a></li>
-
+					<li><a href="#" data-reveal-id="modalLogin"><span class="symbol">U</span><span>login</span></a></li>
+					<li><a href="#"><span class="symbol">R</span><span>Favorit</span></a></li>
+					<li><a href="#"><span class="symbol">S</span><span>Einstellungen</span></a></li>
+					<li><a href="#" data-reveal-id="modalAddFeed"><span class="symbol">+</span><span>Feed hinzufügen</span></a></li>
 				</ul>
 			</div>
 			<div class="logo">
@@ -55,15 +55,17 @@
 		 </div>
 
 
-  <footer class="row">
-    
-  </footer>
+	<footer class="row">
+    </footer>
 
-  <div id="myModal" class="reveal-modal">
-    <h2>This is a modal.</h2>
-    <a href="#" data-reveal-id="secondModal" class="secondary button">Second Modal&hellip;</a></p>
-    <a class="close-reveal-modal">&#215;</a>
-  </div>
+	<div id="modalLogin" class="reveal-modal">
+		<%- partial('partials/login') %>
+	</div>
+
+	<div id="modalAddFeed" class="reveal-modal">
+		<%- partial('add_feed') %>
+	</div>
+
 
 
 
@@ -79,7 +81,7 @@
 	<script src="/javascripts/jquery.customforms.js"></script>
 	<!-- // <script src="/javascripts/jquery.orbit-1.4.0.js"></script> -->
 	<!-- // <script src="/javascripts/jquery.placeholder.min.js"></script> -->
-	<!-- // <script src="/javascripts/jquery.reveal.js"></script> -->
+	<script src="/javascripts/jquery.reveal.js"></script> 
 	<!-- // <script src="/javascripts/jquery.tooltips.js"></script> -->
 
 	<!-- IE Fix for HTML5 Tags -->
