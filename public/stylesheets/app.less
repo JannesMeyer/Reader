@@ -323,37 +323,59 @@ figure img {
 }
 
 /* -----------------------------------------
-   Menue-Leiste
+   Menue-Leiste 
 ----------------------------------------- */
-.menu_bar {
-	width:100%;
-	text-align:center;
-
+.feedNavigation {
+	padding-left:0px;
 }
 
-.menu_bar h6 {
-	display: inline;
-}
-
-.menu_bar a {
-	font-family: 'WebSymbolsRegular', Arial, sans-serif;
-	font-size:3em;
-	color:@mainColor;
-	margin: 0px, 10px;
-	padding-left:20px;
-	padding-right:20px;
-}
-
-.menu_bar a:active {
-	color:#eee;
-}
-
-.nav-title {
+// Desktopversion
+.desktopVersion .nav-title {
 	background-color: @mainColor;
 }
-.nav-title a {
+
+.desktopVersion .nav-title a {
 	color: white;
 }
+
+.desktopVersion ul.side-nav li{
+	margin: 0 0 3px 0;
+}
+
+// Touchversion
+.touchVersion ul.side-nav li{
+	background: #F2F2F2;
+	border: none;
+	border: 1px solid #E6E6E6;
+	border-width: 1px 1px 0 0;
+	color: #555;
+	display: block;
+	font-size: 14px;
+	height: auto;
+	line-height: 1;
+	padding: 0px 20px;
+	margin:0;
+}
+
+.touchVersion ul.side-nav a{
+	line-height: 44px;
+}
+
+.touchVersion .nav-title a {
+	color: white;
+}
+
+.touchVersion ul.side-nav li.nav-title {
+	background-color: @mainColor;
+	border: none;
+	color: white;
+	height: auto;
+	margin: 0;
+	position: static;
+	top: 0;
+	color: #fff;
+}
+
 
 /* -----------------------------------------
   Toolbar
