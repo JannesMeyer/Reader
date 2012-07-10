@@ -157,8 +157,8 @@ header {
     border-bottom:0;
     border-top: 3px solid @mainColor;
 }
-.tabs {
-
+#tabs ul li ul {
+	margin-left: -5px;
 }
 
 /* -----------------------------------------
@@ -335,9 +335,10 @@ figure.article_image {
 
 figure img {
 }
-
-article figcaption {
+figcaption {	
 	font-size: 1.2rem;
+}
+article figcaption {
 	font-style: italic;
 	margin-top: 1em;
 }
@@ -345,7 +346,9 @@ article figcaption {
 /* -----------------------------------------
    Feed Übersicht
 ----------------------------------------- */
-
+figure {
+	margin: 0;
+}
 figure img {
 	min-width: @feedTileSize-min;
 }
@@ -429,7 +432,7 @@ ul.toolbar a {
 	background-color: @mainColor2;
 	font-size: 16px;
 	line-height: 18px;
-	padding: 11px;
+	padding: 11px 30px;
 	border-left: 1px solid;
 }
 
@@ -439,15 +442,18 @@ ul.toolbar li:hover a, ul.toolbar li a:focus {
 	
 span.symbol {
 	font-family: 'WebSymbolsRegular';
-	margin-right: 8px;
 }
 
 .toolTitle {
 	display: none !important;
+	margin-left: 0.5em;
 }
 @media only screen and (max-width: 1279px) and (min-width: 768px) {
 	.toolTitle {
 		display: inline !important;
+	}
+	ul.toolbar a {
+		// padding: 11px;
 	}
 }
 
