@@ -19,7 +19,8 @@
 // Colors
 @mainColor: #00A6FC;
 @mainColor2: #555;
-@hoverColor: #EAF8FF;
+// @hoverColor: #EAF8FF;
+@hoverColor: #2284A1;
 
 
 // Metrics
@@ -119,7 +120,8 @@ header h2 {
 }
 
 header {
-	.gradient(@mainColor, @mainColor, lighten(@mainColor, 5%));
+	// .gradient(@mainColor, @mainColor, lighten(@mainColor, 5%));
+	.gradient(@mainColor2, @mainColor2, lighten(@mainColor2, 5%));
 }
 
 
@@ -186,6 +188,7 @@ form .button {
 	display: block;
 	margin: 0 auto;
 	margin-top: 1em;	
+	padding: 10px !important;
 }
 
 input:focus {
@@ -221,6 +224,9 @@ input::-webkit-input-placeholder {
 
 .button.radius {
 	.rounded(0.3em);
+}
+.button:hover {
+	background-color: @hoverColor;
 }
 
 /* -----------------------------------------
@@ -423,28 +429,30 @@ ul.side-nav li{
 ----------------------------------------- */
 
 .toolbar {
-	background-color: #555;
+	// background-color: @mainColor2;
+	background-color: @mainColor;
 	height: 40px;
 	margin-bottom:0;
 }
 
 ul.toolbar li {
-float: right;
-display: block;
-padding-top:9px;
+	float: right;
+	display: inline-block;
+	padding-top:9px;
 }
 
 ul.toolbar a {
-	color: #ccc;
-	background-color: @mainColor2;
+	color: white;
+	// background-color: @mainColor2;
 	font-size: 16px;
-	line-height: 18px;
+	line-height: 22px;
 	padding: 11px 30px;
 	border-left: 1px solid;
 }
 
 ul.toolbar li:hover a, ul.toolbar li a:focus {
-	background-color: #444;
+	// background-color: #444;
+	background-color: @hoverColor;
 }
 	
 span.symbol {
@@ -455,7 +463,7 @@ span.symbol {
 	display: none !important;
 	margin-left: 0.5em;
 }
-@media only screen and (max-width: 1279px) and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
 	.toolTitle {
 		display: inline !important;
 	}
@@ -495,7 +503,6 @@ span.symbol {
 
 .modal .button {
 	width: auto !important;
-	padding: 10px !important;
 }
 
 
