@@ -216,7 +216,6 @@ input::-webkit-input-placeholder {
 }
 
 .button.large {
-	width: 50% !important;
 	font-size: 1.5em;
 }
 
@@ -362,25 +361,25 @@ figure img {
 }
 
 // Desktopversion
-.desktopVersion .nav-title {
+.nav-title {
 	background-color: @mainColor;
 }
 
-.desktopVersion .nav-title a {
+.nav-title a {
 	color: white;
 	padding-left: 5px;
 }
 
-.desktopVersion .nav-item a {
+.nav-item a {
 	padding-left: 10px;
 }
 
-.desktopVersion ul.side-nav li{
+ul.side-nav li{
 	margin: 0 0 3px 0;
 }
 
 // Touchversion
-.touchVersion ul.side-nav li{
+.touch ul.side-nav li{
 	background: #F2F2F2;
 	border: none;
 	border: 1px solid #E6E6E6;
@@ -390,23 +389,18 @@ figure img {
 	font-size: 14px;
 	height: auto;
 	line-height: 1;
-	padding: 0px 20px;
 	margin:0;
 }
 
-.touchVersion ul.side-nav a{
+.touch ul.side-nav a{
 	line-height: 44px;
 }
 
-.touchVersion .nav-title a {
+.touch .nav-title a {
 	color: white;
 }
 
-.no-touch ul {
-	
-}
-
-.touchVersion ul.side-nav li.nav-title {
+.touch ul.side-nav li.nav-title {
 	background-color: @mainColor;
 	border: none;
 	color: white;
@@ -417,7 +411,7 @@ figure img {
 	color: #fff;
 }
 
-.touchVersion ul.side-nav li:hover a, ul.toolbar li a:focus {
+.touch ul.side-nav li:hover a, ul.toolbar li a:focus {
 	background-color: #444;
 }
 
@@ -468,6 +462,35 @@ span.symbol {
    Dialogs
 ----------------------------------------- */
 
+.touch .modal a.symbol {
+	font-family: 'WebSymbolsRegular';
+	font-size: 34px;
+	line-height: 50px;
+	color: @mainColor;
+}
+
+.touch .modal a:focus, .touch .modal a:hover {
+	color:@mainColor2;
+}
+
+.reveal-modal .close-reveal-modal {
+	top:8px;
+}
+
+.touch .reveal-modal .close-reveal-modal {
+	top:0px;
+}
+
+// add feed
+.modal h4.add-feed  {
+	color: @mainColor;
+
+}
+
+.modal .button {
+	width: auto !important;
+	padding: 10px !important;
+}
 
 
 
