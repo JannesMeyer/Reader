@@ -1,13 +1,21 @@
-<ul>
-	<% for (var i = 0; i < articles.length; i++) { %>
-	<li class="artikel clearfix">
-		<a href="/articles/<%= articles[i].id %>">
-			<img src="<%= articles[i].image %>" />
-			<article>
-				<h4><%= articles[i].title %></h4>
-				<p><%= articles[i].text %></p>
-			</article>
-		</a>
-	</li>
-	<% } %>
-</ul>
+<!-- Seitennavigation -->
+<div class="four columns feedNavigation">
+	<%- partial('partials/sidebar') %>
+</div>
+
+<!-- Seiteninhalt -->
+<div class="eight columns">
+	<ul>
+		<% for (var i = 0; i < articles.length; i++) { %>
+		<li class="artikel clearfix">
+			<a href="/articles/<%= articles[i].id %>">
+				<img src="<%= articles[i].image %>" />
+				<article>
+					<h4><%= articles[i].title %></h4>
+					<p><%= articles[i].text %></p>
+				</article>
+			</a>
+		</li>
+		<% } %>
+	</ul>
+</div>
