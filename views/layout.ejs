@@ -19,7 +19,8 @@
 	<![endif]-->
 </head>
 <body>
-    <div class="row">
+	<!-- Header -->
+	<div class="row">
 		<header>
 			<!-- Toolbar -->
 			<div>
@@ -30,34 +31,18 @@
 					<li><a href="#" data-reveal-id="modalAddFeed" data-animation="fadeAndPop"><span class="symbol">+</span><span class="hide-for-small toolTitle">Feed hinzufügen</span></a></li>
 				</ul>
 			</div>
-			<!-- Logo-->
+			
+			<!-- Logo -->
 			<div class="logo">
 				<h1>inForm</h1> 
 			</div>
-	  	</header>
-    </div>
-		   	     
-    	<!-- Seitennavigation -->
-		 <div class="row">
-		 	<div class ="four columns feedNavigation">
-				<div class="desktopVersion hide-for-touch">
-					<p>Desktopversion</p>
-					<%- partial('partials/sidebar') %>
-				</div>
-				<div class="touchVersion show-for-touch">
-					<p>Touchversion</p>
-					<%- partial('partials/sidebar') %>
-				</div>
-			</div>
+		</header>
+	</div>
 
+	<div class="row">
+		<%- body -%>
+	</div>
 
-
-		 	<!-- Seiteninhalt -->
-		 	<div class="eight columns">
-		 		<%- body -%>
-		 	</div>
-		 	
-		 </div>
 
 
 	<footer class="row">
@@ -71,10 +56,6 @@
 	<div id="modalAddFeed" class="reveal-modal">
 		<%- partial('add_feed') %>
 	</div>
-
-
-
-
 
 	<script src="/javascripts/modernizr.foundation.js"></script>
 	<script src="/javascripts/jquery.min.js"></script>
