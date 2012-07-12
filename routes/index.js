@@ -166,7 +166,7 @@ module.exports = function(app, db, passport) {
 					feeds: []
 				});
 				users.save({
-					email: 'fuhlig@gmail.com',
+					email: 'magdalena.riecken@gmail.com',
 					name: 'Magdalena Riecken',
 					password: sha1('test'),
 					feeds: []
