@@ -396,8 +396,10 @@ figure img {
 }
 
 .fallback {
-	max-height: 128px;
-	max-width: 128px;
+	min-height: @feedTileSize-min;
+	min-width: @feedTileSize-min;
+	width: auto;
+	height: auto;
 	background-color: #007180;
 	text-align: center;
 	padding: 0px;
@@ -409,6 +411,19 @@ figure img {
 
 .block-grid.three-up {
 	margin: 0;	// prevent overflow to next tab
+}
+
+.notification {
+	display: block;
+	background-color: red;
+	color: white;
+	padding: 0.1em 0.5em;
+	width: 1.5em;
+	height: 1.5em;
+	border: 1px solid white;
+	position: relative;
+	top: -23px;
+	font-size: 0.8em;
 }
 
 
