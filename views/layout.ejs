@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -22,41 +22,67 @@
 	<!-- Header -->
 	<div class="row">
 		<header>
-			
 			<!-- Logo -->
 			<div class="logo">
-				<h1>inForm</h1> 
+				<h1><a href="/">inForm</a></h1> 
 			</div>
 			<!-- Toolbar -->
 			<div>
 				<ul class="toolbar">
-					<li><a href="#" data-reveal-id="modalLogin" data-animation="none"><span class="symbol">U</span><span class="hide-for-small toolTitle">login</span></a></li>
-					<li><a href="#"><span class="symbol">R</span><span class="hide-for-small toolTitle">Favorit</span></a></li>
-					<li><a href="#"><span class="symbol">S</span><span class="hide-for-small toolTitle">Einstellungen</span></a></li>
-					<li><a href="#" data-reveal-id="modalAddFeed" data-animation="fadeAndPop"><span class="symbol">+</span><span class="hide-for-small toolTitle">Feed hinzufügen</span></a></li>
+					<% if (!user) { %>
+					<li>
+						<a href="/login" data-reveal-id="modalLogin" data-animation="none">
+							<span class="symbol">U</span><span class="hide-for-small toolTitle">Login</span>
+						</a>
+					</li>
+					<% } else { %>
+					<li>
+						<a href="/logout">
+							<span class="symbol">U</span><span class="hide-for-small toolTitle">Logout</span>
+						</a>
+					</li>
+					<% } %>
+					<li>
+						<a href="#">
+							<span class="symbol">R</span><span class="hide-for-small toolTitle">Favorit</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="symbol">S</span><span class="hide-for-small toolTitle">Einstellungen</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" data-reveal-id="modalAddFeed" data-animation="fadeAndPop">
+							<span class="symbol">+</span><span class="hide-for-small toolTitle">Feed hinzufügen</span>
+						</a>
+					</li>
 				</ul>
 			</div>
 		</header>
 	</div>
 
+	<% if (user) { %>
+	Hallo <%= user.name %>
+	<% } %>
 	<div class="row">
-		<%- body -%>
+		<%- body %>
 	</div>
-
-
 
 	<footer class="row">
     </footer>
 
     <!-- Modals -->
+    <% if (!user) { %>
 	<div id="modalLogin" class="reveal-modal">
-		<%- partial('partials/login') %>
+		<%- partial('partials/login_dialog') %>
 	</div>
-
+	<% } %>
 	<div id="modalAddFeed" class="reveal-modal">
-		<%- partial('add_feed') %>
+		<%- partial('partials/add_feed_dialog') %>
 	</div>
 
+	<!-- JavaScript -->
 	<script src="/javascripts/modernizr.foundation.js"></script>
 	<script src="/javascripts/jquery.min.js"></script>
 	<script src="/javascripts/app.js"></script>

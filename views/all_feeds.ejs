@@ -1,10 +1,11 @@
 <!-- Seitennavigation -->
 <div class="four columns feedNavigation">
-	<%- partial("partials/sidebar") %>
+	<%- partial('partials/sidebar') %>
 </div>
 
 <!-- Seiteninhalt -->
 <div class="eight columns">
+	<p><%= feeds[0].name %></p>
 	<ul id="tabSelector" class="base-tabs show-for-small">
 		<li class="on">Kategorien</li>
 		<li>Meine Feeds</li>

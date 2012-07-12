@@ -14,7 +14,6 @@
 /* -----------------------------------------
    Variables
 ----------------------------------------- */
-// @import "elements.less";
 
 // Colors
 @mainColor: #00A6FC;
@@ -34,46 +33,24 @@
 /* -----------------------------------------
    Mixins
 ----------------------------------------- */
+@import "elements.less";
+
 .border-active(@width: 3px, @color: @mainColor) {
 	border-right: @width solid @color;
 	border-left: @width solid @color;
 }
-.gradient(@color: #F5F5F5, @start: #EEE, @stop: #FFF) {
-  background: @color;
-  background: -webkit-gradient(linear,
-                               left bottom,
-                               left top,
-                               color-stop(0, @start),
-                               color-stop(1, @stop));
-  background: -ms-linear-gradient(bottom,
-                                  @start,
-                                  @stop);
-  background: -moz-linear-gradient(center bottom,
-                                   @start 0%,
-                                   @stop 100%);
-}
-.drop-shadow(@x-axis: 0, @y-axis: 1px, @blur: 2px, @alpha: 0.1) {
-  -webkit-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
-  -moz-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
-  box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
-}
-.rounded(@radius: 2px) {
-  -webkit-border-radius: @radius;
-  -moz-border-radius: @radius;
-  border-radius: @radius;
-  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; 
-}
+
 /* -----------------------------------------
    Shared Styles
 ----------------------------------------- */
-@font-face{ 
+@font-face { 
 	font-family: 'WebSymbolsRegular';
 	src: url('../fonts/websymbols-regular-webfont.eot');
 	src: url('../fonts/websymbols-regular-webfont.eot?#iefix') format('embedded-opentype'),
 	     url('../fonts/websymbols-regular-webfont.woff') format('woff'),
 	     url('../fonts/websymbols-regular-webfont.ttf') format('truetype'),
 	     url('../fonts/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
-	}
+}
 
 body { 
 	min-width: 320px;
@@ -83,12 +60,27 @@ body {
 	padding: 0;
 }
 
-table
- { border: none;border-spacing: 20px; border-collapse: separate;}
-ul.contained.tabs-content>li { padding: 0px; border: solid 0 #ddd; border-width: 0 1px 1px 1px; }
-.container {padding: 0px; }
-p {font-size: 12px; font-size: 1.2rem; margin-bottom: 3px;}
-table tbody tr td { padding: 0px; }
+table {
+	border: none;
+	border-spacing: 20px;
+	border-collapse: separate;
+}
+ul.contained.tabs-content > li {
+	padding: 0px;
+	border: solid 0 #ddd;
+	border-width: 0 1px 1px 1px;
+}
+.container {
+	padding: 0px;
+}
+p {
+	font-size: 12px;
+	font-size: 1.2rem;
+	margin-bottom: 3px;
+}
+table tbody tr td {
+	padding: 0px;
+}
 
 .green {
 	color:green;
@@ -112,11 +104,13 @@ header {
 /* -----------------------------------------
    Header
 ----------------------------------------- */
-header h1,
-header h2 {
-	font-weight: normal;
-	color: white;
+header h1 {
+	font-weight: bold;
+	padding: 0.12em;
 	margin: 0;
+}
+header h1 a {
+	color: white;
 }
 
 header {
@@ -124,6 +118,54 @@ header {
 	.gradient(@mainColor2, @mainColor2, lighten(@mainColor2, 5%));
 }
 
+/* -----------------------------------------
+  Toolbar
+----------------------------------------- */
+
+.symbol {
+	font-family: 'WebSymbolsRegular';
+}
+
+.toolbar {
+	// background-color: @mainColor2;
+	background-color: @mainColor;
+	height: 40px;
+	margin-bottom:0;
+}
+
+ul.toolbar li {
+	float: right;
+	display: inline-block;
+	padding-top:9px;
+}
+
+ul.toolbar a {
+	color: white;
+	// background-color: @mainColor2;
+	font-size: 16px;
+	line-height: 22px;
+	padding: 11px 22px;
+	border-left: 1px solid;
+}
+
+ul.toolbar li:hover a,
+ul.toolbar li a:focus {
+	// background-color: #444;
+	background-color: @hoverColor;
+}
+
+.toolTitle {
+	display: none !important;
+	margin-left: 0.5em;
+}
+@media only screen and (min-width: 768px) {
+	.toolTitle {
+		display: inline !important;
+	}
+	ul.toolbar a {
+		// padding: 11px;
+	}
+}
 
 /* -----------------------------------------
    Swipe Tabs
@@ -422,7 +464,8 @@ ul.side-nav li{
 	color: #fff;
 }
 
-.touch ul.side-nav li:hover a, ul.toolbar li a:focus {
+.touch ul.side-nav li:hover a,
+ul.toolbar li a:focus {
 	background-color: #444;
 }
 .ul.side-nav {
@@ -431,65 +474,17 @@ ul.side-nav li{
 }
 
 /* -----------------------------------------
-  Toolbar
------------------------------------------ */
-
-.toolbar {
-	// background-color: @mainColor2;
-	background-color: @mainColor;
-	height: 40px;
-	margin-bottom:0;
-}
-
-ul.toolbar li {
-	float: right;
-	display: inline-block;
-	padding-top:9px;
-}
-
-ul.toolbar a {
-	color: white;
-	// background-color: @mainColor2;
-	font-size: 16px;
-	line-height: 22px;
-	padding: 11px 30px;
-	border-left: 1px solid;
-}
-
-ul.toolbar li:hover a, ul.toolbar li a:focus {
-	// background-color: #444;
-	background-color: @hoverColor;
-}
-	
-span.symbol {
-	font-family: 'WebSymbolsRegular';
-}
-
-.toolTitle {
-	display: none !important;
-	margin-left: 0.5em;
-}
-@media only screen and (min-width: 768px) {
-	.toolTitle {
-		display: inline !important;
-	}
-	ul.toolbar a {
-		// padding: 11px;
-	}
-}
-
-/* -----------------------------------------
    Dialogs
 ----------------------------------------- */
 
-.touch .modal a.symbol {
-	font-family: 'WebSymbolsRegular';
+.touch .modal .symbol {
 	font-size: 34px;
 	line-height: 50px;
 	color: @mainColor;
 }
 
-.touch .modal a:focus, .touch .modal a:hover {
+.touch .modal a:focus,
+.touch .modal a:hover {
 	color:@mainColor2;
 }
 
