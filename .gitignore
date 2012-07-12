@@ -1,4 +1,5 @@
 node_modules/*
+db/*
 public/stylesheets/app.css
 public/stylesheets/desktop.css
 public/stylesheets/elements.css
