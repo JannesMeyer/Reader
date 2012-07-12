@@ -28,6 +28,15 @@ Installation
 
     http://localhost:3000/
 
+5. MongoDB herunterladen und in den Ordner C:\usrlocal\mongodb packen
+
+6. C:\usrlocal\mongodb\bin zum PATH hinzufügen
+
+7. `mkdir db\mongodb.01`
+
+7. Den MongoDB-Server starten
+
+    `mongod --dbpath=db\mongodb.01`
 
 
 Server automatisch neustarten
