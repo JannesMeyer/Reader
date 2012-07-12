@@ -421,7 +421,7 @@ figure img {
 }
 figcaption {	
 	font-size: 1.2rem;
-	margin-top: -1.8em;
+	// margin-top: -1.8em;
 }
 article figcaption {
 	font-style: italic;
@@ -453,17 +453,19 @@ figure img {
 .block-grid.three-up {
 	margin: 0;	// prevent overflow to next tab
 }
-
+#feed_image {
+	position: relative;
+}
 .notification {
-	display: inline-block;
+	display: block;
 	background-color: #D50000;
 	color: white;
 	padding: 0.1em 0.5em;
 	// width: 1.5em;
 	// height: 1.5em;
 	border: 1px solid white;
-	position: relative;
-	top: -28px;
+	position: absolute;
+	top: 0;
 	font-size: 0.8em;
 }
 
