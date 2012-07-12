@@ -2,6 +2,9 @@
 $(function() {
   var articleNode = document.getElementById('articleSwipe');
   var tabNode = document.getElementById('tabs');
+  var prevSlide = document.getElementById('prev');
+  var nextSlide = document.getElementById('next');
+
 
   // articleSwipe
   if (articleNode) {
@@ -32,5 +35,12 @@ $(function() {
       }
       elem.className += ' on';
     }
+  
+    // next / previous slide
+    if (prevSlide || nextSlide) {
+      prevSlide.onclick = tabs.prev();
+      nextSlide.onclick = tabs.next();
+    }
   }
+
 });
