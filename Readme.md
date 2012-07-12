@@ -34,7 +34,7 @@ Installation
 
 7. `mkdir db\mongodb.01`
 
-7. Den MongoDB-Server starten
+8. Den MongoDB-Server starten
 
     `mongod --dbpath=db\mongodb.01`
 
