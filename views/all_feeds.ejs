@@ -21,13 +21,21 @@
 					<li>
 						<figure>
 							<img src="http://lorempixel.com/128/128" />
-							<span class="notification"></span>
+							<span class="notification">1</span>
 							<figcaption>Bildunterschrift</figcaption>
 						</figure>
 					</li>
 					<% } %>
+					<li>
+						<figure>
+							<img class="fallback" />
+							<span class="notification">1</span>
+							<figcaption>Bildunterschrift</figcaption>
+						</figure>
+					</li>
 				</ul>
 			</li>
+
 			<li style="display:none">
 				<ul class="block-grid three-up">
 					<% for (var j=0; j<4; j++) { %>
@@ -57,4 +65,6 @@
 
 		</ul>
 	</div>
+	<a id="prev" class="button">prev</a>
+	<a id="next" class="button">next</a>
 </div>

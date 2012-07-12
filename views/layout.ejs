@@ -31,7 +31,7 @@
 				<ul class="toolbar">
 					<% if (!user) { %>
 					<li>
-						<a href="/login" data-reveal-id="modalLogin" data-animation="none">
+						<a href="/login" data-reveal-id="modalLogin">
 							<span class="symbol">U</span><span class="hide-for-small toolTitle">Login</span>
 						</a>
 					</li>
@@ -53,7 +53,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="#" data-reveal-id="modalAddFeed" data-animation="fadeAndPop">
+						<a href="#" data-reveal-id="modalAddFeed">
 							<span class="symbol">+</span><span class="hide-for-small toolTitle">Feed hinzufügen</span>
 						</a>
 					</li>
@@ -77,7 +77,15 @@
 	<div id="modalLogin" class="reveal-modal">
 		<%- partial('partials/login_dialog') %>
 	</div>
+<<<<<<< HEAD
 	<% } %>
+=======
+
+	<div id="modalRegister" class="reveal-modal">
+		<%- partial('partials/register') %>
+	</div>
+
+>>>>>>> 795818b805af3bb8309814c1843ac1df4a58f505
 	<div id="modalAddFeed" class="reveal-modal">
 		<%- partial('partials/add_feed_dialog') %>
 	</div>
@@ -89,13 +97,14 @@
 	<script src="/javascripts/swipe.js"></script>
 	<script src="/javascripts/fixie.min.js"></script>
 	<script src="/javascripts/tabs.js"></script>
+	<script src="/javascripts/gallery.js"></script>
 
 	<!-- additional foundation3 scripts -->
 	<script src="/javascripts/jquery.customforms.js"></script>
-	<!-- // <script src="/javascripts/jquery.orbit-1.4.0.js"></script> -->
-	<!-- // <script src="/javascripts/jquery.placeholder.min.js"></script> -->
+	<script src="/javascripts/jquery.orbit-1.4.0.js"></script>
+	<!-- <script src="/javascripts/jquery.placeholder.min.js"></script> -->
 	<script src="/javascripts/jquery.reveal.js"></script> 
-	<!-- // <script src="/javascripts/jquery.tooltips.js"></script> -->
+	<!-- <script src="/javascripts/jquery.tooltips.js"></script> -->
 
 	<!-- IE Fix for HTML5 Tags -->
 	<!--[if lt IE 9]>

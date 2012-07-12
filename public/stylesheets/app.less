@@ -23,7 +23,7 @@
 
 
 // Metrics
-@inputHeight: 2em;
+@inputHeight: 3em;
 @textInput-padding: 2%;
 @textInput-width: 90% - 2*@textInput-padding;
 @feedTileSize-min: 80px;
@@ -50,6 +50,10 @@
 	     url('../fonts/websymbols-regular-webfont.woff') format('woff'),
 	     url('../fonts/websymbols-regular-webfont.ttf') format('truetype'),
 	     url('../fonts/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
+}
+
+.iconFont {
+	font-family: 'WebSymbolsRegular';	
 }
 
 body { 
@@ -209,6 +213,21 @@ ul.toolbar li a:focus {
 }
 
 /* -----------------------------------------
+   Feature (Swipe Gallery)
+----------------------------------------- */
+.slider {
+	.iconFont;
+	.rounded(9999px);
+	background-color: red;
+}
+.prev {content: '<';}
+.next {content: '>';}
+
+.featured {
+	border: 1px solid red;
+}
+
+/* -----------------------------------------
    Login
 ----------------------------------------- */
 
@@ -216,13 +235,15 @@ form input {
 	background-color: whitesmoke;
 	border: 2px solid @mainColor;
 	color: @mainColor;
-	height: @inputHeight;
 	display: block;
 	margin: 0 auto;
 	margin-top: 1em;
 	font-size: 1.5em;
 	width: 86%;
 	padding: 0 2%;
+}
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
+	height: @inputHeight;
 }
 input:not(.button) {
 	-webkit-tap-highlight-color: lighten(@mainColor, 40%);	
@@ -292,7 +313,7 @@ input::-webkit-input-placeholder {
 }
 
 .artikel span {
-	font-family: 'WebSymbolsRegular', Arial, sans-serif;
+	.iconFont;
 	padding-right:0.5em;
 }
 
@@ -325,13 +346,27 @@ input::-webkit-input-placeholder {
 
 
 .artikel h4 {
- 	font-size: 1.5rem; 
+ 	font-size: 2rem; 
  	font-style: italic;
  	color: #4d4d4d;
  	margin-bottom: 0.6rem;
 }
 
+.artikel a:focus, .artikel a:hover {
+	background-color: #fff;
+}
 
+
+.artikel img {
+	float: right;
+	height: 100px;
+	padding-left: 20px;
+	}
+
+
+.artikel li:hover {
+	background-color: green;
+}
 
 .pre_text {
 	font-size: 1.2rem;
@@ -357,7 +392,7 @@ article h6 {
 	margin-bottom: 2rem;
 }
 
-.feed_info img {
+.feed_title img {
 	height: 2rem;
 	position: relative;
 	top: 0.6rem;
@@ -402,9 +437,37 @@ figure img {
 	min-width: @feedTileSize-min;
 }
 
+.fallback {
+	min-height: @feedTileSize-min;
+	min-width: @feedTileSize-min;
+	width: auto;
+	height: auto;
+	background-color: #007180;
+	text-align: center;
+	padding: 0px;
+	font-size: 6em;
+	color: white;
+	font-family: times;
+	font-style: italic;
+}
+
 .block-grid.three-up {
 	margin: 0;	// prevent overflow to next tab
 }
+
+.notification {
+	display: block;
+	background-color: red;
+	color: white;
+	padding: 0.1em 0.5em;
+	width: 1.5em;
+	height: 1.5em;
+	border: 1px solid white;
+	position: relative;
+	top: -23px;
+	font-size: 0.8em;
+}
+
 
 /* -----------------------------------------
    Menue-Leiste 
@@ -474,10 +537,62 @@ ul.toolbar li a:focus {
 }
 
 /* -----------------------------------------
+  Toolbar
+----------------------------------------- */
+
+.toolbar {
+	// background-color: @mainColor2;
+	background-color: @mainColor;
+	height: 40px;
+	margin-bottom:0;
+}
+
+ul.toolbar li {
+	float: right;
+	display: inline-block;
+	padding-top:9px;
+}
+
+ul.toolbar a {
+	color: white;
+	// background-color: @mainColor2;
+	font-size: 16px;
+	line-height: 22px;
+	padding: 11px 30px;
+	border-right: 1px solid;	
+}
+.toolbar a:last-child {
+	// border: none;
+}	
+
+ul.toolbar li:hover a, ul.toolbar li a:focus {
+	// background-color: #444;
+	background-color: @hoverColor;
+}
+	
+span.symbol {
+	.iconFont;
+}
+
+.toolTitle {
+	display: none !important;
+	margin-left: 0.5em;
+}
+@media only screen and (min-width: 768px) {
+	.toolTitle {
+		display: inline !important;
+	}
+	ul.toolbar a {
+		// padding: 11px;
+	}
+}
+
+/* -----------------------------------------
    Dialogs
 ----------------------------------------- */
 
-.touch .modal .symbol {
+.touch .modal a.symbol {
+	.iconFont;
 	font-size: 34px;
 	line-height: 50px;
 	color: @mainColor;

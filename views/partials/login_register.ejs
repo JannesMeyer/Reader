@@ -6,9 +6,12 @@
 <div id="tabs">
 	<ul>
 		<!-- Login -->
-		<%- partial('login') %>
+		<li style="display: block">
+			<%- partial('login') %>
+		</li>
 	  	<!-- Register -->
-	  	<%- partial('register') %>
-	  	
+		<li style="display: none">
+		  	<%- partial('register') %>
+		</li>  	
 	</ul>
 </div>
