@@ -379,6 +379,7 @@ figure img {
 }
 figcaption {	
 	font-size: 1.2rem;
+	margin-top: -1.8em;
 }
 article figcaption {
 	font-style: italic;
@@ -397,9 +398,9 @@ figure img {
 
 .fallback {
 	min-height: @feedTileSize-min;
+	max-width: auto;
 	min-width: @feedTileSize-min;
-	width: auto;
-	height: auto;
+	max-height: auto;
 	background-color: #007180;
 	text-align: center;
 	padding: 0px;
@@ -414,15 +415,15 @@ figure img {
 }
 
 .notification {
-	display: block;
-	background-color: red;
+	display: inline-block;
+	background-color: #D50000;
 	color: white;
 	padding: 0.1em 0.5em;
-	width: 1.5em;
-	height: 1.5em;
+	// width: 1.5em;
+	// height: 1.5em;
 	border: 1px solid white;
 	position: relative;
-	top: -23px;
+	top: -28px;
 	font-size: 0.8em;
 }
 
@@ -431,7 +432,7 @@ figure img {
    Menue-Leiste 
 ----------------------------------------- */
 .feedNavigation {
-	padding-left:0px;
+	padding-left: 0px;
 }
 
 // Desktopversion

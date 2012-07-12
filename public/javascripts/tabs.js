@@ -37,10 +37,10 @@ $(function() {
     }
   
     // next / previous slide
-    if (prevSlide || nextSlide) {
-      prevSlide.onclick = tabs.prev();
-      nextSlide.onclick = tabs.next();
-    }
+    // if (prevSlide || nextSlide) {
+    //   prevSlide.onclick = tabs.prev();
+    //   nextSlide.onclick = tabs.next();
+    // }
   }
 
 });
