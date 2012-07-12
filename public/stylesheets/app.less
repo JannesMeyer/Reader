@@ -304,11 +304,22 @@ input::-webkit-input-placeholder {
 
 
 .artikel h4 {
- 	font-size: 1.5rem; 
+ 	font-size: 2rem; 
  	font-style: italic;
  	color: #4d4d4d;
  	margin-bottom: 0.6rem;
 }
+
+.artikel a:focus, .artikel a:hover {
+	background-color: #fff;
+}
+
+
+.artikel img {
+	float: right;
+	height: 100px;
+	padding-left: 20px;
+	}
 
 
 
@@ -383,6 +394,18 @@ figure img {
 
 .block-grid.three-up {
 	margin: 0;	// prevent overflow to next tab
+}
+
+.fallback {
+	height: 128px;
+	width: 128px;
+	background-color: #007180;
+	text-align: center;
+	padding: 0px;
+	font-size: 110px;
+	color: white;
+	font-family: times;
+	font-style: italic;
 }
 
 /* -----------------------------------------
