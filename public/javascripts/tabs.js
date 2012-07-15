@@ -12,7 +12,7 @@ $(function() {
   }
   // 
   if (tabNode) {
-    var tabs = new Swipe(tabNode, {
+    window.tabs = new Swipe(tabNode, {
       callback: function(event,index,elem) {
         setTab(selectors[index]);
       }
@@ -37,10 +37,10 @@ $(function() {
     }
   
     // next / previous slide
-    // if (prevSlide || nextSlide) {
-    //   prevSlide.onclick = tabs.prev();
-    //   nextSlide.onclick = tabs.next();
-    // }
+    if (prevSlide || nextSlide) {
+      prevSlide.onclick = tabs.prev();
+      nextSlide.onclick = tabs.next();
+    }
   }
 
 });
