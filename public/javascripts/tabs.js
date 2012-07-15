@@ -36,11 +36,11 @@ $(function() {
       elem.className += ' on';
     }
   
-    // next / previous slide
-    if (prevSlide || nextSlide) {
-      prevSlide.onclick = tabs.prev();
-      nextSlide.onclick = tabs.next();
-    }
+    // // next / previous slide
+    // if (prevSlide || nextSlide) {
+    //   prevSlide.onclick = tabs.prev();
+    //   nextSlide.onclick = tabs.next();
+    // }
   }
 
 });
