@@ -177,10 +177,10 @@ ul.toolbar li a:focus {
 /* Tabs */
 
 #tabSelector {
-	// position: fixed;
+	margin-bottom: 1em;
 }
 #tabs {
-	margin-top: 1em;
+	// margin-top: 1em;
 }
 .base-tabs {
   border-bottom:1px #DADDE0 solid;
@@ -210,6 +210,7 @@ ul.toolbar li a:focus {
 }
 #tabs ul li ul {
 	margin-left: -5px;
+	// position: relative;
 }
 
 /* -----------------------------------------
@@ -283,16 +284,27 @@ input::-webkit-input-placeholder {
 	color: white;
 	padding: 0.5em 1em;
 }
-
 .button.large {
 	font-size: 1.5em;
 }
-
 .button.radius {
 	.rounded(0.3em);
 }
 .button:hover {
 	background-color: @hoverColor;
+}
+.sliderButton {
+	display: block;
+	margin: 0 auto;
+	margin-top: -12px;
+	.iconFont;
+	color: @mainColor;
+	font-size: 2.5em;
+	text-align: center;
+	cursor: pointer;
+}
+.sliderButton a {
+	margin: 1em;
 }
 
 /* -----------------------------------------

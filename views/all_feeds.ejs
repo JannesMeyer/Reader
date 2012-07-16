@@ -16,6 +16,7 @@
 		<ul>
 			<!-- Page 1 -->
 			<li style="display:block">
+				<%- partial('partials/sliderButtons') %>
 				<ul class="block-grid three-up">
 					<% for (var i=0; i<6; i++) { %>
 					<li>
@@ -24,14 +25,16 @@
 								<img src="http://lorempixel.com/128/128" />
 								<span class="notification">1</span>
 							</div>
-								<figcaption>Bildunterschrift</figcaption>
+							<figcaption>Bildunterschrift</figcaption>
 						</figure>
 					</li>
 					<% } %>
 					<li>
  	           			<figure>
-							<div class="fallback">D</div>
-    						<span class="notification"></span>
+ 	           				<div id="feed_image">
+								<div class="fallback">D</div>
+	    						<span class="notification">2</span>
+    						</div>
     						<figcaption>Bildunterschrift</figcaption>
 						</figure>
 					</li>
@@ -39,6 +42,7 @@
 			</li>
 
 			<li style="display:none">
+				<%- partial('partials/sliderButtons') %>
 				<ul class="block-grid three-up">
 					<% for (var i=0; i<4; i++) { %>
 					<li>
@@ -47,19 +51,22 @@
 								<img src="http://lorempixel.com/128/128" />
 								<span class="notification">1</span>
 							</div>
-								<figcaption>Bildunterschrift</figcaption>
+							<figcaption>Bildunterschrift</figcaption>
 						</figure>
 					</li>
 					<% } %>
 				</ul>
 			</li>
 			<li style="display:none">
+				<%- partial('partials/sliderButtons') %>
 				<ul class="block-grid three-up">
 					<% for (var i=0; i<9; i++) { %>
 					<li>
 						<figure>
-							<img src="http://lorempixel.com/128/128" class="fallback" />
-							<span class="notification">1</span>
+							<div id="feed_image">
+								<img src="http://lorempixel.com/128/128" />
+								<span class="notification">1</span>
+							</div>
 							<figcaption>Bildunterschrift</figcaption>
 						</figure>
 					</li>
@@ -69,10 +76,5 @@
 
 		</ul>
 	</div>
-	<a id="prev" class="button" onclick="tabs.prev();">prev</a>
-	<a id="next" class="button" onclick="tabs.next();">next</a>
 
-<!-- 	<a id="prev" class="button">prev</a>
-	<a id="next" class="button">next</a>
- -->
 </div>
