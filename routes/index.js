@@ -7,20 +7,9 @@ function sha1(str) {
 	return shasum.digest('hex');
 }
 
-// Simple route middleware to ensure user is authenticated.
-//   Use this route middleware on any resource that needs to be protected.  If
-//   the request is authenticated (typically via a persistent login session),
-//   the request will proceed.  Otherwise, the user will be redirected to the
-//   login page.
-function ensureAuthenticated(req, res, next) {
-	if (req.isAuthenticated()) {
-		return next();
-	}
-	res.redirect('/login');
-}
-
 // Export a function that defines our routes
 module.exports = function(app, db, passport) {
+	// Setup the database
 	var ObjectId = db.ObjectID;
 	db.bind('users');
 	db.bind('feeds', {
@@ -29,65 +18,91 @@ module.exports = function(app, db, passport) {
 		}
 	});
 	db.bind('articles');
-	
+
+
+	// Simple route middleware to ensure user is authenticated.
+	//   Use this route middleware on any resource that needs to be protected.  If
+	//   the request is authenticated (typically via a persistent login session),
+	//   the request will proceed.  Otherwise, the user will be redirected to the
+	//   login page.
+	function ensureAuthenticated(req, res, next) {
+		if (req.isAuthenticated()) {
+			return next();
+		}
+		res.redirect('/login');
+	}
+
+	// Simple middle to do some setup
+	function prepareRendering(req, res, next) {
+		// Create the data object
+		req.data = {
+			title: 'inForm',
+			user: req.user
+		};
+
+		//Object.keys(req)
+		//req.url
+
+		if (req.isAuthenticated()) {
+			db.feeds.find({subscribers: req.user._id}).toArray(function(err, feeds) {
+				req.data.feeds = feeds;
+				// Continue to the regular routes
+				next();
+			});
+		} else {
+			// Continue to the regular routes
+			next();
+		}
+	}
 
 	/*
 	 * GET /
 	 */
-	app.get('/', function(req, res) {
-		var data = {
-			title: 'Feeds',
-			user: req.user
-		};
+	app.get('/', prepareRendering, function(req, res) {
+		req.data.title = 'Feeds';
+
 		if (req.user) {
-		// Logged in; get all feeds
-		db.feeds.find({subscribers: req.user._id}).toArray(function(err, feeds) {
-			data.feeds = feeds;
-			res.render('all_feeds', data);
-		});
+			// Logged in; we already have all feeds in the data object
+			res.render('all_feeds', req.data);
 		} else {
-		// Not logged in; show different page
-		res.render('start', data);
+			// Not logged in; show different page
+			res.render('start', req.data);
 		}
 	});
 
 	/*
 	 * GET /login
 	 */
-	app.get('/login', function(req, res) {
-		var data = {
-			title: 'Einloggen',
-			user: req.user,
-			message: req.flash('error')
-		};
-		res.render('login', data);
+	app.get('/login', prepareRendering, function(req, res) {
+		req.data.title = 'Einloggen';
+		req.data.message = req.flash('error');
+
+		res.render('login', req.data);
 	});
 
 	/*
 	 * POST /login
 	 */
-	var loginAuth = passport.authenticate('local', { failureRedirect: '/login', failureFlash: true });
-	app.post('/login', loginAuth, function(req, res) {
+	var passportAuth = passport.authenticate('local', { failureRedirect: '/login', failureFlash: true });
+	app.post('/login', passportAuth, function(req, res) {
 		res.redirect('/');
 	});
 
 	/*
 	 * GET /register
 	 */
-	app.get('/register', function(req, res) {
-		var data = {
-			title: 'Registrieren',
-			user: req.user,
-			message: req.flash('error')
-		};
-		res.render('register', data);
+	app.get('/register', prepareRendering, function(req, res) {
+		req.data.title = 'Registrieren';
+		req.data.message = req.flash('error');
+
+		res.render('register', req.data);
 	});
 
 	/*
-	 * GET /register
+	 * POST /register
 	 */
-	app.get('/register', function(req, res) {
-		console.log('register');
+	app.post('/register', function(req, res) {
+		res.send('lol geht nicht');
 	});
 
 	/*
@@ -102,12 +117,10 @@ module.exports = function(app, db, passport) {
 	 * GET /add-feed
 	 * (auch als modaler )
 	 */
-	app.get('/add-feed', ensureAuthenticated, function(req, res) {
-		var data = {
-			title: 'Feed hinzufügen',
-			user: req.user
-		};
-		res.render('add_feed', data);
+	app.get('/add-feed', ensureAuthenticated, prepareRendering, function(req, res) {
+		req.data.title = 'Feed hinzufügen';
+
+		res.render('add_feed', req.data);
 	});
 
 	/*
@@ -163,27 +176,21 @@ module.exports = function(app, db, passport) {
 	/*
 	 * GET /feeds/:id
 	 */
-	app.get('/feeds/:id', function(req, res) {
-		var data = {
-			title: 'Artikel',
-			user: req.user
-		};
+	app.get('/feeds/:id', prepareRendering, function(req, res) {
 		db.articles.find({feed: new ObjectId(req.params.id)}).toArray(function(err, articles) {
-			data.articles = articles;
-			// Render the template
-			res.render('all_articles', data);
+			//req.data.title = feed.title;
+			req.data.articles = articles;
+			res.render('all_articles', req.data);
 		});
 	});
 
 	/*
 	 * GET /articles/:id
 	 */
-	app.get('/articles/:id', function(req, res) {
-		var data = {
-			title: 'Artikel',
-			user: req.user
-		};
-		res.render('article', data);
+	app.get('/articles/:id', prepareRendering, function(req, res) {
+		req.data.title = 'Artikel';
+
+		res.render('article', req.data);
 	});
 
 
