@@ -106,6 +106,16 @@ li {
 	list-style-type: none;
 }
 
+.custom-dropdown {
+	cursor: pointer;
+}
+.custom-dropdown ul {
+	display: none;
+}
+.custom-dropdown .show-dropdown {
+	display: block;
+}
+
 /* -----------------------------------------
    Header
    ----------------------------------------- */
@@ -296,6 +306,69 @@ input::-webkit-input-placeholder {
 /* -----------------------------------------
    Artikelübersicht
    ----------------------------------------- */
+
+.artikel span {
+	.iconFont;
+	padding-right:0.5em;
+}
+
+.artikel h4 {
+	display:inline;
+}
+
+.artikel {
+	min-height: 100px;
+	padding: 1em;
+	margin-bottom: 2rem;
+}
+
+.artikel a {
+	display: block;
+	height: 100%;
+	color: #666;
+}
+
+.artikel h4 {
+	font-size: 2rem; 
+	font-style: italic;
+	color: #4d4d4d;
+	margin-bottom: 0.6rem;
+}
+
+.artikel:hover {
+	background-color: #eee;
+}
+
+
+.artikel img {
+	float: right;
+	height: 100px;
+	padding-left: 20px;
+}
+
+/* -----------------------------------------
+   Artikel
+   ----------------------------------------- */
+#articleSwipe article p {
+	padding: 0 1em;
+}
+#articleSwipe article h2 {
+	padding: 0 0.6em;
+}
+
+article h6 {
+	text-align: center;
+	font-size: 1.2rem;
+	margin-bottom: 2rem;
+}
+
+.pre_text {
+	font-size: 1.2rem;
+	margin-bottom: 3px;
+	line-height: 1.4;
+	color: #333;
+}
+
 .pre_image {
 	background-image: url('../images/test.jpg');
 	width:37%;
@@ -310,118 +383,37 @@ input::-webkit-input-placeholder {
 	box-shadow: 0 0 5px 1px #ccc;
 }
 
-.artikel span {
-	.iconFont;
-	padding-right:0.5em;
+.feed_title img {
+	height: 2rem;
+	position: relative;
+	top: 0.6rem;
+	margin-right: 0.4rem;
 }
 
-.artikel h4 {
-	display:inline;
+article h2 {
+	font-size: 2rem;
+	line-height: 1.2;
 }
 
-.artikel {
-	min-height: 100px;
-	padding: 0 !important;
-	margin: 1em;
-	margin-bottom: 2.5rem;
+article p {
+	line-height: 1.6;
 }
 
-
-.artikel article {
-	margin: 0;
+.teaser {
+	font-weight: bold;
 }
 
-.artikel article:active {
-	// background-color: @hoverColor;
-	.border-active();
+figure.article_image {
+	width: 75%;
+	margin: 1em auto;
 }
 
-.artikel a {
-	display: block;
-	height: 100%;
-	color: #666;
+figure img {
 }
 
-
-.artikel h4 {
-	font-size: 2rem; 
-	font-style: italic;
-	color: #4d4d4d;
-	margin-bottom: 0.6rem;
-}
-
-.artikel a:focus,
-.artikel a:hover {
-	background-color: #fff;
-}
-
-
-.artikel img {
-	float: right;
-	height: 100px;
-	padding-left: 20px;
-}
-
-
-.artikel li:hover {
-	background-color: green;
-}
-
-.pre_text {
+figcaption {	
 	font-size: 1.2rem;
-	margin-bottom: 3px;
-	line-height: 1.4;
-	color: #333;
-
-}
-
-/* -----------------------------------------
-   Artikel
-   ----------------------------------------- */
-   #articleSwipe article p {
-   	padding: 0 1em;
-   }
-   #articleSwipe article h2 {
-   	padding: 0 0.6em;
-   }
-
-   article h6 {
-   	text-align: center;
-   	font-size: 1.2rem;
-   	margin-bottom: 2rem;
-   }
-
-   .feed_title img {
-   	height: 2rem;
-   	position: relative;
-   	top: 0.6rem;
-   	margin-right: 0.4rem;
-   }
-
-   article h2 {
-   	font-size: 2rem;
-   	line-height: 1.2;
-   }
-
-   article p {
-   	line-height: 1.6;
-   }
-
-   .teaser {
-   	font-weight: bold;
-   }
-
-   figure.article_image {
-   	width: 75%;
-   	margin: 1em auto;
-   }
-
-   figure img {
-   }
-
-   figcaption {	
-   	font-size: 1.2rem;
-	// margin-top: -1.8em;
+// margin-top: -1.8em;
 }
 article figcaption {
 	font-style: italic;
@@ -620,8 +612,8 @@ ul.toolbar li a:focus {
 	line-height: 38px;
 }
 
-.toolbar > ul > li:not(.button):hover a,
-.toolbar > ul > li:not(.button):focus a {
+.toolbar > ul > li:not(.button):hover > a,
+.toolbar > ul > li:not(.button):focus > a {
 	background-color: @hoverColor;
 }
 
@@ -686,9 +678,8 @@ span.symbol {
 }
 
 // add feed
-.modal h4.add-feed  {
-	color: @mainColor;
-
+#colorpicker .selected {
+	border: 1px solid #00f;
 }
 
 .modal .button {
