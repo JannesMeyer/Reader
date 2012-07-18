@@ -19,7 +19,7 @@
 @mainColor: #00A6FC;
 @mainColor2: #555;
 // @hoverColor: #EAF8FF;
-@hoverColor: #2284A1;
+@hoverColor: darken(@mainColor, 7%);
 
 
 // Metrics
@@ -58,6 +58,7 @@
 
 body { 
 	min-width: 320px;
+	font-family: sans-serif;
 }
 
 .eight.columns {
@@ -98,77 +99,26 @@ li {
 	list-style-type: none;
 }
 
+/* -----------------------------------------
+   Header
+----------------------------------------- */
+
 header {
 	text-align: center;
 	margin-bottom: 0.5em;
 	.drop-shadow(0px, 2px, 7px, 0.4);
 }
-
-
-/* -----------------------------------------
-   Header
------------------------------------------ */
+header > .logo {
+	.gradient(@mainColor2, @mainColor2, lighten(@mainColor2, 5%));
+}
 header h1 {
 	font-weight: bold;
 	padding: 0.12em;
 	margin: 0;
 }
-header h1 a {
+header h1 a,
+header h1 a:hover {
 	color: white;
-}
-
-header {
-	// .gradient(@mainColor, @mainColor, lighten(@mainColor, 5%));
-	.gradient(@mainColor2, @mainColor2, lighten(@mainColor2, 5%));
-}
-
-/* -----------------------------------------
-  Toolbar
------------------------------------------ */
-
-.symbol {
-	font-family: 'WebSymbolsRegular';
-}
-
-.toolbar {
-	// background-color: @mainColor2;
-	background-color: @mainColor;
-	height: 40px;
-	margin-bottom:0;
-}
-
-ul.toolbar li {
-	float: right;
-	display: inline-block;
-	padding-top:9px;
-}
-
-ul.toolbar a {
-	color: white;
-	// background-color: @mainColor2;
-	font-size: 16px;
-	line-height: 22px;
-	padding: 11px 22px;
-	// border-left: 1px solid;
-}
-
-ul.toolbar li:hover a,
-ul.toolbar li a:focus {
-	// background-color: #444;
-	background-color: @hoverColor;
-}
-
-.toolTitle {
-	display: none !important;
-	margin-left: 0.5em;
-}
-@media only screen and (min-width: 768px) {
-	.toolTitle {
-		display: inline !important;
-	}
-	ul.toolbar a {
-		// padding: 11px;
-	}
 }
 
 /* -----------------------------------------
@@ -243,7 +193,17 @@ form input {
 	width: 86%;
 	padding: 0 2%;
 }
-input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea {
 	height: @inputHeight;
 }
 input:not(.button) {
@@ -364,7 +324,8 @@ input::-webkit-input-placeholder {
  	margin-bottom: 0.6rem;
 }
 
-.artikel a:focus, .artikel a:hover {
+.artikel a:focus,
+.artikel a:hover {
 	background-color: #fff;
 }
 
@@ -588,37 +549,49 @@ ul.toolbar li a:focus {
 ----------------------------------------- */
 
 .toolbar {
-	// background-color: @mainColor2;
 	background-color: @mainColor;
-	height: 38px;
-	margin-bottom:0;
+	height: 40px;
+	margin: 0;
+	padding: 0;
 }
 
-ul.toolbar li {
+.toolbar > ul > li {
 	float: right;
+}
+
+.toolbar > ul > li > a {
+	color: white;
+	font-size: 16px;
+	padding: 0 23px;
 	display: inline-block;
 }
 
-ul.toolbar a {
-	color: white;
-	// background-color: @mainColor2;
-	font-size: 16px;
-	line-height: 22px;
-	padding: 10px 23px 9px 23px;
-	border-right: 1px solid;	
-}
-.toolbar a:last-child {
-	// border: none;
-}	
-.toolbar a[href="/login"],
-.toolbar a[href="/logout"] {
-	border-right: none;
+.toolbar > ul > li:not(.button) > a {
+	line-height: 38px;
 }
 
-ul.toolbar li:hover a, ul.toolbar li a:focus {
-	// background-color: #444;
+.toolbar > ul > li:not(.button):hover a,
+.toolbar > ul > li:not(.button):focus a {
 	background-color: @hoverColor;
 }
+
+.toolbar > ul > li.button {
+	border: 1px solid transparent;
+	box-shadow: none;
+	font-weight: normal;
+	padding: 0;
+	padding-left: 23px;
+	padding-right: 44px;
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+	transition: none;
+}
+.toolbar > ul > li.button > a {
+	padding: 0;
+	line-height: 38px;
+}
+
 	
 span.symbol {
 	.iconFont;
