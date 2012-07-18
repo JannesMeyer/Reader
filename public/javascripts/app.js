@@ -95,7 +95,6 @@ jQuery(document).ready(function ($) {
     $(this).siblings('ul').toggleClass('show-dropdown');
   });
   $('.button.dropdown').not('.split').on('click.fndtn touchstart.fndtn', function (e) {
-    e.preventDefault();
     $('.button.dropdown').not(this).children('ul').removeClass('show-dropdown');
     $(this).children('ul').toggleClass('show-dropdown');
   });
@@ -113,5 +112,10 @@ jQuery(document).ready(function ($) {
   $('.button.dropdown.large > ul').css('top', largeButtonHeight);
   $('.button.dropdown.small > ul').css('top', smallButtonHeight);
   $('.button.dropdown.tiny > ul').css('top', tinyButtonHeight);
+  
+  $('.button.dropdown.up:not(.large):not(.small):not(.tiny) > ul').css('top', 'auto').css('bottom', normalButtonHeight - 2);
+  $('.button.dropdown.up.large > ul').css('top', 'auto').css('bottom', largeButtonHeight - 2);
+  $('.button.dropdown.up.small > ul').css('top', 'auto').css('bottom', smallButtonHeight - 2);
+  $('.button.dropdown.up.tiny > ul').css('top', 'auto').css('bottom', tinyButtonHeight - 2);
 
 });

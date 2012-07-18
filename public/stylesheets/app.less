@@ -265,6 +265,9 @@ input::-webkit-input-placeholder {
    Page Navigation
    ----------------------------------------- */
 .page-navigation {
+	padding-top: 14px;
+	padding-bottom: 7px;
+
 	.title {
 		margin-top: 4px;
 
@@ -578,91 +581,93 @@ ul.side-nav li {
   Toolbar
   ----------------------------------------- */
 
-  .toolbar {
-  	background-color: @mainColor;
-  	height: 40px;
-  	margin: 0;
-  	padding: 0;
-  }
+.toolbar {
+	background-color: @mainColor;
+	height: 40px;
+	margin: 0;
+	padding: 0;
+}
 
-  .toolbar > ul > li {
-  	float: right;
-  }
+.toolbar > ul > li {
+	float: right;
+}
 
-  .toolbar > ul > li > a {
-  	color: white;
-  	font-size: 16px;
-  	padding: 0 23px;
-  	display: inline-block;
-  }
+.toolbar > ul > li > a,
+.toolbar > ul > li.button > div {
+	color: white;
+	font-size: 16px;
+	padding: 0 23px;
+	display: inline-block;
+}
 
-  .toolbar > ul > li:not(.button) > a {
-  	line-height: 38px;
-  }
+.toolbar > ul > li:not(.button) > a {
+	line-height: 38px;
+}
 
-  .toolbar > ul > li:not(.button):hover a,
-  .toolbar > ul > li:not(.button):focus a {
-  	background-color: @hoverColor;
-  }
+.toolbar > ul > li:not(.button):hover a,
+.toolbar > ul > li:not(.button):focus a {
+	background-color: @hoverColor;
+}
 
-  .toolbar > ul > li.button {
-  	border: 1px solid transparent;
-  	box-shadow: none;
-  	font-weight: normal;
-  	padding: 0;
-  	padding-left: 23px;
-  	padding-right: 44px;
-  	-webkit-transition: none;
-  	-moz-transition: none;
-  	-o-transition: none;
-  	transition: none;
-  }
-  .toolbar > ul > li.button > a {
-  	padding: 0;
-  	line-height: 38px;
-  }
+.toolbar > ul > li.button {
+	border: 1px solid transparent;
+	box-shadow: none;
+	font-weight: normal;
+	padding: 0;
+	padding-left: 23px;
+	padding-right: 44px;
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+	transition: none;
+
+	div {
+		padding: 0;
+		line-height: 38px;
+	}
+}
 
 
-  span.symbol {
-  	.iconFont;
-  }
+span.symbol {
+	.iconFont;
+}
 
-  .toolTitle {
-  	display: none !important;
-  	margin-left: 0.5em;
-  }
-  @media only screen and (min-width: 830px) {
-  	.toolTitle {
-  		display: inline !important;
-  	}
-  	ul.toolbar a {
-  		padding:  10px 23px 9px 23px;
-  	}
-  }
+.toolTitle {
+	display: none !important;
+	margin-left: 0.5em;
+}
+@media only screen and (min-width: 830px) {
+	.toolTitle {
+		display: inline !important;
+	}
+	ul.toolbar a {
+		padding:  10px 23px 9px 23px;
+	}
+}
 
 /* -----------------------------------------
    Dialogs
    ----------------------------------------- */
 
-   .touch .modal a.symbol {
-   	.iconFont;
-   	font-size: 34px;
-   	line-height: 50px;
-   	color: @mainColor;
-   }
+.touch .modal a.symbol {
+	.iconFont;
+	font-size: 34px;
+	line-height: 50px;
+	color: @mainColor;
+}
 
-   .touch .modal a:focus,
-   .touch .modal a:hover {
-   	color:@mainColor2;
-   }
+.touch .modal a:focus,
+.touch .modal a:hover {
+	color:@mainColor2;
+}
 
-   .reveal-modal .close-reveal-modal {
-   	top:8px;
-   }
+.reveal-modal .close-reveal-modal {
+	top:8px;
+}
 
-   .touch .reveal-modal .close-reveal-modal {
-   	top:0px;
-   }
+.touch .reveal-modal .close-reveal-modal {
+	top:0px;
+}
 
 // add feed
 .modal h4.add-feed  {
