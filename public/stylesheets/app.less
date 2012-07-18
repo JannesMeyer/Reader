@@ -118,6 +118,7 @@ li {
 
 .centered {
 	text-align: center;
+	margin-top: 1em;
 }
 
 /* -----------------------------------------
@@ -126,7 +127,7 @@ li {
 
 header {
 	text-align: center;
-	margin-bottom: 0.5em;
+	margin-bottom: 1.5em;
 	.drop-shadow(0px, 2px, 7px, 0.4);
 }
 header > .logo {
@@ -534,10 +535,17 @@ article figcaption {
 	float: left !important;
 	padding-left: 0px;
 }
+
+
 // overwrite foundation
 ul.side-nav li {
 	margin: 0;
 }
+
+.feedNavigation ul {
+	padding:0px;
+}
+
 .side-nav li:hover a,
 .toolbar li a:focus {
 	background-color: #444;
@@ -726,3 +734,18 @@ span.symbol {
 }
 
 
+/* -----------------------------------------
+   Dark Theme
+   ----------------------------------------- */
+
+.dark{
+	background-color: #555;
+}
+
+.dark .feed-link{
+	border: 1px solid white;
+}
+
+.articleSwipe p {
+	color: white;
+}
