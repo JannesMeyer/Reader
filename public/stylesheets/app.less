@@ -177,10 +177,10 @@ ul.toolbar li a:focus {
 /* Tabs */
 
 #tabSelector {
-	// position: fixed;
+	margin-bottom: 1em;
 }
 #tabs {
-	margin-top: 1em;
+	// margin-top: 1em;
 }
 .base-tabs {
   border-bottom:1px #DADDE0 solid;
@@ -210,6 +210,7 @@ ul.toolbar li a:focus {
 }
 #tabs ul li ul {
 	margin-left: -5px;
+	// position: relative;
 }
 
 /* -----------------------------------------
@@ -283,16 +284,27 @@ input::-webkit-input-placeholder {
 	color: white;
 	padding: 0.5em 1em;
 }
-
 .button.large {
 	font-size: 1.5em;
 }
-
 .button.radius {
 	.rounded(0.3em);
 }
 .button:hover {
 	background-color: @hoverColor;
+}
+.sliderButton {
+	display: block;
+	margin: 0 auto;
+	margin-top: -12px;
+	.iconFont;
+	color: @mainColor;
+	font-size: 2.5em;
+	text-align: center;
+	cursor: pointer;
+}
+.sliderButton a {
+	margin: 1em;
 }
 
 /* -----------------------------------------
@@ -421,11 +433,33 @@ figure img {
 }
 figcaption {	
 	font-size: 1.2rem;
-	margin-top: -1.8em;
+	// margin-top: -1.8em;
 }
 article figcaption {
 	font-style: italic;
 	margin-top: 1em;
+}
+
+// fix width for portrait/hide sidebar in portrait)
+@media screen and (orientation: portrait) {
+	// .row {
+	//     width: auto;
+	//     min-width: 0;
+	//     margin-left: 0;
+	//     margin-right: 0;
+	//   }
+	.column, .columns {
+	width: 100% !important;
+	float: none;
+	}	
+}
+@media screen and (min-width: 650px) and (max-width: 800px) {
+	.feedNavigation {
+		display: none !important;
+	}
+	.column, .columns {
+		width: 100% !important;
+	}
 }
 
 /* -----------------------------------------
@@ -453,25 +487,39 @@ figure img {
 .block-grid.three-up {
 	margin: 0;	// prevent overflow to next tab
 }
-
+#feed_image {
+	position: relative;
+}
 .notification {
-	display: inline-block;
+	display: block;
 	background-color: #D50000;
 	color: white;
 	padding: 0.1em 0.5em;
 	// width: 1.5em;
 	// height: 1.5em;
 	border: 1px solid white;
-	position: relative;
-	top: -28px;
+	position: absolute;
+	top: 0;
 	font-size: 0.8em;
 }
+.feed-character {
+	display: block;
+	color: white;
+	padding: 0.1em 0.5em;
+	// width: 1.5em;
+	// height: 1.5em;
+	position: absolute;
+	top: 0;
+	font-size: 5em;
+}
+
 
 
 /* -----------------------------------------
    Menue-Leiste 
 ----------------------------------------- */
 .feedNavigation {
+	float: left !important;
 	padding-left: 0px;
 }
 
@@ -542,14 +590,13 @@ ul.toolbar li a:focus {
 .toolbar {
 	// background-color: @mainColor2;
 	background-color: @mainColor;
-	height: 40px;
+	height: 38px;
 	margin-bottom:0;
 }
 
 ul.toolbar li {
 	float: right;
 	display: inline-block;
-	padding-top:9px;
 }
 
 ul.toolbar a {
@@ -557,12 +604,16 @@ ul.toolbar a {
 	// background-color: @mainColor2;
 	font-size: 16px;
 	line-height: 22px;
-	padding: 11px 30px;
+	padding: 10px 30px 9px 30px;
 	border-right: 1px solid;	
 }
 .toolbar a:last-child {
 	// border: none;
 }	
+.toolbar a[href="/login"],
+.toolbar a[href="/logout"] {
+	border-right: none;
+}
 
 ul.toolbar li:hover a, ul.toolbar li a:focus {
 	// background-color: #444;
@@ -577,12 +628,12 @@ span.symbol {
 	display: none !important;
 	margin-left: 0.5em;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 830px) {
 	.toolTitle {
 		display: inline !important;
 	}
 	ul.toolbar a {
-		// padding: 11px;
+		padding: 11px 20px;
 	}
 }
 

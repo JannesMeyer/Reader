@@ -17,6 +17,7 @@
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="/stylesheets/ie.css">
 	<![endif]-->
+
 </head>
 <body>
 	<!-- Header -->
@@ -31,7 +32,7 @@
 				<% if (!user) { %>
 				<li>
 					<a href="/login" data-reveal-id="modalLogin">
-						<span class="symbol">U</span><span class="hide-for-small toolTitle">Anmelden</span>
+						<span class="symbol">U</span><span class="hide-for-small toolTitle">Login</span>
 					</a>
 				</li>
 				<% } else { %>
@@ -58,6 +59,11 @@
 				<li>
 					<a href="#" data-reveal-id="modalAddFeed">
 						<span class="symbol">+</span><span class="hide-for-small toolTitle">Feed hinzufügen</span>
+					</a>
+				</li>
+				<li>
+					<a href="#" data-reveal-id="modalDeleteFeed">
+						<span class="symbol">-</span><span class="hide-for-small toolTitle">Feed löschen</span>
 					</a>
 				</li>
 			</ul>

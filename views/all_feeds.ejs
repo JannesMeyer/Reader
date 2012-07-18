@@ -16,33 +16,42 @@
 		<ul>
 			<!-- Page 1 -->
 			<li style="display:block">
+				<%- partial('partials/sliderButtons') %>
 				<ul class="block-grid three-up">
 					<% for (var i=0; i<6; i++) { %>
 					<li>
 						<figure>
-							<img src="http://lorempixel.com/128/128" />
-							<span class="notification">1</span>
+							<div id="feed_image">
+								<img src="http://lorempixel.com/128/128" />
+								<span class="notification">1</span>
+							</div>
 							<figcaption>Bildunterschrift</figcaption>
 						</figure>
 					</li>
 					<% } %>
 					<li>
  	           			<figure>
-							<div class="fallback">D</div>
-    						<span class="notification"></span>
-    						<figcaption>Bildunterschrift</figcaption>
+							<div id="feed_image">
+								<img src="images/fallback.png" />
+								<span class="notification">1</span>
+								<span class="feed-character"> Z</span>
+							</div>
+							<figcaption>Bildunterschrift</figcaption>
 						</figure>
 					</li>
 				</ul>
 			</li>
 
 			<li style="display:none">
+				<%- partial('partials/sliderButtons') %>
 				<ul class="block-grid three-up">
 					<% for (var i=0; i<4; i++) { %>
 					<li>
 						<figure>
-							<img src="http://lorempixel.com/128/128" class="fallback" />
-							<span class="notification">10</span>
+							<div id="feed_image">
+								<img src="http://lorempixel.com/128/128" />
+								<span class="notification">1</span>
+							</div>
 							<figcaption>Bildunterschrift</figcaption>
 						</figure>
 					</li>
@@ -50,12 +59,15 @@
 				</ul>
 			</li>
 			<li style="display:none">
+				<%- partial('partials/sliderButtons') %>
 				<ul class="block-grid three-up">
 					<% for (var i=0; i<9; i++) { %>
 					<li>
 						<figure>
-							<img src="http://lorempixel.com/128/128" class="fallback" />
-							<span class="notification">1</span>
+							<div id="feed_image">
+								<img src="http://lorempixel.com/128/128" />
+								<span class="notification">1</span>
+							</div>
 							<figcaption>Bildunterschrift</figcaption>
 						</figure>
 					</li>
@@ -65,6 +77,5 @@
 
 		</ul>
 	</div>
-	<a id="prev" class="button">prev</a>
-	<a id="next" class="button">next</a>
+
 </div>
