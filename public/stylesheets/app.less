@@ -265,6 +265,9 @@ input::-webkit-input-placeholder {
    Page Navigation
    ----------------------------------------- */
 .page-navigation {
+	padding-top: 14px;
+	padding-bottom: 7px;
+
 	.title {
 		margin-top: 4px;
 
@@ -528,157 +531,143 @@ article figcaption {
 /* -----------------------------------------
    Menue-Leiste 
    ----------------------------------------- */
-   .feedNavigation {
-   	float: left !important;
-   	padding-left: 0px;
-   }
-
-// Desktopversion
-.nav-title {
-	background-color: @mainColor;
-	color: white;
-	padding-left: 5px;
+.feedNavigation {
+	float: left !important;
+	padding-left: 0px;
 }
-
-.nav-item a {
-	padding-left: 10px;
-}
-
-ul.side-nav li{
-	margin: 0 0 3px 0;
-}
-
-// Touchversion
-.touch ul.side-nav li{
-	background: #F2F2F2;
-	border: none;
-	border: 1px solid #E6E6E6;
-	border-width: 1px 1px 0 0;
-	color: #555;
-	display: block;
-	font-size: 14px;
-	height: auto;
-	line-height: 1;
-	margin:0;
-}
-
-.touch ul.side-nav li{
-	line-height: 44px;
-}
-
-.touch .nav-title {
-	color: white;
-}
-
-.touch ul.side-nav li.nav-title {
-	background-color: @mainColor;
-	border: none;
-	color: white;
-	// height: auto;
+// overwrite foundation
+ul.side-nav li {
 	margin: 0;
-	position: static;
-	top: 0;
-	color: #fff;
 }
-
-.touch ul.side-nav li:hover a,
-ul.toolbar li a:focus {
+.side-nav li:hover a,
+.toolbar li a:focus {
 	background-color: #444;
 }
-.ul.side-nav {
-	padding: 0;
-	margin-top: 1em;
+
+// desktop 
+.nav-title,
+.nav-item {
+	line-height: 34px;
+}
+// touch optimized height
+.touch .nav-title,
+.touch .nav-title {
+	line-height: 44px;
+}
+.nav-title {
+	border: none;
+	padding-left: 5px;
+	position: static;
+	top: 0;
+
+	color: white;
+	background-color: @mainColor;
+}
+
+.side-nav .nav-item {
+	border: 1px solid #E6E6E6;
+	display: block;
+	height: auto;
+
+	background: #F2F2F2;
+	color: #555;
+	font-size: 14px;
+}
+.nav-item a {
+	padding-left: 1em;
 }
 
 /* -----------------------------------------
   Toolbar
   ----------------------------------------- */
 
-  .toolbar {
-  	background-color: @mainColor;
-  	height: 40px;
-  	margin: 0;
-  	padding: 0;
-  }
+.toolbar {
+	background-color: @mainColor;
+	height: 40px;
+	margin: 0;
+	padding: 0;
+}
 
-  .toolbar > ul > li {
-  	float: right;
-  }
+.toolbar > ul > li {
+	float: right;
+}
 
-  .toolbar > ul > li > a {
-  	color: white;
-  	font-size: 16px;
-  	padding: 0 23px;
-  	display: inline-block;
-  }
+.toolbar > ul > li > a,
+.toolbar > ul > li.button > div {
+	color: white;
+	font-size: 16px;
+	padding: 0 23px;
+	display: inline-block;
+}
 
-  .toolbar > ul > li:not(.button) > a {
-  	line-height: 38px;
-  }
+.toolbar > ul > li:not(.button) > a {
+	line-height: 38px;
+}
 
-  .toolbar > ul > li:not(.button):hover a,
-  .toolbar > ul > li:not(.button):focus a {
-  	background-color: @hoverColor;
-  }
+.toolbar > ul > li:not(.button):hover a,
+.toolbar > ul > li:not(.button):focus a {
+	background-color: @hoverColor;
+}
 
-  .toolbar > ul > li.button {
-  	border: 1px solid transparent;
-  	box-shadow: none;
-  	font-weight: normal;
-  	padding: 0;
-  	padding-left: 23px;
-  	padding-right: 44px;
-  	-webkit-transition: none;
-  	-moz-transition: none;
-  	-o-transition: none;
-  	transition: none;
-  }
-  .toolbar > ul > li.button > a {
-  	padding: 0;
-  	line-height: 38px;
-  }
+.toolbar > ul > li.button {
+	border: 1px solid transparent;
+	box-shadow: none;
+	font-weight: normal;
+	padding: 0;
+	padding-left: 23px;
+	padding-right: 44px;
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+	transition: none;
+
+	div {
+		padding: 0;
+		line-height: 38px;
+	}
+}
 
 
-  span.symbol {
-  	.iconFont;
-  }
+span.symbol {
+	.iconFont;
+}
 
-  .toolTitle {
-  	display: none !important;
-  	margin-left: 0.5em;
-  }
-  @media only screen and (min-width: 830px) {
-  	.toolTitle {
-  		display: inline !important;
-  	}
-  	ul.toolbar a {
-  		padding:  10px 23px 9px 23px;
-  	}
-  }
+.toolTitle {
+	display: none !important;
+	margin-left: 0.5em;
+}
+@media only screen and (min-width: 830px) {
+	.toolTitle {
+		display: inline !important;
+	}
+	ul.toolbar a {
+		padding:  10px 23px 9px 23px;
+	}
+}
 
 /* -----------------------------------------
    Dialogs
    ----------------------------------------- */
 
-   .touch .modal a.symbol {
-   	.iconFont;
-   	font-size: 34px;
-   	line-height: 50px;
-   	color: @mainColor;
-   }
+.touch .modal a.symbol {
+	.iconFont;
+	font-size: 34px;
+	line-height: 50px;
+	color: @mainColor;
+}
 
-   .touch .modal a:focus,
-   .touch .modal a:hover {
-   	color:@mainColor2;
-   }
+.touch .modal a:focus,
+.touch .modal a:hover {
+	color:@mainColor2;
+}
 
-   .reveal-modal .close-reveal-modal {
-   	top:8px;
-   }
+.reveal-modal .close-reveal-modal {
+	top:8px;
+}
 
-   .touch .reveal-modal .close-reveal-modal {
-   	top:0px;
-   }
+.touch .reveal-modal .close-reveal-modal {
+	top:0px;
+}
 
 // add feed
 .modal h4.add-feed  {

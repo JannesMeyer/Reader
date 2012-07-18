@@ -21,52 +21,54 @@
 </head>
 <body>
 	<!-- Header -->
-	<div class="row">
-		<header>
-			<!-- Logo -->
-			<div class="logo">
-				<h1><a href="/">inForm</a></h1> 
-			</div>
-			<!-- Toolbar -->
-			<div>
-				<ul class="toolbar">
-					<% if (!user) { %>
-					<li>
-						<a href="/login" data-reveal-id="modalLogin">
-							<span class="symbol">U</span><span class="hide-for-small toolTitle">Login</span>
-						</a>
-					</li>
-					<% } else { %>
-					<li>
-						<a href="/logout">
-							<span class="symbol">U</span><span class="hide-for-small toolTitle">Logout</span>
-						</a>
-					</li>
-					<% } %>
-					<li>
-						<a href="#">
-							<span class="symbol">R</span><span class="hide-for-small toolTitle">Favorit</span>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<span class="symbol">S</span><span class="hide-for-small toolTitle">Einstellungen</span>
-						</a>
-					</li>
-					<li>
-						<a href="#" data-reveal-id="modalAddFeed">
-							<span class="symbol">+</span><span class="hide-for-small toolTitle">Feed hinzufügen</span>
-						</a>
-					</li>
-					<li> <a href="#" data-reveal-id="modalDeleteFeed">
-							<span class="symbol">-</span><span class="hide-for-small toolTitle">Feed löschen</span>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</header>
-	</div>
-
+	<header>
+		<!-- Logo -->
+		<div class="logo">
+			<h1 class="row"><a href="/">inForm</a></h1> 
+		</div>
+		<!-- Toolbar -->
+		<div class="toolbar">
+			<ul class="row">
+				<% if (!user) { %>
+				<li>
+					<a href="/login" data-reveal-id="modalLogin">
+						<span class="symbol">U</span><span class="hide-for-small toolTitle">Login</span>
+					</a>
+				</li>
+				<% } else { %>
+				<li class="dropdown button">
+					<div>					
+						<span class="symbol">U</span><span class="hide-for-small toolTitle"><%= user.name %></span>
+					</div>
+					<ul>
+						<li><a href="/settings">Einstellungen</a></li>
+						<li><a href="/logout">Logout</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">
+						<span class="symbol">R</span><span class="hide-for-small toolTitle">Favorit</span>
+					</a>
+				</li>
+				<!--<li>
+					<a href="#">
+						<span class="symbol">S</span><span class="hide-for-small toolTitle">Einstellungen</span>
+					</a>
+				</li>-->
+				<% } %>
+				<li>
+					<a href="#" data-reveal-id="modalAddFeed">
+						<span class="symbol">+</span><span class="hide-for-small toolTitle">Feed hinzufügen</span>
+					</a>
+				</li>
+				<li>
+					<a href="#" data-reveal-id="modalDeleteFeed">
+						<span class="symbol">-</span><span class="hide-for-small toolTitle">Feed löschen</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</header>
 	<% if (user) { %>
 	Hallo <%= user.name %>
 	<% } %>
