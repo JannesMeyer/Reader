@@ -528,66 +528,50 @@ article figcaption {
 /* -----------------------------------------
    Menue-Leiste 
    ----------------------------------------- */
-   .feedNavigation {
-   	float: left !important;
-   	padding-left: 0px;
-   }
-
-// Desktopversion
-.nav-title {
-	background-color: @mainColor;
-	color: white;
-	padding-left: 5px;
+.feedNavigation {
+	float: left !important;
+	padding-left: 0px;
 }
-
-.nav-item a {
-	padding-left: 10px;
-}
-
-ul.side-nav li{
-	margin: 0 0 3px 0;
-}
-
-// Touchversion
-.touch ul.side-nav li{
-	background: #F2F2F2;
-	border: none;
-	border: 1px solid #E6E6E6;
-	border-width: 1px 1px 0 0;
-	color: #555;
-	display: block;
-	font-size: 14px;
-	height: auto;
-	line-height: 1;
-	margin:0;
-}
-
-.touch ul.side-nav li{
-	line-height: 44px;
-}
-
-.touch .nav-title {
-	color: white;
-}
-
-.touch ul.side-nav li.nav-title {
-	background-color: @mainColor;
-	border: none;
-	color: white;
-	// height: auto;
+// overwrite foundation
+ul.side-nav li {
 	margin: 0;
-	position: static;
-	top: 0;
-	color: #fff;
 }
-
-.touch ul.side-nav li:hover a,
-ul.toolbar li a:focus {
+.side-nav li:hover a,
+.toolbar li a:focus {
 	background-color: #444;
 }
-.ul.side-nav {
-	padding: 0;
-	margin-top: 1em;
+
+// desktop 
+.nav-title,
+.nav-item {
+	line-height: 34px;
+}
+// touch optimized height
+.touch .nav-title,
+.touch .nav-title {
+	line-height: 44px;
+}
+.nav-title {
+	border: none;
+	padding-left: 5px;
+	position: static;
+	top: 0;
+
+	color: white;
+	background-color: @mainColor;
+}
+
+.side-nav .nav-item {
+	border: 1px solid #E6E6E6;
+	display: block;
+	height: auto;
+
+	background: #F2F2F2;
+	color: #555;
+	font-size: 14px;
+}
+.nav-item a {
+	padding-left: 1em;
 }
 
 /* -----------------------------------------
