@@ -37,12 +37,12 @@
 				</li>
 				<% } else { %>
 				<li class="dropdown button">
-					<a href="/logout">
+					<div>					
 						<span class="symbol">U</span><span class="hide-for-small toolTitle"><%= user.name %></span>
-					</a>
+					</div>
 					<ul>
-						<li><a href="#">Einstellungen</a></li>
-						<li><a href="#">Logout</a></li>
+						<li><a href="/settings">Einstellungen</a></li>
+						<li><a href="/logout">Logout</a></li>
 					</ul>
 				</li>
 				<li>
