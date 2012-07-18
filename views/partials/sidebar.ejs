@@ -1,12 +1,17 @@
 <div class="four columns feedNavigation hide-for-small">
 	<div class="hide-for-portrait">
 		<ul class="side-nav">
-			<li class="nav-title">Kategorie</li>
-	    	<li class="nav-item"><a href="#">Politik</a></li>
-	    	<li class="nav-item"><a href="#">Sub Nav 3</a></li>
-			<li class="nav-title">Meine Feeds</li>
-	    	<li class="nav-item"><a href="#">Politik</a></li>
-	    	<li class="nav-item"><a href="#">Sub Nav 3</a></li>
+			<% if (user) { %>
+				<li class="nav-item"><a href="/favorites">Favoriten</a></li>
+				<li class="nav-title">Meine Feeds</li>
+				<% for (var i = 0; i < feeds.length; ++i) { %>
+					<% if (typeof currentFeed !== 'undefined' && currentFeed.id === feeds[i]._id.id) { %>
+					<li class="nav-item current"><a href="/feeds/<%= feeds[i]._id %>"><%= feeds[i].name %></a></li>
+					<% } else { %>
+					<li class="nav-item"><a href="/feeds/<%= feeds[i]._id %>"><%= feeds[i].name %></a></li>
+					<% } %>
+				<% } %>
+			<% } %>
 		</ul>
 	</div>
 </div>
