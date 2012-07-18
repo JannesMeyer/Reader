@@ -69,7 +69,9 @@
 			</ul>
 		</div>
 	</header>
-
+	<% if (user) { %>
+	Hallo <%= user.name %>
+	<% } %>
 	<div class="row">
 		<%- body %>
 	</div>
@@ -79,20 +81,15 @@
 
     <!-- Modals -->
     <% if (!user) { %>
-	<div id="modalLogin" class="reveal-modal modal login">
-		<h4>Einloggen</h4>
-		<%- partial('partials/login') %>
-		<a class="close-reveal-modal symbol">×</a>
+	<div id="modalLogin" class="reveal-modal">
+		<%- partial('partials/login_dialog') %>
 	</div>
-	<div id="modalRegister" class="reveal-modal modal register">
-		<h4>Registrieren</h4>
+	<div id="modalRegister" class="reveal-modal">
 		<%- partial('partials/register') %>
-		<a class="close-reveal-modal symbol">×</a>
 	</div>
 	<% } %>
-	<div id="modalAddFeed" class="reveal-modal modal add-feed">
+	<div id="modalAddFeed" class="reveal-modal">
 		<%- partial('partials/add_feed') %>
-		<a class="close-reveal-modal symbol">×</a>
 	</div>
 
 	<!-- JavaScript -->
