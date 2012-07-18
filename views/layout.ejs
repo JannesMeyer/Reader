@@ -19,7 +19,7 @@
 	<![endif]-->
 
 </head>
-<body>
+<body class="">
 	<!-- Header -->
 	<header>
 		<!-- Logo -->
@@ -110,6 +110,10 @@
 	<% } %>
 	<div id="modalAddFeed" class="reveal-modal modal add-feed">
 		<%- partial('partials/add_feed') %>
+		<a class="close-reveal-modal symbol">×</a>
+	</div>
+	<div id="modalDeleteFeed" class="reveal-modal modal delete-feed">
+		<%- partial('partials/delete_feed') %>
 		<a class="close-reveal-modal symbol">×</a>
 	</div>
 
