@@ -20,51 +20,50 @@
 </head>
 <body>
 	<!-- Header -->
-	<div class="row">
-		<header>
-			<!-- Logo -->
-			<div class="logo">
-				<h1><a href="/">inForm</a></h1> 
-			</div>
-			<!-- Toolbar -->
-			<div>
-				<ul class="toolbar">
-					<% if (!user) { %>
-					<li>
-						<a href="/login" data-reveal-id="modalLogin">
-							<span class="symbol">U</span><span class="hide-for-small toolTitle">Login</span>
-						</a>
-					</li>
-					<% } else { %>
-					<li>
-						<a href="/logout">
-							<span class="symbol">U</span><span class="hide-for-small toolTitle">Logout</span>
-						</a>
-					</li>
-					<% } %>
-					<li>
-						<a href="#">
-							<span class="symbol">R</span><span class="hide-for-small toolTitle">Favorit</span>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<span class="symbol">S</span><span class="hide-for-small toolTitle">Einstellungen</span>
-						</a>
-					</li>
-					<li>
-						<a href="#" data-reveal-id="modalAddFeed">
-							<span class="symbol">+</span><span class="hide-for-small toolTitle">Feed hinzufügen</span>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</header>
-	</div>
+	<header>
+		<!-- Logo -->
+		<div class="logo">
+			<h1 class="row"><a href="/">inForm</a></h1> 
+		</div>
+		<!-- Toolbar -->
+		<div class="toolbar">
+			<ul class="row">
+				<% if (!user) { %>
+				<li>
+					<a href="/login" data-reveal-id="modalLogin">
+						<span class="symbol">U</span><span class="hide-for-small toolTitle">Anmelden</span>
+					</a>
+				</li>
+				<% } else { %>
+				<li class="dropdown button">
+					<a href="/logout">
+						<span class="symbol">U</span><span class="hide-for-small toolTitle"><%= user.name %></span>
+					</a>
+					<ul>
+						<li><a href="#">Einstellungen</a></li>
+						<li><a href="#">Logout</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">
+						<span class="symbol">R</span><span class="hide-for-small toolTitle">Favorit</span>
+					</a>
+				</li>
+				<!--<li>
+					<a href="#">
+						<span class="symbol">S</span><span class="hide-for-small toolTitle">Einstellungen</span>
+					</a>
+				</li>-->
+				<% } %>
+				<li>
+					<a href="#" data-reveal-id="modalAddFeed">
+						<span class="symbol">+</span><span class="hide-for-small toolTitle">Feed hinzufügen</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</header>
 
-	<% if (user) { %>
-	Hallo <%= user.name %>
-	<% } %>
 	<div class="row">
 		<%- body %>
 	</div>
@@ -74,15 +73,20 @@
 
     <!-- Modals -->
     <% if (!user) { %>
-	<div id="modalLogin" class="reveal-modal">
-		<%- partial('partials/login_dialog') %>
+	<div id="modalLogin" class="reveal-modal modal login">
+		<h4>Einloggen</h4>
+		<%- partial('partials/login') %>
+		<a class="close-reveal-modal symbol">×</a>
 	</div>
-	<div id="modalRegister" class="reveal-modal">
+	<div id="modalRegister" class="reveal-modal modal register">
+		<h4>Registrieren</h4>
 		<%- partial('partials/register') %>
+		<a class="close-reveal-modal symbol">×</a>
 	</div>
 	<% } %>
-	<div id="modalAddFeed" class="reveal-modal">
-		<%- partial('partials/add_feed_dialog') %>
+	<div id="modalAddFeed" class="reveal-modal modal add-feed">
+		<%- partial('partials/add_feed') %>
+		<a class="close-reveal-modal symbol">×</a>
 	</div>
 
 	<!-- JavaScript -->

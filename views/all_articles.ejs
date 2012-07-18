@@ -4,16 +4,14 @@
 </div>
 
 <!-- Seiteninhalt -->
-<div class="eight columns artikel">
+<div class="eight columns m-artikel">
 	<ul>
-		<% for (var i = 0; i < articles.length; i++) { %>
-		<li class="artikel clearfix">
-			<a href="/articles/<%= articles[i].id %>">
-				<img src="<%= articles[i].image %>" />
-				<article >
-					<h4><%= articles[i].title %></h4>
-					<p><%= articles[i].text %></p>
-				</article>
+		<%= articles.length %>
+		<% for (var i = 0; i < articles.length; ++i) { %>
+		<li>
+			<a href="/articles/<%= articles[i]._id %>">
+				<h4><%= articles[i].title %></h4>
+				<p><%= articles[i].text %></p>
 			</a>
 		</li>
 		<% } %>
