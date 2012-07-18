@@ -116,6 +116,10 @@ li {
 	display: block;
 }
 
+.centered {
+	text-align: center;
+}
+
 /* -----------------------------------------
    Header
    ----------------------------------------- */
@@ -660,15 +664,47 @@ span.symbol {
 .touch .reveal-modal .close-reveal-modal {
 	top:0px;
 }
+#colorpicker {
 
-// add feed
-#colorpicker .selected {
-	border: 1px solid #00f;
+}
+
+#colorpicker span{
+	width: 44px;
+	height: 44px;
+	background-color: green;
+	padding: 10px;
+	display: inline-block;
+	border: 1px solid white;
+	-webkit-transform:rotate(0deg);
+  	-webkit-transition: -webkit-transform 0.3s;
 }
 
 .modal .button {
 	width: auto !important;
+	padding: 7px 11px;
 }
+
+
+
+// add feed
+#colorpicker .selected {
+	position: relative;
+	box-shadow: none;
+	-moz-transform:rotate(-30deg); /* Firefox 3.6 Firefox 4 */
+	-webkit-transform:rotate(-30deg); /* Safari */
+	-o-transform:rotate(-30deg); /* Opera */
+	-ms-transform:rotate(-30deg); /* IE9 */
+	transform:rotate(-30deg); /* W3C */
+	z-index:1000;
+	box-shadow: 2px 2px 5px 0px #888;
+}
+
+// delete feed 
+.delete-feed .button {
+ 	margin: 5px;
+ 	display: inline-block;
+}
+
 
 .modal select {
 	height: 29px;
@@ -676,8 +712,14 @@ span.symbol {
 	overflow: hidden;
 	background: url(/images/arrow.svg) no-repeat right #ddd;
 	border: 1px solid #CCC;
-
 }
 
+.delete-feed-container .close-reveal-modal {
+	position: relative;
+	margin: 5px;
+	color: #fff;
+	padding: 7px 11px;
+	line-height: 21px;
+}
 
 
