@@ -72,6 +72,7 @@ module.exports = function(app, db, passport) {
 
 	/*
 	 * GET /login
+	 * (auch als modaler Dialog eingebunden)
 	 */
 	app.get('/login', prepareRendering, function(req, res) {
 		req.data.title = 'Einloggen';
@@ -90,6 +91,7 @@ module.exports = function(app, db, passport) {
 
 	/*
 	 * GET /register
+	 * (auch als modaler Dialog eingebunden)
 	 */
 	app.get('/register', prepareRendering, function(req, res) {
 		req.data.title = 'Registrieren';
@@ -115,7 +117,7 @@ module.exports = function(app, db, passport) {
 
 	/*
 	 * GET /add-feed
-	 * (auch als modaler )
+	 * (auch als modaler Dialog eingebunden)
 	 */
 	app.get('/add-feed', ensureAuthenticated, prepareRendering, function(req, res) {
 		req.data.title = 'Feed hinzufügen';
@@ -177,8 +179,11 @@ module.exports = function(app, db, passport) {
 	 * GET /feeds/:id
 	 */
 	app.get('/feeds/:id', prepareRendering, function(req, res) {
-		db.articles.find({feed: new ObjectId(req.params.id)}).toArray(function(err, articles) {
-			//req.data.title = feed.title;
+		var requestedFeed = new ObjectId(req.params.id);
+		db.articles.find({feed: requestedFeed}).toArray(function(err, articles) {
+			req.data.title = 'Feed';
+
+			req.data.currentFeed = requestedFeed;
 			req.data.articles = articles;
 			res.render('all_articles', req.data);
 		});
