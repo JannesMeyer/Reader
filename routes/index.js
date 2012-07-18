@@ -47,7 +47,7 @@ module.exports = function(app, db, passport) {
 		});
 		} else {
 		// Not logged in; show different page
-		res.render('index', data);
+		res.render('start', data);
 		}
 	});
 
@@ -100,6 +100,7 @@ module.exports = function(app, db, passport) {
 
 	/*
 	 * GET /add-feed
+	 * (auch als modaler )
 	 */
 	app.get('/add-feed', ensureAuthenticated, function(req, res) {
 		var data = {
@@ -167,9 +168,8 @@ module.exports = function(app, db, passport) {
 			title: 'Artikel',
 			user: req.user
 		};
-		db.articles.find({feed: req.params.id}).toArray(function(err, articles) {
+		db.articles.find({feed: new ObjectId(req.params.id)}).toArray(function(err, articles) {
 			data.articles = articles;
-			console.log(articles);
 			// Render the template
 			res.render('all_articles', data);
 		});
