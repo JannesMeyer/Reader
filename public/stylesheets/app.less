@@ -13,7 +13,7 @@
 
 /* -----------------------------------------
    Variables
------------------------------------------ */
+   ----------------------------------------- */
 
 // Colors
 @mainColor: #00A6FC;
@@ -32,7 +32,7 @@
 
 /* -----------------------------------------
    Mixins
------------------------------------------ */
+   ----------------------------------------- */
 @import "elements.less";
 
 .border-active(@width: 3px, @color: @mainColor) {
@@ -42,14 +42,14 @@
 
 /* -----------------------------------------
    Shared Styles
------------------------------------------ */
+   ----------------------------------------- */
 @font-face { 
 	font-family: 'WebSymbolsRegular';
 	src: url('../fonts/websymbols-regular-webfont.eot');
 	src: url('../fonts/websymbols-regular-webfont.eot?#iefix') format('embedded-opentype'),
-	     url('../fonts/websymbols-regular-webfont.woff') format('woff'),
-	     url('../fonts/websymbols-regular-webfont.ttf') format('truetype'),
-	     url('../fonts/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
+	url('../fonts/websymbols-regular-webfont.woff') format('woff'),
+	url('../fonts/websymbols-regular-webfont.ttf') format('truetype'),
+	url('../fonts/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
 }
 
 .iconFont {
@@ -59,6 +59,13 @@
 body { 
 	min-width: 320px;
 	font-family: sans-serif;
+}
+
+.s-visible { // State: visible
+	display: block;
+}
+.s-invisible { // State: invisible
+	display: none;
 }
 
 .eight.columns {
@@ -101,7 +108,7 @@ li {
 
 /* -----------------------------------------
    Header
------------------------------------------ */
+   ----------------------------------------- */
 
 header {
 	text-align: center;
@@ -123,8 +130,8 @@ header h1 a:hover {
 
 /* -----------------------------------------
    Swipe Tabs
------------------------------------------ */
-/* Tabs */
+   ----------------------------------------- */
+   /* Tabs */
 
 #tabSelector {
 	margin-bottom: 1em;
@@ -133,30 +140,30 @@ header h1 a:hover {
 	// margin-top: 1em;
 }
 .base-tabs {
-  border-bottom:1px #DADDE0 solid;
-  padding:5px 4px 0;
-  cursor: pointer;
+	border-bottom:1px #DADDE0 solid;
+	padding:5px 4px 0;
+	cursor: pointer;
 }
 .base-tabs li {
-  position:relative;
-  top:1px;
-  font-size: 13px;
-  color:#878E92;
-  padding: 12px 12px 11px;
-  margin: 0;
-  font-weight:bold;
-  display:inline-block;
-  background:#F5F6F7;
-  border:1px #DADDE0 solid;
-  border-bottom:0;
-  border-bottom:1px #DADDE0 solid;
+	position:relative;
+	top:1px;
+	font-size: 13px;
+	color:#878E92;
+	padding: 12px 12px 11px;
+	margin: 0;
+	font-weight:bold;
+	display:inline-block;
+	background:#F5F6F7;
+	border:1px #DADDE0 solid;
+	border-bottom:0;
+	border-bottom:1px #DADDE0 solid;
 }
 .base-tabs li.on {
-    background:#fff;
-    padding: 12px;
-    color:#505659;
-    border-bottom:0;
-    border-top: 3px solid @mainColor;
+	background:#fff;
+	padding: 12px;
+	color:#505659;
+	border-bottom:0;
+	border-top: 3px solid @mainColor;
 }
 #tabs ul li ul {
 	margin-left: -5px;
@@ -165,7 +172,7 @@ header h1 a:hover {
 
 /* -----------------------------------------
    Feature (Swipe Gallery)
------------------------------------------ */
+   ----------------------------------------- */
 .slider {
 	.iconFont;
 	.rounded(9999px);
@@ -180,7 +187,7 @@ header h1 a:hover {
 
 /* -----------------------------------------
    Login
------------------------------------------ */
+   ----------------------------------------- */
 
 form input {
 	background-color: whitesmoke;
@@ -253,23 +260,39 @@ input::-webkit-input-placeholder {
 .button:hover {
 	background-color: @hoverColor;
 }
-.sliderButton {
-	display: block;
-	margin: 0 auto;
-	margin-top: -12px;
-	.iconFont;
-	color: @mainColor;
-	font-size: 2.5em;
-	text-align: center;
-	cursor: pointer;
-}
-.sliderButton a {
-	margin: 1em;
+
+/* -----------------------------------------
+   Page Navigation
+   ----------------------------------------- */
+.page-navigation {
+	.title {
+		margin-top: 4px;
+
+		text-align: center;
+		font-weight: bold;
+		color: #2496B9;
+	}
+	a {
+		padding: 0.4em 0.6em;
+		font-size: 1.5em;
+
+		.iconFont;
+		color: @mainColor;
+	}
+	div {
+		display: block;
+	}
+	.previous {
+		text-align: left;
+	}
+	.next {
+		text-align: right;
+	}
 }
 
 /* -----------------------------------------
    Artikelübersicht
------------------------------------------ */
+   ----------------------------------------- */
 .pre_image {
 	background-image: url('../images/test.jpg');
 	width:37%;
@@ -318,10 +341,10 @@ input::-webkit-input-placeholder {
 
 
 .artikel h4 {
- 	font-size: 2rem; 
- 	font-style: italic;
- 	color: #4d4d4d;
- 	margin-bottom: 0.6rem;
+	font-size: 2rem; 
+	font-style: italic;
+	color: #4d4d4d;
+	margin-bottom: 0.6rem;
 }
 
 .artikel a:focus,
@@ -334,7 +357,7 @@ input::-webkit-input-placeholder {
 	float: right;
 	height: 100px;
 	padding-left: 20px;
-	}
+}
 
 
 .artikel li:hover {
@@ -351,49 +374,50 @@ input::-webkit-input-placeholder {
 
 /* -----------------------------------------
    Artikel
------------------------------------------ */
-#articleSwipe article p {
-	padding: 0 1em;
-}
-#articleSwipe article h2 {
-	padding: 0 0.6em;
-}
+   ----------------------------------------- */
+   #articleSwipe article p {
+   	padding: 0 1em;
+   }
+   #articleSwipe article h2 {
+   	padding: 0 0.6em;
+   }
 
-article h6 {
-	text-align: center;
-	font-size: 1.2rem;
-	margin-bottom: 2rem;
-}
+   article h6 {
+   	text-align: center;
+   	font-size: 1.2rem;
+   	margin-bottom: 2rem;
+   }
 
-.feed_title img {
-	height: 2rem;
-	position: relative;
-	top: 0.6rem;
-	margin-right: 0.4rem;
-}
+   .feed_title img {
+   	height: 2rem;
+   	position: relative;
+   	top: 0.6rem;
+   	margin-right: 0.4rem;
+   }
 
-article h2 {
-	font-size: 2rem;
-	line-height: 1.2;
-}
+   article h2 {
+   	font-size: 2rem;
+   	line-height: 1.2;
+   }
 
-article p {
-	line-height: 1.6;
-}
+   article p {
+   	line-height: 1.6;
+   }
 
-.teaser {
-	font-weight: bold;
-}
+   .teaser {
+   	font-weight: bold;
+   }
 
-figure.article_image {
-	width: 75%;
-	margin: 1em auto;
-}
+   figure.article_image {
+   	width: 75%;
+   	margin: 1em auto;
+   }
 
-figure img {
-}
-figcaption {	
-	font-size: 1.2rem;
+   figure img {
+   }
+
+   figcaption {	
+   	font-size: 1.2rem;
 	// margin-top: -1.8em;
 }
 article figcaption {
@@ -409,80 +433,105 @@ article figcaption {
 	//     margin-left: 0;
 	//     margin-right: 0;
 	//   }
-	.column, .columns {
-	width: 100% !important;
-	float: none;
+	.column,
+	.columns {
+		width: 100% !important;
+		float: none;
 	}	
 }
 @media screen and (min-width: 650px) and (max-width: 800px) {
 	.feedNavigation {
 		display: none !important;
 	}
-	.column, .columns {
+	.column,
+	.columns {
 		width: 100% !important;
 	}
 }
 
 /* -----------------------------------------
    Feed Übersicht
------------------------------------------ */
-figure {
-	margin: 0;
-}
-figure img {
-	min-width: @feedTileSize-min;
-}
+   ----------------------------------------- */
+.m-allfeeds {
+   	.block-grid.three-up {
+		margin: 0;	// prevent overflow to next tab
+	}
 
-.fallback {
-	max-height: 128px;
-	max-width: 128px;
-	background-color: #007180;
-	text-align: center;
-	padding: 0px;
-	font-size: 6em;
-	color: white;
-	font-family: times;
-	font-style: italic;
-}
+	.feed {
 
-.block-grid.three-up {
-	margin: 0;	// prevent overflow to next tab
-}
-#feed_image {
-	position: relative;
-}
-.notification {
-	display: block;
-	background-color: #D50000;
-	color: white;
-	padding: 0.1em 0.5em;
-	// width: 1.5em;
-	// height: 1.5em;
-	border: 1px solid white;
-	position: absolute;
-	top: 0;
-	font-size: 0.8em;
-}
-.feed-character {
-	display: block;
-	color: white;
-	padding: 0.1em 0.5em;
-	// width: 1.5em;
-	// height: 1.5em;
-	position: absolute;
-	top: 0;
-	font-size: 5em;
-}
+		.feed-link {
+			display: block;
+			position: relative;
+		}
+		figure {
+			margin: 0;
+		}
 
+		/* Image exists */
+		// figure img {
+		// 	//min-width: @feedTileSize-min;
+		// 	width: 100%;
+		// }
+		/* No image exists */
+		.feed-image {
+			display: block;
+			height: 110px;
+			background-color: #007180;
+		}
+		.feed-image.image {
+			background-image: url('http://www.w3schools.com/images/compatible_safari.gif');
+			background-size: cover;
+			background-position: center;
+		}
+		.feed-image.fallback {
+			font-size: 3em;
+			line-height: 94px;
 
+			color: white;
+			font-family: sans-serif;
+			text-align: center;
+			text-transform: uppercase;
+		}
+		.feed-title {
+			display: block;
+			position: absolute;
+			width: 100%;
+			bottom: 0;
+			padding: 0 1em;
+			padding-right: 0.4em;
+
+			background: rgba(0, 0, 0, 0.2);
+			color: white;
+			font-size: 1.1em;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.notification {
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			padding: 0.1em 0.5em;
+			border: 1px solid white;
+			border-right: none;
+			border-top: none;
+			font-size: 0.8em;
+
+			background-color: #D50000;
+			color: white;
+		}
+	}
+}
 
 /* -----------------------------------------
    Menue-Leiste 
------------------------------------------ */
-.feedNavigation {
-	float: left !important;
-	padding-left: 0px;
-}
+   ----------------------------------------- */
+   .feedNavigation {
+   	float: left !important;
+   	padding-left: 0px;
+   }
 
 // Desktopversion
 .nav-title {
@@ -543,93 +592,93 @@ ul.toolbar li a:focus {
 
 /* -----------------------------------------
   Toolbar
------------------------------------------ */
+  ----------------------------------------- */
 
-.toolbar {
-	background-color: @mainColor;
-	height: 40px;
-	margin: 0;
-	padding: 0;
-}
+  .toolbar {
+  	background-color: @mainColor;
+  	height: 40px;
+  	margin: 0;
+  	padding: 0;
+  }
 
-.toolbar > ul > li {
-	float: right;
-}
+  .toolbar > ul > li {
+  	float: right;
+  }
 
-.toolbar > ul > li > a {
-	color: white;
-	font-size: 16px;
-	padding: 0 23px;
-	display: inline-block;
-}
+  .toolbar > ul > li > a {
+  	color: white;
+  	font-size: 16px;
+  	padding: 0 23px;
+  	display: inline-block;
+  }
 
-.toolbar > ul > li:not(.button) > a {
-	line-height: 38px;
-}
+  .toolbar > ul > li:not(.button) > a {
+  	line-height: 38px;
+  }
 
-.toolbar > ul > li:not(.button):hover a,
-.toolbar > ul > li:not(.button):focus a {
-	background-color: @hoverColor;
-}
+  .toolbar > ul > li:not(.button):hover a,
+  .toolbar > ul > li:not(.button):focus a {
+  	background-color: @hoverColor;
+  }
 
-.toolbar > ul > li.button {
-	border: 1px solid transparent;
-	box-shadow: none;
-	font-weight: normal;
-	padding: 0;
-	padding-left: 23px;
-	padding-right: 44px;
-	-webkit-transition: none;
-	-moz-transition: none;
-	-o-transition: none;
-	transition: none;
-}
-.toolbar > ul > li.button > a {
-	padding: 0;
-	line-height: 38px;
-}
+  .toolbar > ul > li.button {
+  	border: 1px solid transparent;
+  	box-shadow: none;
+  	font-weight: normal;
+  	padding: 0;
+  	padding-left: 23px;
+  	padding-right: 44px;
+  	-webkit-transition: none;
+  	-moz-transition: none;
+  	-o-transition: none;
+  	transition: none;
+  }
+  .toolbar > ul > li.button > a {
+  	padding: 0;
+  	line-height: 38px;
+  }
 
-	
-span.symbol {
-	.iconFont;
-}
 
-.toolTitle {
-	display: none !important;
-	margin-left: 0.5em;
-}
-@media only screen and (min-width: 830px) {
-	.toolTitle {
-		display: inline !important;
-	}
-	ul.toolbar a {
-		padding:  10px 23px 9px 23px;
-	}
-}
+  span.symbol {
+  	.iconFont;
+  }
+
+  .toolTitle {
+  	display: none !important;
+  	margin-left: 0.5em;
+  }
+  @media only screen and (min-width: 830px) {
+  	.toolTitle {
+  		display: inline !important;
+  	}
+  	ul.toolbar a {
+  		padding:  10px 23px 9px 23px;
+  	}
+  }
 
 /* -----------------------------------------
    Dialogs
------------------------------------------ */
+   ----------------------------------------- */
 
-.touch .modal a.symbol {
-	.iconFont;
-	font-size: 34px;
-	line-height: 50px;
-	color: @mainColor;
-}
+   .touch .modal a.symbol {
+   	.iconFont;
+   	font-size: 34px;
+   	line-height: 50px;
+   	color: @mainColor;
+   }
 
-.touch .modal a:focus,
-.touch .modal a:hover {
-	color:@mainColor2;
-}
+   .touch .modal a:focus,
+   .touch .modal a:hover {
+   	color:@mainColor2;
+   }
 
-.reveal-modal .close-reveal-modal {
-	top:8px;
-}
+   .reveal-modal .close-reveal-modal {
+   	top:8px;
+   }
 
-.touch .reveal-modal .close-reveal-modal {
-	top:0px;
-}
+   .touch .reveal-modal .close-reveal-modal {
+   	top:0px;
+   }
 
 // add feed
 .modal h4.add-feed  {

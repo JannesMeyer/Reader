@@ -2,8 +2,8 @@
 <%- partial('partials/sidebar') %>
 
 <!-- Seiteninhalt -->
-<div class="eight columns">
-	<p><%= feeds[0].name %></p>
+<div class="eight columns m-allfeeds">
+	<!-- Tabs are only visible on narrow screens -->
 	<ul id="tabSelector" class="base-tabs show-for-small">
 		<li class="on">Kategorien</li>
 		<li>Meine Feeds</li>
@@ -12,22 +12,29 @@
 
 	<div id="tabs">
 		<ul>
-			<!-- Page 1 -->
-			<li style="display:block">
+			<!-- Tab 1 -->
+			<li class="s-visible">
 				<%- partial('partials/sliderButtons') %>
-				<ul class="block-grid three-up">
-					<% for (var i=0; i<6; i++) { %>
-					<li>
-						<figure>
-							<div id="feed_image">
-								<img src="http://lorempixel.com/128/128" />
-								<span class="notification">1</span>
-							</div>
-							<figcaption>Bildunterschrift</figcaption>
-						</figure>
+				<ul class="block-grid three-up mobile">
+					<% for (var i = 0; i < feeds.length; ++i) { %>
+					<!-- Feed -->
+					<li class="feed">
+						<a href="/feeds/<%= feeds[i]._id %>" class="feed-link">
+								<% if (feeds[i].image_path) { %>
+								<div class="feed-image image" style="background-image: url('http://lorempixel.com/128/128')"></div>
+								<% } else { %>
+								<div class="feed-image fallback"><%= feeds[i].name[0] %></div>
+								<% } %>
+
+								<% feeds[i].unread = Math.floor(Math.random()*10) %>
+								<% if (feeds[i].unread > 0) { %>
+								<span class="notification"><%- feeds[i].unread %></span>
+								<% } %>
+								<span class="feed-title"><%= feeds[i].name %></span>
+						</a>
 					</li>
 					<% } %>
-					<li>
+					<!--<li>
  	           			<figure>
 							<div id="feed_image">
 								<img src="images/fallback.png" />
@@ -36,27 +43,26 @@
 							</div>
 							<figcaption>Bildunterschrift</figcaption>
 						</figure>
-					</li>
+					</li>-->
 				</ul>
 			</li>
-
-			<li style="display:none">
+			<!-- Tab 2 -->
+			<li class="s-invisible">
 				<%- partial('partials/sliderButtons') %>
 				<ul class="block-grid three-up">
 					<% for (var i=0; i<4; i++) { %>
 					<li>
 						<figure>
-							<div id="feed_image">
-								<img src="http://lorempixel.com/128/128" />
-								<span class="notification">1</span>
-							</div>
+							<img src="http://lorempixel.com/128/128" class="fallback" />
+							<span class="notification">10</span>
 							<figcaption>Bildunterschrift</figcaption>
 						</figure>
 					</li>
 					<% } %>
 				</ul>
 			</li>
-			<li style="display:none">
+			<!-- Tab 3 -->
+			<li class="s-invisible">
 				<%- partial('partials/sliderButtons') %>
 				<ul class="block-grid three-up">
 					<% for (var i=0; i<9; i++) { %>
@@ -72,8 +78,7 @@
 					<% } %>
 				</ul>
 			</li>
-
+			<!-- Tabs end -->
 		</ul>
 	</div>
-
 </div>

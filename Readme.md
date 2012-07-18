@@ -48,4 +48,4 @@ Server automatisch neustarten
 
 2. Server starten:
 
-    `supervisor -w routes,app.js app.js`
+    `supervisor -n exit -w app.js,routes app.js`
