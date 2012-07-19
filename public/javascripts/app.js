@@ -103,19 +103,25 @@ jQuery(document).ready(function ($) {
 	groesse = 0;
 	function setTextSize(groesse) {
 		if (groesse===-1) {
-			$("#articleSwipe article").addClass("sizepercentage-smaller");
 			$("#articleSwipe article").removeClass("sizepercentage-bigger");
+			$("#articleSwipe article").addClass("sizepercentage-smaller");
 			groesse = -1;
+			$(".artikel a").removeClass("sizepercentage-smaller");
+			$(".artikel a").addClass("sizepercentage-smaller");
 		}
 		else if(groesse===1) {
-			$("#articleSwipe article").addClass("sizepercentage-bigger");
 			$("#articleSwipe article").removeClass("sizepercentage-smaller");
+			$("#articleSwipe article").addClass("sizepercentage-bigger");
+			$(".artikel a").removeClass("sizepercentage-smaller");
+			$(".artikel a").addClass("sizepercentage-bigger");
 			groesse = 1;
 		}
 	}
 	function resetTextSize() {
 		$("#articleSwipe article").removeClass("sizepercentage-bigger");
 		$("#articleSwipe article").removeClass("sizepercentage-smaller");
+		$(".artikel a").removeClass("sizepercentage-bigger");
+		$(".artikel a").removeClass("sizepercentage-smaller");
 		groesse = 0;
 		console.log("resize");
 	}

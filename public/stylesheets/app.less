@@ -120,7 +120,12 @@ li {
 	border: 1px solid white;
 }
 
-.dark p, .dark h2, .dark h6, .dark h4, .dark figcaption {
+.dark p,
+.dark h2, 
+.dark h6, 
+.dark h4, 
+.dark .artikel h4, 
+.dark figcaption {
 	color: white;
 }
 
@@ -165,11 +170,13 @@ border: 1px solid #F2F2F2;
 /* -----------------------------------------
    Font Size Scalable
    ----------------------------------------- */
-#articleSwipe article.sizepercentage-smaller {
+#articleSwipe article.sizepercentage-smaller,
+.m-artikel > ul > li > a.sizepercentage-smaller {
 	font-size:0.7em;
  }
 
- #articleSwipe article.sizepercentage-bigger {
+ #articleSwipe article.sizepercentage-bigger,
+.m-artikel > ul > li > a.sizepercentage-bigger {
 	font-size:1.3em;
  }
 
@@ -377,6 +384,7 @@ input::-webkit-input-placeholder {
 .artikel {
 	min-height: 100px;
 	margin-bottom: 2rem;
+	padding:0.5em;
 }
 
 .artikel a {
@@ -386,7 +394,7 @@ input::-webkit-input-placeholder {
 }
 
 .artikel h4 {
-	font-size: 2rem; 
+	font-size: 125%;
 	font-style: italic;
 	color: #4d4d4d;
 	margin-bottom: 0.6rem;
@@ -396,12 +404,21 @@ input::-webkit-input-placeholder {
 	background-color: #eee;
 }
 
+.artikel p {
+	font-size: 100%;
+}
 
 .artikel img {
 	float: right;
 	height: 100px;
 	margin-left: 20px;
 }
+
+.m-artikel {
+	font-size: 1.0.em;
+
+}
+
 
 /* -----------------------------------------
    Artikel
