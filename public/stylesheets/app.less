@@ -139,6 +139,9 @@ li {
 	border-bottom:0;
 }
 
+.dark .side-nav li:hover a {
+	background-color: #333;
+}
 .dark .base-tabs li.on {
 	border-top: 1px solid #333;
 }
@@ -381,7 +384,6 @@ input::-webkit-input-placeholder {
 	}
 
 	.artikel {
-		min-height: 100px;
 		margin-bottom: 2rem;
 		padding: 11px 14px;
 	}
@@ -391,14 +393,9 @@ input::-webkit-input-placeholder {
 		padding-right:0.5em;
 	}
 
-	.artikel {
-		min-height: 100px;
-		margin-bottom: 2rem;
-		padding:0.5em;
-	}
 	.artikel h4 {
 		margin: 0;
-		font-size: 2rem; 
+		font-size: 120%; 
 		font-style: italic;
 		color: #4d4d4d;
 		margin-bottom: 0.6rem;
@@ -664,16 +661,13 @@ ul.side-nav li {
 	line-height: 34px;
 }
 
-.nav-item a[href="/favorites"] {
-	font-weight: bold;
-}
 .nav-item a[href="/favorites"] .symbol {
 	margin-right: 1em;
 	font-size: 1.1em;	
 }
 // touch optimized height
 .touch .nav-title,
-.touch .nav-title {
+.touch .nav-item {
 	line-height: 44px;
 }
 .nav-title {
@@ -683,6 +677,7 @@ ul.side-nav li {
 	top: 0;
 
 	color: white;
+	font-weight: bold;
 	background-color: @mainColor;
 }
 
