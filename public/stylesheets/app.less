@@ -364,43 +364,63 @@ input::-webkit-input-placeholder {
 /* -----------------------------------------
    Artikelübersicht
    ----------------------------------------- */
+.m-artikel {
+	h2 {
+		margin: 0;
+		margin-bottom: 0.9em;
+		font-size: 2em;
+		padding-left: 14px;
+	}
 
-.artikel span {
-	.iconFont;
-	padding-right:0.5em;
+	.artikel {
+		min-height: 100px;
+		margin-bottom: 2rem;
+		padding: 11px 14px;
+	}
+
+	.artikel span {
+		.iconFont;
+		padding-right:0.5em;
+	}
+
+	.artikel h4 {
+		margin: 0;
+		font-size: 2rem; 
+		font-style: italic;
+		color: #4d4d4d;
+		margin-bottom: 0.6rem;
+	}
+
+	.artikel a {
+		display: block;
+		height: 100%;
+		color: #666;
+	}
+
+	.artikel:hover,
+	.artikel:hover h4,
+	.artikel:hover a {
+		color: darken(@mainColor, 10%);
+		background: #f6f6f6;
+	}
+
+	.artikel img {
+		float: right;
+		height: 100px;
+		margin-left: 20px;
+	}
 }
 
-.artikel h4 {
-	display:inline;
-}
-
-.artikel {
-	min-height: 100px;
-	margin-bottom: 2rem;
-}
-
-.artikel a {
-	display: block;
-	height: 100%;
-	color: #666;
-}
-
-.artikel h4 {
-	font-size: 2rem; 
-	font-style: italic;
-	color: #4d4d4d;
-	margin-bottom: 0.6rem;
-}
-
-.artikel:hover {
-	background-color: #eee;
-}
-
-
-.artikel img {
-	float: right;
-	height: 100px;
-	margin-left: 20px;
+.dark .m-artikel {
+	.artikel:hover,
+	.artikel:hover h2,
+	.artikel:hover h4,
+	.artikel:hover h6,
+	.artikel:hover p,
+	.artikel:hover a {
+		color: lighten(@mainColor, 10%);
+		background: #555;
+	}
 }
 
 /* -----------------------------------------

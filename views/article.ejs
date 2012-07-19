@@ -3,16 +3,19 @@
 
 <!-- Seiteninhalt -->
 <div class="eight columns">
-	<%- partial('partials/sliderButtons') %>
+	<%- partial('partials/sliderButtons', {pageTitle: currentFeed.title}) %>
 	<div id="articleSwipe">
-		<article>
-			<h6 class="feed_title"><%= currentFeed.title %></h6>
-			<% var date = article.updated_at %>
-			<div class="date"><%= date.getHours() %>:<%= date.getMinutes() %> Uhr, <%= date.getDay() %>.<%= date.getMonth() %>.<%= date.getFullYear() %></div>
-			<h2><a href="<%= article.link %>"><%= article.title %></a></h2>
-			<div class="content">
-				<%- article.text %>
-			</div>
-		</article>
+		<div>
+			<% for (var i = 0; i < 3; ++i) { %>
+			<article style="display: block">
+				<% var date = article.updated_at %>
+				<div class="date"><%= date.getHours() %>:<%= date.getMinutes() %> Uhr, <%= date.getDay() %>.<%= date.getMonth() %>.<%= date.getFullYear() %></div>
+				<h2><a href="<%= article.link %>"><%= article.title %></a></h2>
+				<div class="content">
+					<%- article.text %>
+				</div>
+			</article>
+			<% } %>
+		</div>
 	</div>
 </div>
