@@ -90,25 +90,46 @@ jQuery(document).ready(function ($) {
 		setTheme(false);
 	});
 
-
+	
 	/*CHANGE TEXT SIZE*/
+	groesse = 0;
 	function setTextSize(groesse) {
-		if (groesse==0) {
+		if (groesse===-1) {
 			$("#articleSwipe article").addClass("sizepercentage-smaller");
 			$("#articleSwipe article").removeClass("sizepercentage-bigger");
+			groesse = -1;
 		}
-		else if(groesse==1) {
+		else if(groesse===1) {
 			$("#articleSwipe article").addClass("sizepercentage-bigger");
 			$("#articleSwipe article").removeClass("sizepercentage-smaller");
+			groesse = 1;
 		}
 	}
-
+	function resetTextSize() {
+		$("#articleSwipe article").removeClass("sizepercentage-bigger");
+		$("#articleSwipe article").removeClass("sizepercentage-smaller");
+		groesse = 0;
+		console.log("resize");
+	}
+	
 	$('#decrease-font').on('click', function() {
-		setTextSize(0);
+		if(groesse===0) {
+			setTextSize(-1);
+			groesse = -1;
+			console.log("decrease");
+		} else if (groesse ===1) {
+			resetTextSize();
+		}
 	});
 
 	$('#increase-font').on('click', function() {
-		setTextSize(1);
+		if(groesse===0) {
+			setTextSize(1);
+			groesse = 1;
+			console.log("increase");
+		} else if (groesse === -1) {
+			resetTextSize();
+		}
 	});
 
 
