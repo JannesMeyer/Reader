@@ -166,11 +166,6 @@ module.exports = function(app, db, passport) {
 	app.get('/feeds/:id', prepareRendering, function(req, res) {
 		var requestedFeed = new ObjectId(req.params.id);
 		db.articles.find({feed: requestedFeed}).toArray(function(err, articles) {
-			// Strip all HTML tags
-			articles.forEach(function(article) {
-				article.text = stripHtml(article.text);
-			});
-
 			req.data.title = 'Feed';
 			req.data.currentFeed = {_id: requestedFeed};
 			req.data.articles = articles;
