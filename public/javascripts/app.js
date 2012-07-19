@@ -4,18 +4,22 @@ jQuery(document).ready(function ($) {
 
 	var articleNode = document.getElementById('articleSwipe');
 	var tabNode = document.getElementById('tabs');
-	var prevSlide = document.getElementById('prev');
-	var nextSlide = document.getElementById('next');
+	var prevSlide = $('#prev');
+	var nextSlide = $('#next');
 
 
 	// articleSwipe
 	if (articleNode) {
 		window.articles = new Swipe(articleNode);
 		// next / previous slide
-		if (prevSlide || nextSlide) {
-		  prevSlide.onclick = articles.prev();
-		  nextSlide.onclick = articles.next();
-		}		
+		prevSlide.on('click', function(e) {
+			articles.prev();
+			e.preventDefault();
+		});
+		nextSlide.on('click', function(e) {
+			articles.next();
+			e.preventDefault();
+		});
 	}
 	// 
 	if (tabNode) {
@@ -43,11 +47,15 @@ jQuery(document).ready(function ($) {
 		  elem.className += ' on';
 		}
 
-		// next / previous slide
-		// if (prevSlide || nextSlide) {
-		//   prevSlide.onclick = tabs.prev();
-		//   nextSlide.onclick = tabs.next();
-		// }
+		prevSlide.on('click', function(e) {
+			tabs.prev();
+			e.preventDefault();
+		});
+		nextSlide.on('click', function(e) {
+			tabs.next();
+			e.preventDefault();
+		});
+
 	}
 
 
