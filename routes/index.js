@@ -1,5 +1,5 @@
 var crypto = require('crypto');
-var url = require('url');
+var FeedService = require('../FeedService');
 
 function sha1(str) {
 	var shasum = crypto.createHash('sha1');
@@ -12,12 +12,10 @@ module.exports = function(app, db, passport) {
 	// Setup the database
 	var ObjectId = db.ObjectID;
 	db.bind('users');
-	db.bind('feeds', {
-		findByUrl: function(feedUrl, callback) {
-			this.findOne({feed_url: url.format(url.parse(feedUrl))}, callback);
-		}
-	});
 	db.bind('articles');
+
+	// Initialize services
+	var feedService = new FeedService(db);
 
 
 	// Simple route middleware to ensure user is authenticated.
@@ -129,49 +127,18 @@ module.exports = function(app, db, passport) {
 	 * POST /add-feed
 	 */
 	app.post('/add-feed', ensureAuthenticated, function(req, res) {
-		var params = req.body;
-		// Add feed
-		db.feeds.findByUrl(params.url, function(err, feed) {
-			if (!feed) {
-				// TODO: check if the URL is a valid feed
-				// Create feed
-				feed = {
-					name: params.name,
-					feed_url: url.format(url.parse(params.url)),
-					subscribers: [req.user._id]
-				};
-				db.feeds.save(feed);
+		var success = function(feed) {
+			//TODO: AJAX
+			res.redirect('/');
+		};
+		// Subscribe to the feed
+		feedService.subscribe(req.body.url, req.body.name, req.body.color, req.user, success);
+	});
 
-				// Create test articles
-				var articles = [
-					{
-						title: 'Test 1',
-						text: 'DSLR anim dreamcatcher sint dumpster incididunt. Yr chillwave DSLR street-art letterpress gentrify liberal. Farm-to-table bronson organic narwhal ethical clothesline. Frado authentic gastropub art frado kale brooklyn. Placeat authentic gluten fin liberal 8-bit.',
-						published_at: new Date(2012, 2, 31),
-						image: '/images/test.jpg',
-						feed: feed._id
-					}, {
-						title: 'Test 2',
-						text: 'Before 8-bit brooklyn frado trust-fund ut. Chillwave capitalism placeat vegan. Anderson moon fin totally chowder original. The sunt dumpster dumpster voluptate chowder.',
-						published_at: new Date(2012, 5, 16),
-						image: '/images/test.jpg',
-						feed: feed._id
-					}, {
-						title: 'Test 3',
-						text: 'Clothesline esse sriracha gluten-free farm-to-table Pinterest. Carles street-art anim anime wes. Capitalism vegan gluten-free farm-to-table wayfarers gluten-free. Sint organic chowder street-art 8-bit anim of party. Narwhal of fresh twee. Viral vegan Anderson pony Anderson.',
-						published_at: new Date(2012, 3, 1),
-						image: '/images/test.jpg',
-						feed: feed._id
-					}
-				];
-				db.articles.insert(articles);
-			} else {
-				// TODO: avoid subscribing the same user twice
-				db.feeds.update({ _id: feed._id }, { '$push': { subscribers: req.user._id } });
-			}
-		});
-
-		//TODO: AJAX
+	/*
+	 * GET /feeds
+	 */
+	app.get('/feeds', function(req, res) {
 		res.redirect('/');
 	});
 
