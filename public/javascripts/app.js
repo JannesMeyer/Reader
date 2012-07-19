@@ -2,6 +2,50 @@ jQuery(document).ready(function ($) {
 
 	/* Use this js doc for all application specific JS */
 
+	var articleNode = document.getElementById('articleSwipe');
+	var tabNode = document.getElementById('tabs');
+	var prevSlide = document.getElementById('prev');
+	var nextSlide = document.getElementById('next');
+
+
+	// articleSwipe
+	if (articleNode) {
+		new Swipe(articleNode);
+	}
+	// 
+	if (tabNode) {
+		window.tabs = new Swipe(tabNode, {
+		  callback: function(event,index,elem) {
+		    setTab(selectors[index]);
+		  }
+		});
+		var selectors = document.getElementById('tabSelector').children;
+
+		for (var i = 0; i < selectors.length; i++) {
+		  var elem = selectors[i];
+		  elem.setAttribute('data-tab', i);
+		  elem.onclick = function(e) {
+		    e.preventDefault();
+		    setTab(this);
+		    tabs.slide(parseInt(this.getAttribute('data-tab'),10),300);
+		  }
+		} 
+		// Set tab helper function
+		function setTab(elem) {
+		  for (var i = 0; i < selectors.length; i++) {
+		    selectors[i].className = selectors[i].className.replace('on',' ');
+		  }
+		  elem.className += ' on';
+		}
+
+		// // next / previous slide
+		// if (prevSlide || nextSlide) {
+		//   prevSlide.onclick = tabs.prev();
+		//   nextSlide.onclick = tabs.next();
+		// }
+	}
+
+
 	/* COLOR PICKER */
 	var colors = $('#colorpicker span');
 	colors.on('click', function(e) {
@@ -13,7 +57,7 @@ jQuery(document).ready(function ($) {
 
 	/* Dropdowns */
 	var dropdowns = $('.custom-dropdown');
-	dropdowns.on('click touchstart', function (e) {
+	dropdowns.on('click', function (e) {
 		// Hide all other dropdown menus
 		dropdowns.not(this).children('ul').removeClass('show-dropdown');
 		// Toggle the current dropdown menu
@@ -123,17 +167,20 @@ jQuery(document).ready(function ($) {
 	$('.button.dropdown').on('click.fndtn touchstart.fndtn', function (e) {
 		e.stopPropagation();
 	});
-	$('.button.dropdown.split span').on('click.fndtn touchstart.fndtn', function (e) {
-		e.preventDefault();
+	$('.button.dropdown.split span').on('click.fndtn', function (e) {
+		// e.preventDefault();
+		console.log("click1");
 		$('.button.dropdown').not($(this).parent()).children('ul').removeClass('show-dropdown');
 		$(this).siblings('ul').toggleClass('show-dropdown');
 	});
-	$('.button.dropdown').not('.split').on('click.fndtn touchstart.fndtn', function (e) {
+	$('.button.dropdown').not('.split').on('click.fndtn', function (e) {
 		$('.button.dropdown').not(this).children('ul').removeClass('show-dropdown');
-		$(this).children('ul').toggleClass('show-dropdown');
+		$(this).children('ul').toggleClass('show-dropdown');		
+		console.log("click2");
 	});
-	$('body, html').on('click.fndtn touchstart.fndtn', function () {
+	$('body, html').on('click.fndtn', function () {
 		$('.button.dropdown ul').removeClass('show-dropdown');
+		console.log("click3");
 	});
 
 	// Positioning the Flyout List
@@ -153,6 +200,6 @@ jQuery(document).ready(function ($) {
 	$('.button.dropdown.up.tiny > ul').css('top', 'auto').css('bottom', tinyButtonHeight - 2);
 
   /* CUSTOM FORMS */
-  $.foundation.customForms.appendCustomMarkup();
+  // $.foundation.customForms.appendCustomMarkup();
 
 });

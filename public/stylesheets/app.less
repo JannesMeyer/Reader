@@ -20,6 +20,8 @@
 @mainColor2: #555;
 // @hoverColor: #EAF8FF;
 @hoverColor: darken(@mainColor, 7%);
+@borderColor: #E6E6E6;
+@listColor: #F2F2F2;
 
 
 // Metrics
@@ -106,15 +108,6 @@ li {
 	list-style-type: none;
 }
 
-.custom-dropdown {
-	cursor: pointer;
-}
-.custom-dropdown ul {
-	display: none;
-}
-.custom-dropdown .show-dropdown {
-	display: block;
-}
 
 .centered {
 	text-align: center;
@@ -548,7 +541,8 @@ ul.side-nav li {
 
 .side-nav li:hover a,
 .toolbar li a:focus {
-	background-color: #444;
+	background-color: darken(@listColor, 10%);
+	border: none;
 }
 
 // desktop 
@@ -572,11 +566,11 @@ ul.side-nav li {
 }
 
 .side-nav .nav-item {
-	border: 1px solid #E6E6E6;
+	border-bottom: 1px solid @borderColor;
 	display: block;
 	height: auto;
 
-	background: #F2F2F2;
+	background: @listColor;
 	color: #555;
 	font-size: 14px;
 }
@@ -599,18 +593,20 @@ ul.side-nav li {
 	float: right;
 }
 
-.toolbar > ul > li > a,
-.toolbar > ul > li.button > div {
+.toolbar > ul > li.custom-dropdown > div,
+.toolbar > ul > li > a {
 	color: white;
 	font-size: 16px;
 	padding: 0 23px;
 	display: inline-block;
 }
 
+.toolbar .custom-dropdown > div,
 .toolbar > ul > li:not(.button) > a {
 	line-height: 38px;
 }
 
+.toolbar .custom-dropdown > div:hover,
 .toolbar > ul > li:not(.button):hover > a,
 .toolbar > ul > li:not(.button):focus > a {
 	background-color: @hoverColor;
@@ -633,8 +629,6 @@ ul.side-nav li {
 		line-height: 38px;
 	}
 }
-
-
 span.symbol {
 	.iconFont;
 }
@@ -643,6 +637,34 @@ span.symbol {
 	display: none !important;
 	margin-left: 0.5em;
 }
+
+// Dropbdown
+.button.dropdown > ul {
+	right: 0;
+	left: -2em;
+
+	background-color: white;
+}
+.button.dropdown > ul li {
+	line-height: 2em;	
+}
+.button.dropdown > ul li:last-child {
+	border-top: 1px solid @borderColor;
+}
+.touch .button.dropdown > ul li {
+	line-height: 3em;
+}
+.button.dropdown > ul li:hover {
+	background-color: #eee;
+}
+
+// Settings Dropdown
+.button.dropdown.settings > ul > li > p {
+	color: black;
+}
+
+
+// hide toolbar titles on widescreens
 @media only screen and (min-width: 830px) {
 	.toolTitle {
 		display: inline !important;
@@ -650,8 +672,51 @@ span.symbol {
 	ul.toolbar a {
 		padding:  10px 23px 9px 23px;
 	}
+	.button.dropdown > ul {
+		left: 0;
+	}
 }
 
+// deprecated custom-dropdown styles
+
+// .custom-dropdown {
+// 	cursor: pointer;
+// 	position: relative;
+// }
+
+// .custom-dropdown .show-dropdown {
+// 	display: block;
+
+// 	border: 1px solid @borderColor;
+// 	color: black;
+// }
+
+// .custom-dropdown > ul {
+// 	display: none;
+// 	position: absolute;
+// 	z-index: 5;
+// 	right: 0;
+// 	min-width: 100%;
+
+// 	background-color: white;
+// }
+
+// .custom-dropdown > ul > li {
+// 	padding: 0.5em 2em;
+// 	position: relative;
+// }
+// .custom-dropdown > ul > li:last-child {
+// 	border-top: 1px solid @borderColor;
+// }
+// .custom-dropdown > ul > li:hover {
+// 	background-color: #eee;
+// }
+// .custom-dropdown > ul > li > span.symbol {
+// 	.iconFont;
+// 	position: absolute;
+// 	right: 1em;
+// 	margin-left: 1em;
+// }
 /* -----------------------------------------
    Dialogs
    ----------------------------------------- */

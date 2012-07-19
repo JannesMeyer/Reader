@@ -36,13 +36,31 @@
 					</a>
 				</li>
 				<% } else { %>
-				<li class="custom-dropdown">
+				<li class="button dropdown">
+				<!-- <li class="button custom-dropdown"> -->
 					<div>					
 						<span class="symbol">U</span><span class="hide-for-small toolTitle"><%= user.name %></span>
 					</div>
 					<ul>
-						<li><a href="/settings">Einstellungen</a></li>
+						<!-- <li><a href="/settings">Einstellungen</a></li> -->
 						<li><a href="/logout">Logout</a></li>
+					</ul>
+				</li>
+				<li class="button dropdown settings">
+					<div>					
+						<span class="symbol">S</span><span class="hide-for-small toolTitle">Einstellungen</span>
+					</div>
+					<ul>
+						<li>
+							<p>Schriftgröße</p>
+							<a href="" id="decrease-font">A</a>
+							<a href="" id="increase-font">A</a>
+						</li>
+						<li>
+							<p>Lesemodus</p>
+							<a href="" id="theme-dark">Tag</a>
+							<a href="" id="theme-light">Nacht</a>
+						</li>
 					</ul>
 				</li>
 				<li>
