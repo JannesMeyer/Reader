@@ -21,16 +21,16 @@
 					<li class="feed">
 						<a href="/feeds/<%= feeds[i]._id %>" class="feed-link">
 								<% if (feeds[i].image_path) { %>
-								<div class="feed-image image" style="background-image: url('http://lorempixel.com/128/128')"></div>
+								<div class="feed-image image" style="background-image: url('<%= feeds[i].image_path %>')"></div>
 								<% } else { %>
-								<div class="feed-image fallback"><%= feeds[i].name[0] %></div>
+								<div class="feed-image fallback"><%= feeds[i].title[0] %></div>
 								<% } %>
 
 								<% feeds[i].unread = Math.floor(Math.random()*10) %>
 								<% if (feeds[i].unread > 0) { %>
 								<span class="notification"><%- feeds[i].unread %></span>
 								<% } %>
-								<span class="feed-title"><%= feeds[i].name %></span>
+								<span class="feed-title"><%= feeds[i].title %></span>
 						</a>
 					</li>
 					<% } %>
