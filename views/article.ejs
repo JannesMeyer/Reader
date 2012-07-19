@@ -5,19 +5,14 @@
 <div class="eight columns">
 	<%- partial('partials/sliderButtons') %>
 	<div id="articleSwipe">
-		<div>
-		<% for (var i=0; i<=3; i++) { %>
-			<article class="fixie" style="display:block">
-				<h6 class="feed_title"><img src="http://media.smashingmagazine.com/themes/smashingv4/images/appletouchicon.png" />Smashing Magazing | 15 Stunden</h6>
-				<h2></h2>
-				<p class="teaser"></p>
-				<figure class="article_image">
-					<img src="http://lorempixel.com/800/800" />
-					<figcaption>Abbildung 1</figcaption>
-				</figure>
-				<p></p>	
-			</article>
-		<% } %>
-		</div>
+		<article>
+			<h6 class="feed_title"><%= currentFeed.title %></h6>
+			<% var date = article.updated_at %>
+			<div class="date"><%= date.getHours() %>:<%= date.getMinutes() %> Uhr, <%= date.getDay() %>.<%= date.getMonth() %>.<%= date.getFullYear() %></div>
+			<h2><a href="<%= article.link %>"><%= article.title %></a></h2>
+			<div class="content">
+				<%- article.text %>
+			</div>
+		</article>
 	</div>
 </div>

@@ -1,19 +1,21 @@
 ﻿<form action="/add-feed" method="post">
 	<h4>Neuen Feed hinzufügen</h4>
-	<input type="text" name="name" placeholder="Feed-Name" />
+	<label>Feed-URL</label>
 	<input type="url" name="url" placeholder="Feed-URL" required="required" value="http://rss1.smashingmagazine.com/feed/" />
-	<i>Example: http://rss1.smashingmagazine.com/feed/</i>
+	<label>Name (Optional)</label>
+	<input type="text" name="name" placeholder="Feed-Name" />
+	<i>Beispiel: http://rss1.smashingmagazine.com/feed/</i><br /><br/>
 	<div id="colorpicker" class="colorpicker">
 		<label>Farbe</label>
-		<span style="background-color:#798300 " data-color="798300"></span>
-		<span style="background-color:#298000 " data-color="298000"></span>
-		<span style="background-color:#008057 " data-color="008057"></span>
-		<span style="background-color:#007180 " data-color="007180"></span>
-		<span style="background-color:#002480 " data-color="002480"></span>
-		<span style="background-color:#610080 " data-color="610080"></span>
-		<span style="background-color:#800052 " data-color="800052"></span>
-		<span style="background-color:#800000 " data-color="800000"></span>
-		<input type="hidden" id="color" name="color" value="007180" />
+		<span style="background-color: #798300" data-color="798300"></span>
+		<span style="background-color: #298000" data-color="298000"></span>
+		<span style="background-color: #008057" data-color="008057"></span>
+		<span style="background-color: #007180" data-color="007180"></span>
+		<span style="background-color: #002480" data-color="002480"></span>
+		<span style="background-color: #610080" data-color="610080"></span>
+		<span style="background-color: #800052" data-color="800052"></span>
+		<span style="background-color: #800000" data-color="800000"></span>
+		<input type="hidden" id="color" name="color" value="" />
 	</div>
 	<input type="submit" class="button large radius" value="Hinzufügen" />
 </form>

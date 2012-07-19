@@ -23,7 +23,7 @@
 								<% if (feeds[i].image_path) { %>
 								<div class="feed-image image" style="background-image: url('<%= feeds[i].image_path %>')"></div>
 								<% } else { %>
-								<div class="feed-image fallback"><%= feeds[i].title[0] %></div>
+								<div class="feed-image fallback" style="background-color: #<%= feeds[i].color %>"><%= feeds[i].title[0] %></div>
 								<% } %>
 
 								<% feeds[i].unread = Math.floor(Math.random()*10) %>

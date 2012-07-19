@@ -1,12 +1,17 @@
 var url = require('url');
 var FeedParser = require('feedparser');
 var parser = new FeedParser();
+var check = require('validator').check;
+var sanitize = require('validator').sanitize;
 
 // Log output
 function debugLog(message) {
 	console.log('FeedService: ' + message);
 }
 
+function stripHtml(str) {
+	return str.replace(/(<([^>]+)>)/g, '');
+}
 
 /*
  * FeedService
@@ -21,9 +26,6 @@ var FeedService = function(db) {
 	this.db.bind('feeds', {
 		findByUrl: function(feedUrl, callback) {
 			this.findOne({feed_url: url.format(url.parse(feedUrl))}, callback);
-		},
-		findById: function(feedId, callback) {
-			this.findOne({_id: new this.ObjectId(feedId)}, callback);
 		}
 	});
 };
@@ -58,7 +60,7 @@ FeedService.prototype.subscribe = function(feedUrl, title, color, user, callback
 		if (!feed) {
 			debugLog('Feed doesn\'t exist yet, have to create a new one');
 			// Create feed before subscribing
-			_this.add(feedUrl, subscribe);
+			_this.add(feedUrl, title, color, user, subscribe); // TODO: do this on a per-user basis
 		} else {
 			debugLog('Subscribing to an existing feed');
 			// Subscribe
@@ -68,7 +70,7 @@ FeedService.prototype.subscribe = function(feedUrl, title, color, user, callback
 };
 
 // Create a new feed object without subscribers
-FeedService.prototype.add = function(feedUrl, callback) {
+FeedService.prototype.add = function(feedUrl, title, color, user, callback) {
 	var _this = this;
 	debugLog('Trying to get the feed');
 
@@ -81,9 +83,24 @@ FeedService.prototype.add = function(feedUrl, callback) {
 			return;
 		}
 		// Create feed
+		title = sanitize(title).trim();
+		if (title.length === 0) {
+			// Get the title from the feed
+			title = sanitize(meta.title).xss();
+		}
+		// Validate color
+		try {
+			check(color).len(6).isAlphanumeric();
+		} catch (e) {
+			console.log('wrong color');
+			color = '007180';
+		}
+		
+
 		var feed = {
-			title: meta.title,
+			title: title,
 			link: meta.link,
+			color: color,
 			feed_url: feedUrl,
 			xml_url: meta.xmlUrl,
 			image_path: meta.image.url,
@@ -95,11 +112,13 @@ FeedService.prototype.add = function(feedUrl, callback) {
 			// Add one article
 			debugLog('Saving article');
 			_this.addArticle(feed, {
-				title: article.title,
-				text: article.summary,
+				title: sanitize(article.title).xss(),
+				text: sanitize(article.description).xss(),
+				summary: sanitize(sanitize(stripHtml(article.summary)).xss()).entityDecode(),
 				link: article.link,
 				published_at: article.pubdate,
-				image: '/images/test.jpg'
+				updated_at: article.date,
+				image: article.image.url
 			});
 		});
 

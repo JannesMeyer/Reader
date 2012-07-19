@@ -1,4 +1,7 @@
 var crypto = require('crypto');
+var check = require('validator').check;
+var sanitize = require('validator').sanitize;
+
 var FeedService = require('../FeedService');
 
 function sha1(str) {
@@ -106,7 +109,7 @@ module.exports = function(app, db, passport) {
 	 * POST /register
 	 */
 	app.post('/register', function(req, res) {
-		res.send('lol geht nicht');
+		res.send('geht nicht');
 	});
 
 	/*
@@ -122,7 +125,7 @@ module.exports = function(app, db, passport) {
 	 */
 	app.post('/settings', function(req, res) {
 		db.users.findById(req.user._id, function(err, user) {
-			user.settings.dark = req.body.dark;
+			user.settings.dark = sanitize(req.body.dark).toBoolean();
 			db.users.save(user);
 		});
 		res.send('Success');
@@ -163,10 +166,15 @@ module.exports = function(app, db, passport) {
 	app.get('/feeds/:id', prepareRendering, function(req, res) {
 		var requestedFeed = new ObjectId(req.params.id);
 		db.articles.find({feed: requestedFeed}).toArray(function(err, articles) {
-			req.data.title = 'Feed';
+			// Strip all HTML tags
+			articles.forEach(function(article) {
+				article.text = stripHtml(article.text);
+			});
 
-			req.data.currentFeed = requestedFeed;
+			req.data.title = 'Feed';
+			req.data.currentFeed = {_id: requestedFeed};
 			req.data.articles = articles;
+
 			res.render('all_articles', req.data);
 		});
 	});
@@ -175,9 +183,21 @@ module.exports = function(app, db, passport) {
 	 * GET /articles/:id
 	 */
 	app.get('/articles/:id', prepareRendering, function(req, res) {
-		req.data.title = 'Artikel';
+		db.articles.findById(req.params.id, function(err, article) {
+			if (err) return;
+			
+			db.feeds.findById(article.feed, function(err, feed) {
+				if (err) return;
 
-		res.render('article', req.data);
+
+
+				req.data.title = article.title;
+				req.data.currentFeed = feed;
+				req.data.article = article;
+
+				res.render('article', req.data);
+			})
+		});
 	});
 
 
@@ -191,6 +211,7 @@ module.exports = function(app, db, passport) {
 				email: 'jannes.meyer@gmail.com',
 				name: 'Jannes Meyer',
 				password: sha1('test'),
+				favorites: [],
 				settings: {
 					dark: false
 				}
@@ -198,6 +219,7 @@ module.exports = function(app, db, passport) {
 				email: 'fuhlig@stud.hs-bremen.de',
 				name: 'Florian Uhlig',
 				password: sha1('test'),
+				favorites: [],
 				settings: {
 					dark: false
 				}
@@ -205,6 +227,7 @@ module.exports = function(app, db, passport) {
 				email: 'magdalena.riecken@gmail.com',
 				name: 'Magdalena Riecken',
 				password: sha1('test'),
+				favorites: [],
 				settings: {
 					dark: false
 				}
@@ -213,10 +236,4 @@ module.exports = function(app, db, passport) {
 		});
 	});
 
-	/* CommonJS exports
-	return {
-		func : function () {}
-	}
-	//module.func();
-	*/
 };

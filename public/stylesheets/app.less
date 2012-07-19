@@ -109,6 +109,72 @@ li {
 }
 
 /* -----------------------------------------
+   Dark Theme
+   ----------------------------------------- */
+
+.dark{
+	background-color: #555;
+}
+
+.dark .feed-link{
+	border: 1px solid white;
+}
+
+.dark p, .dark h2, .dark h6, .dark h4, .dark figcaption {
+	color: white;
+}
+
+.dark img {
+	border: 1px solid white;
+}
+ .dark .base-tabs li {
+	color:#F5F6F7;
+	background:#555;
+	border:1px #F5F6F7 solid;
+	border-bottom:0;
+}
+
+.dark .base-tabs li.on {
+	border-top: 3px solid #00A6FC;
+}
+
+.dark .side-nav .nav-item {
+background: #555;
+color: #F2F2F2;
+border: 1px solid #F2F2F2;
+}
+
+.dark .nav-title {
+	border-left: 1px solid #F2F2F2;
+	border-right: 1px solid #F2F2F2;
+}
+
+.dark .artikel:hover {
+	background-color: #444;
+}
+
+.dark .modal p, 
+.dark .modal h2, 
+.dark .modal h6, 
+.dark .modal h4, 
+.dark .button.custom > div.dropdown-content > p {
+	color:#000 !important;
+}
+
+ 
+/* -----------------------------------------
+   Font Size Scalable
+   ----------------------------------------- */
+#articleSwipe article.sizepercentage-smaller {
+	font-size:0.7em;
+ }
+
+ #articleSwipe article.sizepercentage-bigger {
+	font-size:1.3em;
+ }
+
+
+/* -----------------------------------------
    Header
    ----------------------------------------- */
 
@@ -340,18 +406,27 @@ input::-webkit-input-placeholder {
 /* -----------------------------------------
    Artikel
    ----------------------------------------- */
-#articleSwipe article p {
-	padding: 0 1em;
+#articleSwipe article {
+	font-size: 1em;
+	padding: 0 10px;
 }
-#articleSwipe article h2 {
-	padding: 0 0.6em;
+
+#articleSwipe article p {
+	margin-bottom: 3px;
+	font-size : 100%;
+}
+
+#articleSwipe h2 {
+	font-size : 160%
+
 }
 
 article h6 {
 	text-align: center;
-	font-size: 1.2rem;
+	font-size: 110%;
 	margin-bottom: 2rem;
 	margin-top:-6px;
+	font-weight: normal;
 }
 
 .pre_text {
@@ -380,15 +455,6 @@ article h6 {
 	position: relative;
 	top: 0.6rem;
 	margin-right: 0.4rem;
-}
-
-article h2 {
-	font-size: 2rem;
-	line-height: 1.2;
-}
-
-article p {
-	line-height: 1.6;
 }
 
 .teaser {
@@ -591,7 +657,7 @@ ul.side-nav li {
 .toolbar > ul > li > a {
 	color: white;
 	font-size: 16px;
-	padding: 0 23px;
+	padding: 0 20px;
 	display: inline-block;
 }
 
@@ -812,62 +878,5 @@ span.symbol {
 	line-height: 21px;
 }
 
-
-/* -----------------------------------------
-   Dark Theme
-   ----------------------------------------- */
-
-.dark{
-	background-color: #555;
-}
-
-.dark .feed-link{
-	border: 1px solid white;
-}
-
-.dark p, .dark h2, .dark h6, .dark h4, .dark figcaption {
-	color: white;
-}
-
-.dark img {
-	border: 1px solid white;
-}
- .dark .base-tabs li {
-	color:#F5F6F7;
-	background:#555;
-	border:1px #F5F6F7 solid;
-	border-bottom:0;
-}
-
-.dark .base-tabs li.on {
-	border-top: 3px solid #00A6FC;
-}
-
-.dark .side-nav .nav-item {
-background: #555;
-color: #F2F2F2;
-border: 1px solid #F2F2F2;
-}
-
-.dark .nav-title {
-	border-left: 1px solid #F2F2F2;
-	border-right: 1px solid #F2F2F2;
-}
-
-.dark .artikel:hover {
-	background-color: #444;
-}
-
-
-/* -----------------------------------------
-   Font Size
-   ----------------------------------------- */
-.sizepercentage-smaller p,  .sizepercentage-smaller h2 {
-	font-size:80%;
- }
-
- .sizepercentage-bigger p,  .sizepercentage-bigger h2 {
-	font-size:120%;
- }
 
 
