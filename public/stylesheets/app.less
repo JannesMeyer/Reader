@@ -140,19 +140,24 @@ li {
 }
 
 .dark .base-tabs li.on {
-	border-top: 3px solid #00A6FC;
+	border-top: 1px solid #333;
+}
+
+.dark .side-nav  a {
+	background-color: none;
+	color:white;
+}
+.dark .side-nav .current a {
+	background-color: #444;
 }
 
 .dark .side-nav .nav-item {
-background: #555;
+background: none;
 color: #F2F2F2;
-border: 1px solid #F2F2F2;
+// border: 1px solid #F2F2F2;
 }
 
-.dark .nav-title {
-	border-left: 1px solid #F2F2F2;
-	border-right: 1px solid #F2F2F2;
-}
+
 
 .dark .modal p, 
 .dark .modal h2, 
@@ -626,6 +631,8 @@ article figcaption {
 }
 
 
+
+
 // overwrite foundation
 ul.side-nav li {
 	margin: 0;
@@ -645,6 +652,14 @@ ul.side-nav li {
 .nav-title,
 .nav-item {
 	line-height: 34px;
+}
+
+.nav-item a[href="/favorites"] {
+	font-weight: bold;
+}
+.nav-item a[href="/favorites"] .symbol {
+	margin-right: 1em;
+	font-size: 1.1em;	
 }
 // touch optimized height
 .touch .nav-title,
