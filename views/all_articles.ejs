@@ -7,10 +7,12 @@
 		<% for (var i = 0; i < articles.length; ++i) { %>
 		<li class="artikel clearfix">
 			<a href="/articles/<%= articles[i]._id %>">
+				<% if (articles[i].image) { %>
 				<img src="<%= articles[i].image %>" />
+				<% } %>
 				<h4><%= articles[i].title %></h4>
 				<!-- TODO: Only show preview text, no HTML tags -->
-				<p><%= articles[i].text %></p>
+				<p><%= articles[i].summary.substr(0, 600) %></p>
 			</a>
 		</li>
 		<% } %>

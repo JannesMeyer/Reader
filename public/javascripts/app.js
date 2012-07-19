@@ -17,7 +17,7 @@ jQuery(document).ready(function ($) {
 		  nextSlide.onclick = articles.next();
 		}		
 	}
-	// 
+
 	if (tabNode) {
 		window.tabs = new Swipe(tabNode, {
 		  callback: function(event,index,elem) {
