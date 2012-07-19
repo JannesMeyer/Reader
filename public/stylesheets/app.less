@@ -606,7 +606,6 @@ ul.side-nav li {
 	line-height: 38px;
 }
 
-.toolbar .custom-dropdown > div:hover,
 .toolbar > ul > li:not(.button):hover > a,
 .toolbar > ul > li:not(.button):focus > a {
 	background-color: @hoverColor;
@@ -677,46 +676,63 @@ span.symbol {
 	}
 }
 
-// deprecated custom-dropdown styles
+.custom-dropdown {
+	cursor: pointer;
+	position: relative;
+}
+.button.custom-dropdown > div.dropdown-content {
+	min-width: 200px;
+	// margin-top: 0.5em;
+	border: 1px solid @borderColor;
+}
+.button.custom-dropdown > div.dropdown-content.show-dropdown {
+	display: block;
 
-// .custom-dropdown {
-// 	cursor: pointer;
-// 	position: relative;
-// }
+	color: black;
+}
+.button.custom-dropdown .dropdown-content {
+	display: none;
+	position: absolute;
+	z-index: 5;
+	right: 0;
+	// min-width: 100%;
 
-// .custom-dropdown .show-dropdown {
-// 	display: block;
+	background-color: white;
+}
+.custom-dropdown .dropdown-content {
+	padding: 0.5em 2em;
+	position: relative;
+}
 
-// 	border: 1px solid @borderColor;
-// 	color: black;
-// }
+#decrease-font {
+	// font-size: 0.8em;
+}
+#increase-font {
+	// font-size: 2em;
+}
+.font-button {
+	margin: 0.5em;
+	font-size: 2em;
+	.iconFont;
+}
 
-// .custom-dropdown > ul {
-// 	display: none;
-// 	position: absolute;
-// 	z-index: 5;
-// 	right: 0;
-// 	min-width: 100%;
+.theme-button {
+	padding: 1em;
+	border: 1px solid;
+	.iconFont;
+	.rounded(9999px);
+}
+#theme-dark {
+	background: black;
+	color: white;
+	border-color: white;
+}
+#theme-light {
+	background: white;
+	color: black;
+	border-color: black;
+}
 
-// 	background-color: white;
-// }
-
-// .custom-dropdown > ul > li {
-// 	padding: 0.5em 2em;
-// 	position: relative;
-// }
-// .custom-dropdown > ul > li:last-child {
-// 	border-top: 1px solid @borderColor;
-// }
-// .custom-dropdown > ul > li:hover {
-// 	background-color: #eee;
-// }
-// .custom-dropdown > ul > li > span.symbol {
-// 	.iconFont;
-// 	position: absolute;
-// 	right: 1em;
-// 	margin-left: 1em;
-// }
 /* -----------------------------------------
    Dialogs
    ----------------------------------------- */
