@@ -19,7 +19,7 @@
 	<![endif]-->
 
 </head>
-<body>
+<body class="">
 	<!-- Header -->
 	<header>
 		<!-- Logo -->
@@ -36,14 +36,29 @@
 					</a>
 				</li>
 				<% } else { %>
-				<li class="custom-dropdown">
+				<li class="button dropdown">
+				<!-- <li class="button custom-dropdown"> -->
 					<div>					
 						<span class="symbol">U</span><span class="hide-for-small toolTitle"><%= user.name %></span>
 					</div>
 					<ul>
-						<li><a href="/settings">Einstellungen</a></li>
+						<!-- <li><a href="/settings">Einstellungen</a></li> -->
 						<li><a href="/logout">Logout</a></li>
 					</ul>
+				</li>
+				<li class="button custom-dropdown">
+					<div>					
+						<span class="symbol">S</span><span class="hide-for-small toolTitle">Einstellungen</span>
+					</div>
+					<div class="dropdown-content">
+						<p>Schriftgröße</p>
+						<a href="" id="decrease-font" class="font-button">-</a>
+						<a href="" id="increase-font" class="font-button">+</a>
+
+						<p>Lesemodus</p>
+						<a href="" id="theme-light" class="theme-button">T</a>
+						<a href="" id="theme-dark" class="theme-button">T</a>
+					</div>
 				</li>
 				<li>
 					<a href="#">
@@ -64,6 +79,16 @@
 				<li>
 					<a href="#" data-reveal-id="modalDeleteFeed">
 						<span class="symbol">-</span><span class="hide-for-small toolTitle">Feed löschen</span>
+					</a>
+				</li>
+				<li>
+					<a href="#" id="dunkel">
+						<span class="symbol">T</span><span class="hide-for-small toolTitle">dunkel</span>
+					</a>
+				</li>
+				<li>
+					<a href="#" id="hell">
+						<span class="symbol">Q</span><span class="hide-for-small toolTitle">hell</span>
 					</a>
 				</li>
 			</ul>
@@ -92,6 +117,10 @@
 	<% } %>
 	<div id="modalAddFeed" class="reveal-modal modal add-feed">
 		<%- partial('partials/add_feed') %>
+		<a class="close-reveal-modal symbol">×</a>
+	</div>
+	<div id="modalDeleteFeed" class="reveal-modal modal delete-feed">
+		<%- partial('partials/delete_feed') %>
 		<a class="close-reveal-modal symbol">×</a>
 	</div>
 
