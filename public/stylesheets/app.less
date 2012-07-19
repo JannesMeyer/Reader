@@ -607,11 +607,12 @@ ul.side-nav li {
 
 .toolbar > ul > li.button {
 	border: 1px solid transparent;
+	border: none;
 	box-shadow: none;
 	font-weight: normal;
 	padding: 0;
 	padding-left: 23px;
-	padding-right: 44px;
+	padding-right: 23px;
 	-webkit-transition: none;
 	-moz-transition: none;
 	-o-transition: none;
@@ -621,6 +622,9 @@ ul.side-nav li {
 		padding: 0;
 		line-height: 38px;
 	}
+}
+.toolbar > ul > li.button.dropdown {
+	padding-right: 44px;
 }
 span.symbol {
 	.iconFont;
@@ -651,11 +655,6 @@ span.symbol {
 	background-color: #eee;
 }
 
-// Settings Dropdown
-.button.dropdown.settings > ul > li > p {
-	color: black;
-}
-
 
 // hide toolbar titles on widescreens
 @media only screen and (min-width: 830px) {
@@ -670,7 +669,11 @@ span.symbol {
 	}
 }
 
-.custom-dropdown {
+// Settings Dropdown
+.dropdown-content p {
+	margin: 1em;
+	color: black;
+}.custom-dropdown {
 	cursor: pointer;
 	position: relative;
 }
@@ -678,6 +681,7 @@ span.symbol {
 	min-width: 200px;
 	// margin-top: 0.5em;
 	border: 1px solid @borderColor;
+	padding: 1em;
 }
 .button.custom-dropdown > div.dropdown-content.show-dropdown {
 	display: block;
@@ -704,18 +708,13 @@ span.symbol {
 #increase-font {
 	// font-size: 2em;
 }
-.font-button {
+.font-button,
+.theme-button {
 	margin: 0.5em;
 	font-size: 2em;
 	.iconFont;
 }
 
-.theme-button {
-	padding: 1em;
-	border: 1px solid;
-	.iconFont;
-	.rounded(9999px);
-}
 #theme-dark {
 	background: black;
 	color: white;
