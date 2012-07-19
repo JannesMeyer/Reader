@@ -4,6 +4,7 @@
 <!-- Seiteninhalt -->
 <div class="eight columns m-artikel">
 	<ul>
+		<h2><%= currentFeed.title %></h2>
 		<% for (var i = 0; i < articles.length; ++i) { %>
 		<li class="artikel clearfix">
 			<a href="/articles/<%= articles[i]._id %>">

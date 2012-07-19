@@ -166,11 +166,13 @@ module.exports = function(app, db, passport) {
 	app.get('/feeds/:id', prepareRendering, function(req, res) {
 		var requestedFeed = new ObjectId(req.params.id);
 		db.articles.find({feed: requestedFeed}).toArray(function(err, articles) {
-			req.data.title = 'Feed';
-			req.data.currentFeed = {_id: requestedFeed};
-			req.data.articles = articles;
+			db.feeds.findById(requestedFeed, function(err, feed) {
+				req.data.title = feed.title;
+				req.data.currentFeed = feed;
+				req.data.articles = articles;
 
-			res.render('all_articles', req.data);
+				res.render('all_articles', req.data);
+			});
 		});
 	});
 
