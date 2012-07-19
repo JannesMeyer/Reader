@@ -73,7 +73,7 @@ jQuery(document).ready(function ($) {
 	/*DEACTIVATE INVERTED STYLE*/
 	var hell =$('#hell');
 	hell.on('click', function(e) {
-		$("body").removeClass("hell");
+		$("body").removeClass("dark");
 	});
 
 
