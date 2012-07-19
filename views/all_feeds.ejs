@@ -34,46 +34,52 @@
 						</a>
 					</li>
 					<% } %>
-					<!--<li>
- 	           			<figure>
-							<div id="feed_image">
-								<img src="images/fallback.png" />
-								<span class="notification">1</span>
-								<span class="feed-character"> Z</span>
-							</div>
-							<figcaption>Bildunterschrift</figcaption>
-						</figure>
-					</li>-->
 				</ul>
 			</li>
 			<!-- Tab 2 -->
 			<li class="s-invisible">
-				<%- partial('partials/sliderButtons', {pageTitle: 'Meine Feeds 2'}) %>
-				<ul class="block-grid three-up">
-					<% for (var i=0; i<4; i++) { %>
-					<li>
-						<figure>
-							<img src="http://lorempixel.com/128/128" class="fallback" />
-							<span class="notification">10</span>
-							<figcaption>Bildunterschrift</figcaption>
-						</figure>
+				<%- partial('partials/sliderButtons', {pageTitle: 'Favoriten'}) %>
+				<ul class="block-grid three-up mobile">
+					<% for (var i = 0; i < feeds.length; ++i) { %>
+					<!-- Feed -->
+					<li class="feed">
+						<a href="/feeds/<%= feeds[i]._id %>" class="feed-link">
+								<% if (feeds[i].image_path) { %>
+								<div class="feed-image image" style="background-image: url('<%= feeds[i].image_path %>')"></div>
+								<% } else { %>
+								<div class="feed-image fallback" style="background-color: #<%= feeds[i].color %>"><%= feeds[i].title[0] %></div>
+								<% } %>
+
+								<% feeds[i].unread = Math.floor(Math.random()*10) %>
+								<% if (feeds[i].unread > 0) { %>
+								<span class="notification"><%- feeds[i].unread %></span>
+								<% } %>
+								<span class="feed-title"><%= feeds[i].title %></span>
+						</a>
 					</li>
 					<% } %>
 				</ul>
 			</li>
 			<!-- Tab 3 -->
 			<li class="s-invisible">
-				<%- partial('partials/sliderButtons', {pageTitle: 'Meine Feeds 3'}) %>
-				<ul class="block-grid three-up">
-					<% for (var i=0; i<9; i++) { %>
-					<li>
-						<figure>
-							<div id="feed_image">
-								<img src="http://lorempixel.com/128/128" />
-								<span class="notification">1</span>
-							</div>
-							<figcaption>Bildunterschrift</figcaption>
-						</figure>
+				<%- partial('partials/sliderButtons', {pageTitle: 'Sonstige'}) %>
+				<ul class="block-grid three-up mobile">
+					<% for (var i = 0; i < feeds.length; ++i) { %>
+					<!-- Feed -->
+					<li class="feed">
+						<a href="/feeds/<%= feeds[i]._id %>" class="feed-link">
+								<% if (feeds[i].image_path) { %>
+								<div class="feed-image image" style="background-image: url('<%= feeds[i].image_path %>')"></div>
+								<% } else { %>
+								<div class="feed-image fallback" style="background-color: #<%= feeds[i].color %>"><%= feeds[i].title[0] %></div>
+								<% } %>
+
+								<% feeds[i].unread = Math.floor(Math.random()*10) %>
+								<% if (feeds[i].unread > 0) { %>
+								<span class="notification"><%- feeds[i].unread %></span>
+								<% } %>
+								<span class="feed-title"><%= feeds[i].title %></span>
+						</a>
 					</li>
 					<% } %>
 				</ul>
