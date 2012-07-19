@@ -223,7 +223,7 @@ module.exports = function(app, db, passport) {
 				email: 'fuhlig@stud.hs-bremen.de',
 				name: 'Florian Uhlig',
 				password: sha1('test'),
-				favorites: []
+				favorites: [],
 				settings: {
 					dark: false
 				}
