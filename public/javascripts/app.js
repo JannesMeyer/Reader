@@ -62,7 +62,7 @@ jQuery(document).ready(function ($) {
 
 	/* Dropdowns */
 	var dropdowns = $('.custom-dropdown');
-	dropdowns.on('click', function (e) {
+	dropdowns.on('click', function() {
 		// Hide all +other dropdown menus
 		dropdowns.not(this).children('div.dropdown-content').removeClass('show-dropdown');
 		// Toggle the current dropdown menu
@@ -70,15 +70,45 @@ jQuery(document).ready(function ($) {
 	});
 
 	/*ACTIVATE INVERTED STYLE*/
-	var dark =$('#theme-dark');
-	dark.on('click', function(e) {
-		$("body").addClass("dark");
+	function setTheme(dark) {
+		if (dark) {
+			$("body").addClass("dark");
+		} else {
+			$("body").removeClass("dark");
+		}
+
+		// Persist the change
+		$.post('/settings', {dark: dark});
+	}
+	
+	$('#theme-dark').on('click', function() {
+		setTheme(true);
 	});
 
 	/*DEACTIVATE INVERTED STYLE*/
-	var light =$('#theme-light');
-	light.on('click', function(e) {
-		$("body").removeClass("dark");
+	$('#theme-light').on('click', function() {
+		setTheme(false);
+	});
+
+
+	/*CHANGE TEXT SIZE*/
+	function setTextSize(groesse) {
+		if (groesse==0) {
+			$("body").addClass("sizepercentage-smaller");
+			$("body").removeClass("sizepercentage-bigger");
+		}
+		else if(groesse==1) {
+			$("body").addClass("sizepercentage-bigger");
+			$("body").removeClass("sizepercentage-smaller");
+		}
+	}
+
+	$('#decrease-font').on('click', function() {
+		setTextSize(0);
+	});
+
+	$('#increase-font').on('click', function() {
+		setTextSize(1);
 	});
 
 
