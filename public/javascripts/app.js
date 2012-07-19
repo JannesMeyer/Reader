@@ -10,7 +10,12 @@ jQuery(document).ready(function ($) {
 
 	// articleSwipe
 	if (articleNode) {
-		new Swipe(articleNode);
+		window.articles = new Swipe(articleNode);
+		// next / previous slide
+		if (prevSlide || nextSlide) {
+		  prevSlide.onclick = articles.prev();
+		  nextSlide.onclick = articles.next();
+		}		
 	}
 	// 
 	if (tabNode) {
@@ -38,7 +43,7 @@ jQuery(document).ready(function ($) {
 		  elem.className += ' on';
 		}
 
-		// // next / previous slide
+		// next / previous slide
 		// if (prevSlide || nextSlide) {
 		//   prevSlide.onclick = tabs.prev();
 		//   nextSlide.onclick = tabs.next();
