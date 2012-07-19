@@ -42,7 +42,10 @@ module.exports = function(app, db, passport) {
 		// Create the data object
 		req.data = {
 			title: 'inForm',
-			user: req.user
+			user: req.user,
+			settings: {
+				dark: false
+			}
 		};
 
 		//Object.keys(req)
@@ -51,6 +54,7 @@ module.exports = function(app, db, passport) {
 		if (req.isAuthenticated()) {
 			db.feeds.find({subscribers: req.user._id}).toArray(function(err, feeds) {
 				req.data.feeds = feeds;
+				req.data.settings.dark = req.user.settings.dark;
 				// Continue to the regular routes
 				next();
 			});
@@ -118,6 +122,17 @@ module.exports = function(app, db, passport) {
 	app.get('/logout', function(req, res) {
 		req.logout();
 		res.redirect('/');
+	});
+
+	/*
+	 * POST /settings
+	 */
+	app.post('/settings', function(req, res) {
+		db.users.findById(req.user._id, function(err, user) {
+			user.settings.dark = req.body.dark;
+			db.users.save(user);
+		});
+		res.send('Success');
 	});
 
 	/*
@@ -200,17 +215,26 @@ module.exports = function(app, db, passport) {
 				email: 'jannes.meyer@gmail.com',
 				name: 'Jannes Meyer',
 				password: sha1('test'),
-				favorites: []
+				favorites: [],
+				settings: {
+					dark: false
+				}
 			}, {
 				email: 'fuhlig@stud.hs-bremen.de',
 				name: 'Florian Uhlig',
 				password: sha1('test'),
 				favorites: []
+				settings: {
+					dark: false
+				}
 			}, {
 				email: 'magdalena.riecken@gmail.com',
 				name: 'Magdalena Riecken',
 				password: sha1('test'),
-				favorites: []
+				favorites: [],
+				settings: {
+					dark: false
+				}
 			}]);
 			res.end('Success');
 		});
