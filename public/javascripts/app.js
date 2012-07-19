@@ -65,14 +65,14 @@ jQuery(document).ready(function ($) {
 	});
 
 	/*ACTIVATE INVERTED STYLE*/
-	var dunkel =$('#dunkel');
-	dunkel.on('click', function(e) {
+	var dark =$('#theme-dark');
+	dark.on('click', function(e) {
 		$("body").addClass("dark");
 	});
 
 	/*DEACTIVATE INVERTED STYLE*/
-	var hell =$('#hell');
-	hell.on('click', function(e) {
+	var light =$('#theme-light');
+	light.on('click', function(e) {
 		$("body").removeClass("dark");
 	});
 
