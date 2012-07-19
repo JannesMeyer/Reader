@@ -64,6 +64,21 @@ jQuery(document).ready(function ($) {
 		$(this).children('div.dropdown-content').toggleClass('show-dropdown');
 	});
 
+	/*ACTIVATE INVERTED STYLE*/
+	var dunkel =$('#dunkel');
+	dunkel.on('click', function(e) {
+		$("body").addClass("dark");
+	});
+
+	/*DEACTIVATE INVERTED STYLE*/
+	var hell =$('#hell');
+	hell.on('click', function(e) {
+		$("body").removeClass("dark");
+	});
+
+
+	
+
 
 	/* TABS --------------------------------- */
 	/* Remove if you don't need :) */
