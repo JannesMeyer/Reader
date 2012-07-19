@@ -20,6 +20,21 @@ jQuery(document).ready(function ($) {
 		$(this).children('ul').toggleClass('show-dropdown');
 	});
 
+	/*ACTIVATE INVERTED STYLE*/
+	var dunkel =$('#dunkel');
+	dunkel.on('click', function(e) {
+		$("body").addClass("dark");
+	});
+
+	/*DEACTIVATE INVERTED STYLE*/
+	var hell =$('#hell');
+	hell.on('click', function(e) {
+		$("body").removeClass("hell");
+	});
+
+
+	
+
 
 	/* TABS --------------------------------- */
 	/* Remove if you don't need :) */
