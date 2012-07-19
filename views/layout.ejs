@@ -17,9 +17,13 @@
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="/stylesheets/ie.css">
 	<![endif]-->
-
 </head>
-<body class="">
+
+<% if (settings.dark) { %>
+<body class="dark">
+<% } else { %>
+<body>
+<% } %>
 	<!-- Header -->
 	<header>
 		<!-- Logo -->
@@ -52,8 +56,8 @@
 					</div>
 					<div class="dropdown-content">
 						<p>Schriftgröße</p>
-						<a href="" id="decrease-font" class="font-button">-</a>
-						<a href="" id="increase-font" class="font-button">+</a>
+						<a href="#" id="decrease-font" class="font-button">-</a>
+						<a href="#" id="increase-font" class="font-button">+</a>
 
 						<p>Lesemodus</p>
 <!-- 						<a href="" id="theme-light" class="theme-button">T</a>
