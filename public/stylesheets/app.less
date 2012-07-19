@@ -420,18 +420,28 @@ input::-webkit-input-placeholder {
 
 	.artikel p {
 		font-size: 100%;
+	} 
+}
+
+.dark .m-artikel {
+	.artikel,
+	.artikel h2,
+	.artikel h4,
+	.artikel h6,
+	.artikel p,
+	.artikel a {
+		color: white;
 	}
 
-	.dark .artikel:hover,
-	.dark .artikel:hover h2,
-	.dark .artikel:hover h4,
-	.dark .artikel:hover h6,
-	.dark .artikel:hover p,
-	.dark .artikel:hover a {
-			color: lighten(@mainColor, 10%);
-			background: #000;
-	}
-	  
+	.artikel:hover,
+	.artikel:hover h2,
+	.artikel:hover h4,
+	.artikel:hover h6,
+	.artikel:hover p,
+	.artikel:hover a {
+		color: lighten(@mainColor, 10%);
+		background: #000;
+	}	
 }
 
 .m-artikel {
