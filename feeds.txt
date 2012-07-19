@@ -1,0 +1,17 @@
+t3n
+http://feeds2.feedburner.com/aktuell/feeds/rss/
+
+smashing magazine
+http://rss1.smashingmagazine.com/feed/
+
+kicker
+http://rss.kicker.de/news/aktuell
+
+sport1
+http://www.sport1.de/de_1/startseite/rss.xml
+
+codrops
+http://feeds2.feedburner.com/tympanus
+
+cashy
+http://feeds2.feedburner.com/stadt-bremerhaven/dqXM
