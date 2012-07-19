@@ -89,12 +89,12 @@ jQuery(document).ready(function ($) {
 	/*CHANGE TEXT SIZE*/
 	function setTextSize(groesse) {
 		if (groesse==0) {
-			$("body").addClass("sizepercentage-smaller");
-			$("body").removeClass("sizepercentage-bigger");
+			$("#articleSwipe article").addClass("sizepercentage-smaller");
+			$("#articleSwipe article").removeClass("sizepercentage-bigger");
 		}
 		else if(groesse==1) {
-			$("body").addClass("sizepercentage-bigger");
-			$("body").removeClass("sizepercentage-smaller");
+			$("#articleSwipe article").addClass("sizepercentage-bigger");
+			$("#articleSwipe article").removeClass("sizepercentage-smaller");
 		}
 	}
 
