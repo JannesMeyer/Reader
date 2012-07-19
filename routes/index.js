@@ -10,10 +10,6 @@ function sha1(str) {
 	return shasum.digest('hex');
 }
 
-function stripHtml(str) {
-	return str.replace(/(<([^>]+)>)/g, '');
-}
-
 // Export a function that defines our routes
 module.exports = function(app, db, passport) {
 	// Setup the database
@@ -129,7 +125,7 @@ module.exports = function(app, db, passport) {
 	 */
 	app.post('/settings', function(req, res) {
 		db.users.findById(req.user._id, function(err, user) {
-			user.settings.dark = req.body.dark;
+			user.settings.dark = sanitize(req.body.dark).toBoolean();
 			db.users.save(user);
 		});
 		res.send('Success');
