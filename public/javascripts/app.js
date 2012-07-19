@@ -58,10 +58,10 @@ jQuery(document).ready(function ($) {
 	/* Dropdowns */
 	var dropdowns = $('.custom-dropdown');
 	dropdowns.on('click', function (e) {
-		// Hide all other dropdown menus
-		dropdowns.not(this).children('ul').removeClass('show-dropdown');
+		// Hide all +other dropdown menus
+		dropdowns.not(this).children('div.dropdown-content').removeClass('show-dropdown');
 		// Toggle the current dropdown menu
-		$(this).children('ul').toggleClass('show-dropdown');
+		$(this).children('div.dropdown-content').toggleClass('show-dropdown');
 	});
 
 	/*ACTIVATE INVERTED STYLE*/
@@ -169,18 +169,15 @@ jQuery(document).ready(function ($) {
 	});
 	$('.button.dropdown.split span').on('click.fndtn', function (e) {
 		// e.preventDefault();
-		console.log("click1");
 		$('.button.dropdown').not($(this).parent()).children('ul').removeClass('show-dropdown');
 		$(this).siblings('ul').toggleClass('show-dropdown');
 	});
 	$('.button.dropdown').not('.split').on('click.fndtn', function (e) {
 		$('.button.dropdown').not(this).children('ul').removeClass('show-dropdown');
 		$(this).children('ul').toggleClass('show-dropdown');		
-		console.log("click2");
 	});
 	$('body, html').on('click.fndtn', function () {
 		$('.button.dropdown ul').removeClass('show-dropdown');
-		console.log("click3");
 	});
 
 	// Positioning the Flyout List
