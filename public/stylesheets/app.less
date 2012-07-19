@@ -125,8 +125,13 @@ li {
 .dark h6, 
 .dark h4, 
 .dark .artikel h4, 
-.dark figcaption {
+.dark figcaption,
+.dark .date {
 	color: white;
+}
+
+.dark .m-article #articleSwipe h2 {
+	border-bottom-color: #444;
 }
 
 .dark img {
@@ -157,6 +162,7 @@ li {
 .dark .side-nav .nav-item {
 background: none;
 color: #F2F2F2;
+border-bottom-color: #333;
 // border: 1px solid #F2F2F2;
 }
 
@@ -175,12 +181,12 @@ color: #F2F2F2;
    Font Size Scalable
    ----------------------------------------- */
 #articleSwipe article.sizepercentage-smaller,
-.m-artikel > ul > li > a.sizepercentage-smaller {
+.m-articles > ul > li > a.sizepercentage-smaller {
 	font-size:0.7em;
  }
 
  #articleSwipe article.sizepercentage-bigger,
-.m-artikel > ul > li > a.sizepercentage-bigger {
+.m-articles > ul > li > a.sizepercentage-bigger {
 	font-size:1.3em;
  }
 
@@ -375,7 +381,7 @@ input::-webkit-input-placeholder {
 /* -----------------------------------------
    Artikelübersicht
    ----------------------------------------- */
-.m-artikel {
+.m-articles {
 	h2 {
 		margin: 0;
 		margin-bottom: 0.9em;
@@ -395,7 +401,7 @@ input::-webkit-input-placeholder {
 
 	.artikel h4 {
 		margin: 0;
-		font-size: 120%; 
+		font-size: 134%; 
 		font-style: italic;
 		color: #4d4d4d;
 		margin-bottom: 0.6rem;
@@ -425,7 +431,7 @@ input::-webkit-input-placeholder {
 	} 
 }
 
-.dark .m-artikel {
+.dark .m-articles {
 	.artikel,
 	.artikel h2,
 	.artikel h4,
@@ -446,7 +452,7 @@ input::-webkit-input-placeholder {
 	}	
 }
 
-.m-artikel {
+.m-articles {
 	font-size: 1.0.em;
 }
 
@@ -454,76 +460,86 @@ input::-webkit-input-placeholder {
 /* -----------------------------------------
    Artikel
    ----------------------------------------- */
-#articleSwipe article {
-	font-size: 1em;
-	padding: 0 10px;
-}
+.m-article {
+	#articleSwipe article {
+		font-size: 1em;
+		padding: 0 10px;
+	}
 
-#articleSwipe article p {
-	margin-bottom: 3px;
-	font-size : 100%;
-}
+	#articleSwipe article p {
+		margin-bottom: 3px;
+		font-size : 100%;
+	}
 
-#articleSwipe h2 {
-	font-size : 160%
+	#articleSwipe h2 {
+		font-size : 160%;
+		border-bottom: 3px solid #bbb;
+		padding-bottom: 0.5em;
+		margin-top: 1.2em;
+	}
 
-}
+	.date {
+		text-align: right;
+		margin-bottom: 2em;
+		font-style: italic;
+	}
 
-article h6 {
-	text-align: center;
-	font-size: 110%;
-	margin-bottom: 2rem;
-	margin-top:-6px;
-	font-weight: normal;
-}
+	article h6 {
+		text-align: center;
+		font-size: 110%;
+		margin-bottom: 2rem;
+		margin-top:-6px;
+		font-weight: normal;
+	}
 
-.pre_text {
-	font-size: 1.2rem;
-	margin-bottom: 3px;
-	line-height: 1.4;
-	color: #333;
-}
+	.pre_text {
+		font-size: 1.2rem;
+		margin-bottom: 3px;
+		line-height: 1.4;
+		color: #333;
+	}
 
-.pre_image {
-	background-image: url('../images/test.jpg');
-	width:37%;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center center;
-	width: 100px;
-	height: 100px;
-	float: right;
-	margin-left: 0.6em;
-	border: 2px solid #fff;
-	box-shadow: 0 0 5px 1px #ccc;
-}
+	.pre_image {
+		background-image: url('../images/test.jpg');
+		width:37%;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+		width: 100px;
+		height: 100px;
+		float: right;
+		margin-left: 0.6em;
+		border: 2px solid #fff;
+		box-shadow: 0 0 5px 1px #ccc;
+	}
 
-.feed_title img {
-	height: 2rem;
-	position: relative;
-	top: 0.6rem;
-	margin-right: 0.4rem;
-}
+	.feed_title img {
+		height: 2rem;
+		position: relative;
+		top: 0.6rem;
+		margin-right: 0.4rem;
+	}
 
-.teaser {
-	font-weight: bold;
-}
+	.teaser {
+		font-weight: bold;
+	}
 
-figure.article_image {
-	width: 75%;
-	margin: 1em auto;
-}
+	figure.article_image {
+		width: 75%;
+		margin: 1em auto;
+	}
 
-figure img {
-}
+	figure img {
+	}
 
-figcaption {	
-	font-size: 1.2rem;
-// margin-top: -1.8em;
-}
-article figcaption {
-	font-style: italic;
-	margin-top: 1em;
+	figcaption {	
+		font-size: 1.2rem;
+	// margin-top: -1.8em;
+	}
+	article figcaption {
+		font-style: italic;
+		margin-top: 1em;
+	}	
 }
 
 // fix width for portrait/hide sidebar in portrait)
@@ -601,7 +617,8 @@ article figcaption {
 			padding: 0 1em;
 			padding-right: 0.4em;
 
-			background: rgba(0, 0, 0, 0.2);
+			background: rgba(0, 0, 0, 0.3);
+			text-shadow: 1px 1px 1px #333; 
 			color: white;
 			font-size: 1.1em;
 			white-space: nowrap;

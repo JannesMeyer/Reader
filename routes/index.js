@@ -65,6 +65,7 @@ module.exports = function(app, db, passport) {
 	 */
 	app.get('/', ensureAuthenticated, prepareRendering, function(req, res) {
 		req.data.title = 'Feeds';
+		req.data.noimages = sanitize(req.query.noimages).toBoolean();
 
 		if (req.user) {
 			// Logged in; we already have all feeds in the data object
@@ -232,20 +233,26 @@ module.exports = function(app, db, passport) {
 	 * GET /articles/:id
 	 */
 	app.get('/articles/:id', prepareRendering, function(req, res) {
+		// Find article
 		db.articles.findById(req.params.id, function(err, article) {
 			if (err) return;
-			
-			db.feeds.findById(article.feed, function(err, feed) {
+
+			// Find all articles in that feed
+			db.articles.find({feed: article.feed}).toArray(function(err, articles) {
 				if (err) return;
 
+				// Find feed
+				db.feeds.findById(article.feed, function(err, feed) {
+					if (err) return;
 
+					req.data.title = article.title;
+					req.data.currentFeed = feed;
+					req.data.articles = articles;
+					req.data.article = article;
 
-				req.data.title = article.title;
-				req.data.currentFeed = feed;
-				req.data.article = article;
-
-				res.render('article', req.data);
-			})
+					res.render('article', req.data);
+				});
+			});
 		});
 	});
 

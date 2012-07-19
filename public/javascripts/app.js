@@ -4,8 +4,8 @@ jQuery(document).ready(function ($) {
 
 	var articleNode = document.getElementById('articleSwipe');
 	var tabNode = document.getElementById('tabs');
-	var prevSlide = $('#prev');
-	var nextSlide = $('#next');
+	var prevSlide = $('.button-prev');
+	var nextSlide = $('.button-next');
 
 
 	// articleSwipe

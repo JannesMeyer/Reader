@@ -2,17 +2,27 @@
 <%- partial('partials/sidebar') %>
 
 <!-- Seiteninhalt -->
-<div class="eight columns">
+<div class="eight columns m-article">
 	<%- partial('partials/sliderButtons', {pageTitle: currentFeed.title}) %>
 	<div id="articleSwipe">
 		<div>
-			<% for (var i = 0; i < 3; ++i) { %>
 			<article style="display: block">
-				<% var date = article.updated_at %>
-				<div class="date"><%= date.getHours() %>:<%= date.getMinutes() %> Uhr, <%= date.getDay() %>.<%= date.getMonth() %>.<%= date.getFullYear() %></div>
 				<h2><a href="<%= article.link %>"><%= article.title %></a></h2>
+				<% var date = article.updated_at %>
+				<div class="date"><%= date.getHours() %>:<%= date.getMinutes() %> am <%= date.getDay() %>.<%= date.getMonth() %>.<%= date.getFullYear() %></div>
 				<div class="content">
 					<%- article.text %>
+				</div>
+			</article>
+			<!-- Some more articles to swipe through -->
+			<% for (var i = 0; i < articles.length; ++i) { %>
+			<% if (articles[i]._id.id === article._id.id) { continue } %>
+			<article style="display: block">
+				<h2><a href="<%= article.link %>"><%= articles[i].title %></a></h2>
+				<% var date = articles[i].updated_at %>
+				<div class="date"><%= date.getHours() %>:<%= date.getMinutes() %> am <%= date.getDay() %>.<%= date.getMonth() %>.<%= date.getFullYear() %></div>
+				<div class="content">
+					<%- articles[i].text %>
 				</div>
 			</article>
 			<% } %>
