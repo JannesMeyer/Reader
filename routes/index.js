@@ -1,10 +1,17 @@
 var crypto = require('crypto');
+var check = require('validator').check;
+var sanitize = require('validator').sanitize;
+
 var FeedService = require('../FeedService');
 
 function sha1(str) {
 	var shasum = crypto.createHash('sha1');
 	shasum.update(str);
 	return shasum.digest('hex');
+}
+
+function stripHtml(str) {
+	return str.replace(/(<([^>]+)>)/g, '');
 }
 
 // Export a function that defines our routes
@@ -102,7 +109,7 @@ module.exports = function(app, db, passport) {
 	 * POST /register
 	 */
 	app.post('/register', function(req, res) {
-		res.send('lol geht nicht');
+		res.send('geht nicht');
 	});
 
 	/*
@@ -148,10 +155,15 @@ module.exports = function(app, db, passport) {
 	app.get('/feeds/:id', prepareRendering, function(req, res) {
 		var requestedFeed = new ObjectId(req.params.id);
 		db.articles.find({feed: requestedFeed}).toArray(function(err, articles) {
-			req.data.title = 'Feed';
+			// Strip all HTML tags
+			articles.forEach(function(article) {
+				article.text = stripHtml(article.text);
+			});
 
-			req.data.currentFeed = requestedFeed;
+			req.data.title = 'Feed';
+			req.data.currentFeed = {_id: requestedFeed};
 			req.data.articles = articles;
+
 			res.render('all_articles', req.data);
 		});
 	});
@@ -160,9 +172,21 @@ module.exports = function(app, db, passport) {
 	 * GET /articles/:id
 	 */
 	app.get('/articles/:id', prepareRendering, function(req, res) {
-		req.data.title = 'Artikel';
+		db.articles.findById(req.params.id, function(err, article) {
+			if (err) return;
+			
+			db.feeds.findById(article.feed, function(err, feed) {
+				if (err) return;
 
-		res.render('article', req.data);
+
+
+				req.data.title = article.title;
+				req.data.currentFeed = feed;
+				req.data.article = article;
+
+				res.render('article', req.data);
+			})
+		});
 	});
 
 
@@ -175,24 +199,21 @@ module.exports = function(app, db, passport) {
 			db.users.insert([{
 				email: 'jannes.meyer@gmail.com',
 				name: 'Jannes Meyer',
-				password: sha1('test')
+				password: sha1('test'),
+				favorites: []
 			}, {
 				email: 'fuhlig@stud.hs-bremen.de',
 				name: 'Florian Uhlig',
-				password: sha1('test')
+				password: sha1('test'),
+				favorites: []
 			}, {
 				email: 'magdalena.riecken@gmail.com',
 				name: 'Magdalena Riecken',
-				password: sha1('test')
+				password: sha1('test'),
+				favorites: []
 			}]);
 			res.end('Success');
 		});
 	});
 
-	/* CommonJS exports
-	return {
-		func : function () {}
-	}
-	//module.func();
-	*/
 };

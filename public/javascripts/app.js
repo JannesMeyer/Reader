@@ -9,10 +9,10 @@ jQuery(document).ready(function ($) {
 
 
 	// articleSwipe
-	if (articleNode) {
+	/*if (articleNode) {
 		new Swipe(articleNode);
 	}
-	// 
+
 	if (tabNode) {
 		window.tabs = new Swipe(tabNode, {
 		  callback: function(event,index,elem) {
@@ -43,7 +43,7 @@ jQuery(document).ready(function ($) {
 		//   prevSlide.onclick = tabs.prev();
 		//   nextSlide.onclick = tabs.next();
 		// }
-	}
+	}*/
 
 
 	/* COLOR PICKER */

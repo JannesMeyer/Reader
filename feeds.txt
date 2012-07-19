@@ -15,3 +15,9 @@ http://feeds2.feedburner.com/tympanus
 
 cashy
 http://feeds2.feedburner.com/stadt-bremerhaven/dqXM
+
+tagesschau
+http://www.tagesschau.de/xml/atom/
+
+dradio
+http://www.dradio.de/rssfeed/?feed=aktuell

@@ -5,7 +5,7 @@
 				<li class="nav-item"><a href="/favorites">Favoriten</a></li>
 				<li class="nav-title">Meine Feeds</li>
 				<% for (var i = 0; i < feeds.length; ++i) { %>
-					<% if (typeof currentFeed !== 'undefined' && currentFeed.id === feeds[i]._id.id) { %>
+					<% if (typeof currentFeed !== 'undefined' && currentFeed._id.id === feeds[i]._id.id) { %>
 					<li class="nav-item current"><a href="/feeds/<%= feeds[i]._id %>"><%= feeds[i].title %></a></li>
 					<% } else { %>
 					<li class="nav-item"><a href="/feeds/<%= feeds[i]._id %>"><%= feeds[i].title %></a></li>
