@@ -2,8 +2,8 @@ var Db = require('mongodb').Db,
   Connection = require('mongodb').Connection,
   Server = require('mongodb').Server;
 
-var host = process.env['MONGO_NODE_DRIVER_HOST'] != null ? process.env['MONGO_NODE_DRIVER_HOST'] : 'localhost';
-var port = process.env['MONGO_NODE_DRIVER_PORT'] != null ? process.env['MONGO_NODE_DRIVER_PORT'] : Connection.DEFAULT_PORT;
+var host = process.env['MONGO_NODE_DRIVER_HOST'] !== null ? process.env['MONGO_NODE_DRIVER_HOST'] : 'localhost';
+var port = process.env['MONGO_NODE_DRIVER_PORT'] !== null ? process.env['MONGO_NODE_DRIVER_PORT'] : Connection.DEFAULT_PORT;
 
 console.log("Connecting to " + host + ":" + port);
 var db = new Db('node-mongo-examples', new Server(host, port, {}), {native_parser:true});
@@ -21,7 +21,7 @@ db.open(function(err, db) {
       // Show collection names in the database
       db.collectionNames(function(err, names) {
         names.forEach(function(name) {
-          console.dir(name);          
+          console.dir(name);
         });
       });
       
@@ -30,9 +30,9 @@ db.open(function(err, db) {
         cursor.toArray(function(err, items) {
           items.forEach(function(item) {
             console.dir(item);
-          });        
+          });
         });
-      })  
+      });
       
       // Index information
       db.createIndex('test', 'a', function(err, indexName) {
