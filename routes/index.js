@@ -63,8 +63,9 @@ module.exports = function(app, db, passport) {
 	/*
 	 * GET /
 	 */
-	app.get('/', prepareRendering, function(req, res) {
+	app.get('/', ensureAuthenticated, prepareRendering, function(req, res) {
 		req.data.title = 'Feeds';
+		req.data.noimages = sanitize(req.query.noimages).toBoolean();
 
 		if (req.user) {
 			// Logged in; we already have all feeds in the data object
@@ -108,8 +109,60 @@ module.exports = function(app, db, passport) {
 	/*
 	 * POST /register
 	 */
-	app.post('/register', function(req, res) {
-		res.send('geht nicht');
+	app.post('/register', prepareRendering, function(req, res) {
+		req.data.title = 'Registrieren';
+		req.data.message = req.flash('error');
+
+		// Full name
+		var name = sanitize(req.body.fullname).trim();
+		var name = sanitize(name).xss();
+		// Username
+		var username = sanitize(req.body.username).trim();
+		var username = sanitize(username).xss();
+		// Password
+		var password = sanitize(req.body.password).trim();
+		var password = sanitize(password).xss();
+		// Password repetition
+		var password2 = sanitize(req.body.confirm_password).trim();
+		var password2 = sanitize(password2).xss();
+
+		// Check username
+		try {
+			check(username).len(5, 100).isEmail();
+		} catch (e) {
+			req.flash('error', 'Invalid email address');
+			res.render('register', req.data);
+			return;
+		}
+
+		// Check if the user already exists
+		db.users.findOne({email: username}, function(err, user) {
+			if (user) {
+				req.flash('error', 'User already exists');
+				res.render('register', req.data);
+				return;
+			}
+			// User doesn't exist yet, check for passwords to be equal
+			if (password !== password2) {
+				req.flash('error', 'Passwords don\'t match');
+				res.render('register', req.data);
+				return;
+			}
+
+			// Create a new user
+			db.users.save({
+				email: username,
+				name: name,
+				password: sha1(password),
+				favorites: [],
+				settings: {
+					dark: false
+				}
+			});
+
+			console.log('Registered ' + username);
+			res.redirect('/login');
+		});
 	});
 
 	/*
@@ -180,20 +233,26 @@ module.exports = function(app, db, passport) {
 	 * GET /articles/:id
 	 */
 	app.get('/articles/:id', prepareRendering, function(req, res) {
+		// Find article
 		db.articles.findById(req.params.id, function(err, article) {
 			if (err) return;
-			
-			db.feeds.findById(article.feed, function(err, feed) {
+
+			// Find all articles in that feed
+			db.articles.find({feed: article.feed}).toArray(function(err, articles) {
 				if (err) return;
 
+				// Find feed
+				db.feeds.findById(article.feed, function(err, feed) {
+					if (err) return;
 
+					req.data.title = article.title;
+					req.data.currentFeed = feed;
+					req.data.articles = articles;
+					req.data.article = article;
 
-				req.data.title = article.title;
-				req.data.currentFeed = feed;
-				req.data.article = article;
-
-				res.render('article', req.data);
-			})
+					res.render('article', req.data);
+				});
+			});
 		});
 	});
 

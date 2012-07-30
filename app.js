@@ -105,7 +105,8 @@ function initializeHttpServer(db) {
 	require('./routes')(app, db, passport);
 
 	// Start server
-	app.listen(3000, function() {
+	var port = process.env.PORT || 3000;
+	app.listen(port, function() {
 		console.log("%s server on http://localhost:%d/", app.settings.env, app.address().port);
 	});
 }

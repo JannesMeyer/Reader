@@ -5,8 +5,7 @@
 <div class="eight columns m-allfeeds">
 	<!-- Tabs are only visible on narrow screens -->
 	<ul id="tabSelector" class="base-tabs show-for-small">
-		<li class="on">Kategorien</li>
-		<li>Meine Feeds</li>
+		<li class="on">Meine Feeds</li>
 		<li>Favoriten</li>
 	</ul>
 
@@ -20,7 +19,7 @@
 					<!-- Feed -->
 					<li class="feed">
 						<a href="/feeds/<%= feeds[i]._id %>" class="feed-link">
-								<% if (feeds[i].image_path) { %>
+								<% if (feeds[i].image_path && !noimages) { %>
 								<div class="feed-image image" style="background-image: url('<%= feeds[i].image_path %>')"></div>
 								<% } else { %>
 								<div class="feed-image fallback" style="background-color: #<%= feeds[i].color %>"><%= feeds[i].title[0] %></div>
@@ -37,48 +36,16 @@
 				</ul>
 			</li>
 			<!-- Tab 2 -->
-			<li class="s-invisible">
+			<li class="s-visible">
 				<%- partial('partials/sliderButtons', {pageTitle: 'Favoriten'}) %>
 				<ul class="block-grid three-up mobile">
-					<% for (var i = 0; i < feeds.length; ++i) { %>
+					<% for (var i = 0; i < 6; ++i) { %>
 					<!-- Feed -->
 					<li class="feed">
-						<a href="/feeds/<%= feeds[i]._id %>" class="feed-link">
-								<% if (feeds[i].image_path) { %>
-								<div class="feed-image image" style="background-image: url('<%= feeds[i].image_path %>')"></div>
-								<% } else { %>
-								<div class="feed-image fallback" style="background-color: #<%= feeds[i].color %>"><%= feeds[i].title[0] %></div>
-								<% } %>
-
-								<% feeds[i].unread = Math.floor(Math.random()*10) %>
-								<% if (feeds[i].unread > 0) { %>
-								<span class="notification"><%- feeds[i].unread %></span>
-								<% } %>
-								<span class="feed-title"><%= feeds[i].title %></span>
-						</a>
-					</li>
-					<% } %>
-				</ul>
-			</li>
-			<!-- Tab 3 -->
-			<li class="s-invisible">
-				<%- partial('partials/sliderButtons', {pageTitle: 'Sonstige'}) %>
-				<ul class="block-grid three-up mobile">
-					<% for (var i = 0; i < feeds.length; ++i) { %>
-					<!-- Feed -->
-					<li class="feed">
-						<a href="/feeds/<%= feeds[i]._id %>" class="feed-link">
-								<% if (feeds[i].image_path) { %>
-								<div class="feed-image image" style="background-image: url('<%= feeds[i].image_path %>')"></div>
-								<% } else { %>
-								<div class="feed-image fallback" style="background-color: #<%= feeds[i].color %>"><%= feeds[i].title[0] %></div>
-								<% } %>
-
-								<% feeds[i].unread = Math.floor(Math.random()*10) %>
-								<% if (feeds[i].unread > 0) { %>
-								<span class="notification"><%- feeds[i].unread %></span>
-								<% } %>
-								<span class="feed-title"><%= feeds[i].title %></span>
+						<a href="/feeds/" class="feed-link">
+							<div class="feed-image fallback" style="background-color: #610080"><%= i+1 %></div>
+							<span class="notification"><%= Math.floor(Math.random()*2) %></span>
+							<span class="feed-title">Test <%= i+1 %></span>
 						</a>
 					</li>
 					<% } %>
