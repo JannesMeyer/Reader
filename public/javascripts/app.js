@@ -1,3 +1,8 @@
+/*
+ * Client-side JavaScript
+ * Author: Magdalena Riecken, Florian Uhlig
+ */
+
 jQuery(document).ready(function ($) {
 
 	/* Use this js doc for all application specific JS */
@@ -77,7 +82,18 @@ jQuery(document).ready(function ($) {
 		$(this).children('div.dropdown-content').toggleClass('show-dropdown');
 	});
 
-	/*ACTIVATE INVERTED STYLE*/
+	
+	/* LOAD THEME */
+	if (typeof window.localStorage.theme !== 'undefined') {
+		if (window.localStorage.theme == 'true') {
+			var dark = true;
+		} else {
+			var dark = false;
+		}
+		setTheme(dark);
+	}
+
+	/* ACTIVATE INVERTED THEME */
 	function setTheme(dark) {
 		if (dark) {
 			$("body").addClass("dark");
@@ -86,35 +102,45 @@ jQuery(document).ready(function ($) {
 		}
 
 		// Persist the change
-		$.post('/settings', {dark: dark});
+		//$.post('/settings', {dark: dark});
+		window.localStorage.theme = dark;
+		console.log(window.localStorage.theme);
 	}
 	
 	$('#theme-dark').on('click', function() {
 		setTheme(true);
 	});
 
-	/*DEACTIVATE INVERTED STYLE*/
+	/* DEACTIVATE INVERTED THEME */
 	$('#theme-light').on('click', function() {
 		setTheme(false);
 	});
 
 	
-	/*CHANGE TEXT SIZE*/
-	groesse = 0;
+	/* CHANGE TEXT SIZE */
+	if (typeof localStorage.textSize === 'undefined') {
+		localStorage.textSize = 0;
+	} else {
+		var groesse = parseInt(localStorage.textSize);
+		if (groesse !== 0) {
+			setTextSize(groesse);
+		}
+	}
 	function setTextSize(groesse) {
-		if (groesse===-1) {
+		if (groesse === -1) {
 			$("#articleSwipe article").removeClass("sizepercentage-bigger");
 			$("#articleSwipe article").addClass("sizepercentage-smaller");
-			groesse = -1;
 			$(".artikel a").removeClass("sizepercentage-smaller");
 			$(".artikel a").addClass("sizepercentage-smaller");
-		}
-		else if(groesse===1) {
+			// Persist the change
+			localStorage.textSize = -1;
+		} else if(groesse===1) {
 			$("#articleSwipe article").removeClass("sizepercentage-smaller");
 			$("#articleSwipe article").addClass("sizepercentage-bigger");
 			$(".artikel a").removeClass("sizepercentage-smaller");
 			$(".artikel a").addClass("sizepercentage-bigger");
-			groesse = 1;
+			// Persist the change
+			localStorage.textSize = 1;
 		}
 	}
 	function resetTextSize() {
@@ -122,25 +148,23 @@ jQuery(document).ready(function ($) {
 		$("#articleSwipe article").removeClass("sizepercentage-smaller");
 		$(".artikel a").removeClass("sizepercentage-bigger");
 		$(".artikel a").removeClass("sizepercentage-smaller");
-		groesse = 0;
-		console.log("resize");
+		// Persist the change
+		localStorage.textSize = 0;
 	}
 	
 	$('#decrease-font').on('click', function() {
-		if(groesse===0) {
+		var groesse = parseInt(localStorage.textSize);
+		if(groesse === 0) {
 			setTextSize(-1);
-			groesse = -1;
-			console.log("decrease");
-		} else if (groesse ===1) {
+		} else if (groesse === 1) {
 			resetTextSize();
 		}
 	});
 
 	$('#increase-font').on('click', function() {
-		if(groesse===0) {
+		var groesse = parseInt(localStorage.textSize);
+		if(groesse === 0) {
 			setTextSize(1);
-			groesse = 1;
-			console.log("increase");
 		} else if (groesse === -1) {
 			resetTextSize();
 		}
@@ -151,7 +175,6 @@ jQuery(document).ready(function ($) {
 
 
 	/* TABS --------------------------------- */
-	/* Remove if you don't need :) */
 
 	function activateTab($tab) {
 		var $activeTab = $tab.closest('dl').find('dd.active'),
