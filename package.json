@@ -5,7 +5,7 @@
 	"dependencies": {
 		"express": "2.5.10",
 		"ejs": "0.7.1",
-		"mongodb": "1.0.2",
+		"mongodb": "3.6.1",
 		"mongoskin": ">=0.0.0",
 		"less-middleware": "0.1.4",
 		"passport": "0.1.11",
